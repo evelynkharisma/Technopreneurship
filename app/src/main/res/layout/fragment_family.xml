@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     tools:context="com.techno.technopreneurship.FamilyFragment">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp">
+        android:layout_height="150dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -15,20 +16,88 @@
             android:background="@color/colorPrimary"
         />
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/selected_picture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/logo"
+            android:layout_centerVertical="true" />
+
         <TextView
             android:id="@+id/selected_name"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Name      :"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_picture" />
+
+        <TextView
+            android:id="@+id/selected_age"
+            android:layout_below="@+id/selected_name"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Age          :"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_picture" />
+
+        <TextView
+            android:id="@+id/selected_gender"
+            android:layout_below="@+id/selected_age"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Gender    :"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_picture" />
+
+        <TextView
+            android:id="@+id/selected_weigth"
+            android:layout_below="@+id/selected_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Weight    :"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_picture" />
+
+        <TextView
+            android:id="@+id/selected_height"
+            android:layout_below="@+id/selected_weigth"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Height     :"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_picture" />
+
+        /*Data*/
+        <TextView
+            android:id="@+id/selected_name_data"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:text="Name"
             android:textColor="@color/white"
             android:textSize="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:layout_marginLeft="20dp"
-        />
+            android:layout_toRightOf="@+id/selected_name" />
 
         <TextView
-            android:id="@+id/selected_age"
-            android:layout_below="@+id/selected_name"
+            android:id="@+id/selected_age_data"
+            android:layout_below="@+id/selected_name_data"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:text="Age"
@@ -36,31 +105,70 @@
             android:textSize="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"
-        />
+            android:layout_toRightOf="@+id/selected_name" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/selected_picture"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+        <TextView
+            android:id="@+id/selected_gender_data"
+            android:layout_below="@+id/selected_age_data"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Gender"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_name" />
+
+        <TextView
+            android:id="@+id/selected_weigth_data"
+            android:layout_below="@+id/selected_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Weight"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_name" />
+
+        <TextView
+            android:id="@+id/selected_height_data"
+            android:layout_below="@+id/selected_weigth_data"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Height"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/selected_name" />
+
+        <ImageButton
+            android:id="@+id/btn_proceed"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/proceed"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/logo"
-        />
+            android:layout_alignParentBottom="true" />
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RelativeLayout
-            android:id="@+id/member1"
+            android:id="@+id/member"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/picture1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/logo"
                 />
 
             <TextView
@@ -69,31 +177,23 @@
                 android:layout_height="20dp"
                 android:text="Name"
                 android:textColor="@color/black"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/picture1"
                 />
 
             <TextView
-                android:id="@+id/age1"
+                android:id="@+id/status1"
                 android:layout_below="@+id/name1"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:text="Age"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                android:layout_marginTop="5dp"
+                android:text="Status"
+                android:textColor="@color/gray"
+                android:textSize="14dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginLeft="20dp"
-                />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/picture1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/logo"
+                android:layout_toRightOf="@+id/picture1"
                 />
 
             <View
@@ -102,9 +202,106 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/black"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="8dp"
                 />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/picture2"
+                android:layout_below="@+id/line1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/logo"
+                />
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_below="@+id/line1"
+                android:layout_toRightOf="@+id/picture2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <TextView
+                android:id="@+id/status2"
+                android:layout_below="@+id/name2"
+                android:layout_toRightOf="@+id/picture2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="Status"
+                android:textColor="@color/gray"
+                android:textSize="14dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_below="@+id/picture2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="8dp"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/picture3"
+                android:layout_below="@+id/line2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/logo"
+                />
+
+            <TextView
+                android:id="@+id/name3"
+                android:layout_below="@+id/line2"
+                android:layout_toRightOf="@+id/picture3"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <TextView
+                android:id="@+id/status3"
+                android:layout_below="@+id/name3"
+                android:layout_toRightOf="@+id/picture2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="Status"
+                android:textColor="@color/gray"
+                android:textSize="14dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <View
+                android:id="@+id/line3"
+                android:layout_below="@+id/picture3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginTop="8dp"
+                />
+
         </RelativeLayout>
+
     </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton android:id="@+id/fab"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end" android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email" />
 
 </LinearLayout>
