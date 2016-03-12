@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class LoginActivity extends Activity  {
-    ImageButton button;
+    Button btn_login;
+    Button btn_forgot_pass;
+    Button btn_sign_up;
     EditText username;
     EditText password;
 
@@ -21,9 +23,9 @@ public class LoginActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        button=(ImageButton)findViewById(R.id.btn_login);
+        btn_login=(Button)findViewById(R.id.btn_login);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
@@ -33,6 +35,24 @@ public class LoginActivity extends Activity  {
                 } else {
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        btn_forgot_pass=(Button)findViewById(R.id.btn_forgot_pass);
+
+        btn_forgot_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btn_sign_up=(Button)findViewById(R.id.btn_sign_up);
+
+        btn_sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
