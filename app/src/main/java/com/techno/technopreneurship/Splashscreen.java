@@ -7,13 +7,9 @@ import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 
-/**
- * Created by User on 3/11/2016.
- */
 public class Splashscreen  extends Activity {
     //Set waktu lama splashscreen
     private static int splashInterval = 2000;
-    final Bundle bundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +26,7 @@ public class Splashscreen  extends Activity {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                Intent i = new Intent(Splashscreen.this, MainActivity.class);
+                Intent i = new Intent(Splashscreen.this, LoginActivity.class);
                 startActivity(i);
 
                 //jeda selesai Splashscreen
@@ -43,5 +39,5 @@ public class Splashscreen  extends Activity {
             }
         }, splashInterval);
 
-    };
+    }
 }
