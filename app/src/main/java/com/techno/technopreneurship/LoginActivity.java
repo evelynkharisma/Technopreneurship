@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -29,16 +30,16 @@ public class LoginActivity extends Activity  {
             @Override
             public void onClick(View v) {
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        btn_forgot_pass=(Button)findViewById(R.id.btn_forgot_pass);
+        /*btn_forgot_pass=(Button)findViewById(R.id.btn_forgot_pass);
 
         btn_forgot_pass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +55,7 @@ public class LoginActivity extends Activity  {
             public void onClick(View v) {
 
             }
-        });
+        });*/
     }
 
     @Override
@@ -64,6 +65,13 @@ public class LoginActivity extends Activity  {
         intent.addCategory(Intent.CATEGORY_HOME);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override
