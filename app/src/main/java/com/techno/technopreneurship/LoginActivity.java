@@ -24,6 +24,9 @@ public class LoginActivity extends Activity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
+
         btn_login=(Button)findViewById(R.id.btn_login);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
