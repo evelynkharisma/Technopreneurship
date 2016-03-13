@@ -39,5 +39,5 @@ public class Splashscreen  extends Activity {
             }
         }, splashInterval);
 
-    }
+    };
 }
