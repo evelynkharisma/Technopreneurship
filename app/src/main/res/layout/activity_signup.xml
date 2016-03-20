@@ -1,0 +1,359 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@color/background">
+
+   <TextView
+       android:id="@+id/sign_up_tittle"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Sign Up"
+       android:textColor="@color/login_red"
+       android:textSize="14dp"
+       android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/sign_up_desc"
+        android:layout_below="@+id/sign_up_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We need your basic medical information,"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/sign_up_desc2"
+        android:layout_below="@+id/sign_up_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="this information will be kept confidential"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:gravity="center_horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/sign_up_desc2">
+
+            <TextView
+                android:id="@+id/sign_up_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_name_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_add"
+                android:layout_below="@id/sign_up_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_add_fill"
+                android:layout_below="@id/sign_up_name_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_email"
+                android:layout_below="@id/sign_up_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_email_fill"
+                android:layout_below="@id/sign_up_add_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_phone"
+                android:layout_below="@id/sign_up_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_phone_fill"
+                android:layout_below="@id/sign_up_email_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_bday"
+                android:layout_below="@id/sign_up_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Birthday"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="12dp"
+                android:layout_alignEnd="@+id/sign_up_add" />
+
+            <EditText
+                android:id="@+id/sign_up_bday_day_fill"
+                android:layout_below="@id/sign_up_phone_fill"
+                android:layout_toLeftOf="@+id/sign_up_bday_month_fill"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:hint="DD"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray" />
+
+            <TextView
+                android:layout_below="@id/sign_up_phone_fill"
+                android:layout_toLeftOf="@+id/sign_up_bday_month_fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textSize="30dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="4dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_bday_month_fill"
+                android:layout_below="@id/sign_up_phone_fill"
+                android:layout_toLeftOf="@+id/sign_up_bday_year_fill"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:hint="MM"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray" />
+
+            <TextView
+                android:layout_below="@id/sign_up_phone_fill"
+                android:layout_toLeftOf="@+id/sign_up_bday_year_fill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textSize="30dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="4dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_bday_year_fill"
+                android:layout_below="@id/sign_up_phone_fill"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="10dp"
+                android:paddingEnd="5dp"
+                android:hint="YYYY"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_ID"
+                android:layout_below="@id/sign_up_bday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Identity No."
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_ID_fill"
+                android:layout_below="@id/sign_up_bday_year_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_GPhone"
+                android:layout_below="@id/sign_up_ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guardian Phone"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_GPhone_fill"
+                android:layout_below="@id/sign_up_ID_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_blood"
+                android:layout_below="@id/sign_up_GPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blood Type"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_blood_fill"
+                android:layout_below="@id/sign_up_GPhone_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_height"
+                android:layout_below="@id/sign_up_blood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Height"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_height_fill"
+                android:layout_below="@id/sign_up_blood_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_weight"
+                android:layout_below="@id/sign_up_height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_weight_fill"
+                android:layout_below="@id/sign_up_height_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <Button
+                android:id="@+id/sign_up_btn_sign_up"
+                android:layout_below="@+id/sign_up_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Sign Up"
+                android:textSize="15dp"
+                android:background="@color/sign_in"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"/>
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
