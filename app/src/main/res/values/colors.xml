@@ -9,5 +9,6 @@
     <color name="login_red">#F2685F</color>
     <color name="background">#BCE3DE</color>
     <color name="sign_in">#52C5D0</color>
+    <color name="transparent_background">#00BCE3DE</color>
 
 </resources>
