@@ -10,5 +10,6 @@
     <color name="background">#BCE3DE</color>
     <color name="sign_in">#52C5D0</color>
     <color name="transparent_background">#00BCE3DE</color>
+    <color name="transparent_background_50">#50BCE3DE</color>
 
 </resources>

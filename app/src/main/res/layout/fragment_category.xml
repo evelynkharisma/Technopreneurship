@@ -5,6 +5,11 @@
     android:background="@color/background"
     tools:context="com.techno.technopreneurship.FamilyFragment">
 
+    <FrameLayout
+        android:id="@+id/child_category_fragment_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/category_tittle"
         android:layout_width="match_parent"

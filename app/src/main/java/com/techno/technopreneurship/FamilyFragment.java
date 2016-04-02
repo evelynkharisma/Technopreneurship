@@ -3,7 +3,6 @@ package com.techno.technopreneurship;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +13,7 @@ import android.widget.ImageButton;
 import android.widget.Space;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-
 import com.techno.technopreneurship.Object.FamilyMember;
-import com.techno.technopreneurship.Object.Global;
 
 import java.util.ArrayList;
 
@@ -45,8 +42,10 @@ public class FamilyFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                AddFamilyFragment fragment = new AddFamilyFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
             }
         });
 
@@ -70,6 +69,19 @@ public class FamilyFragment extends Fragment {
         fm.add(new FamilyMember("user", "daughter2", "daughter"));
         fm.add(new FamilyMember("user", "son3", "son"));
         fm.add(new FamilyMember("user", "daughter3", "daughter"));
+
+        Bundle bundle = this.getArguments();
+        if(bundle != null)
+        {
+            //int isAdd = bundle.getInt("isAddFam");
+            //if(isAdd == 1)
+            //{
+                String addFamName = bundle.getString("add_fam_name");
+                String addFamStatus = bundle.getString("add_fam_status");
+                fm.add(new FamilyMember(currentUser, addFamName, addFamStatus));
+            //}
+        }
+
 
         /////////////////////////////////////////////Create family member list////////////////////////////////////////////////
         for (int row = 0; row < fm.size(); row++) {

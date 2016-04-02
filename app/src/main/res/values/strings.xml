@@ -27,4 +27,14 @@
         completions."
     </string>
     <string name="title_activity_category">CategoryActivity</string>
+
+    <!--String entries for status dropdown-->
+    <string-array name="family_status">
+        <item>husband</item>
+        <item>wife</item>
+        <item>son</item>
+        <item>daughter</item>
+        <item>granny</item>
+        <item>grandpa</item>
+    </string-array>
 </resources>
