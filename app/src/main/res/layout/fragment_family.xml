@@ -6,11 +6,6 @@
     android:background="@color/background"
     tools:context="com.techno.technopreneurship.FamilyFragment">
 
-    <FrameLayout
-        android:id="@+id/child_fragment_container"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
     <RelativeLayout
         android:id="@+id/main_User_Data"
         android:layout_width="match_parent"
