@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.Space;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -21,8 +22,9 @@ import java.util.ArrayList;
 public class FamilyFragment extends Fragment {
 
     String currentUser = "user";    //temp to determine current user
-    ImageButton proceed;
+    RelativeLayout relativeLayout;
     public ArrayList<FamilyMember> fm = new ArrayList<FamilyMember>();
+    public ArrayList<FamilyMember> myFamilyMember = new ArrayList<FamilyMember>();
     private static final int NUM_COLS = 1;
 
     public FamilyFragment() {
@@ -50,12 +52,16 @@ public class FamilyFragment extends Fragment {
         });
 
 
-        ////////////////////////////////////////////Temp button to go to category/////////////////////////////////
-        proceed = (ImageButton) view.findViewById(R.id.btn_proceed);
-        proceed.setOnClickListener(new View.OnClickListener() {
+        ////////////////////////////////////////////Main User Go to category/////////////////////////////////
+        relativeLayout = (RelativeLayout) view.findViewById(R.id.main_User_Data);
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", currentUser);
+                choosen_bundle.putString("cname", currentUser);
                 CategoryFragment fragment = new CategoryFragment();
+                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -65,14 +71,16 @@ public class FamilyFragment extends Fragment {
         //////////////////////////////////////////////Temp add family member/////////////////////////////////////////////////////
         fm.add(new FamilyMember("user", "son1", "son"));
         fm.add(new FamilyMember("user", "daughter1", "daughter"));
-        fm.add(new FamilyMember("user", "son2", "son"));
-        fm.add(new FamilyMember("user", "daughter2", "daughter"));
-        fm.add(new FamilyMember("user", "son3", "son"));
-        fm.add(new FamilyMember("user", "daughter3", "daughter"));
+        fm.add(new FamilyMember("user", "wife", "wife"));
+        fm.add(new FamilyMember("user", "husband", "husband"));
+        fm.add(new FamilyMember("user", "grand father", "father"));
+        fm.add(new FamilyMember("user", "grand mother", "mother"));
 
-        Bundle bundle = this.getArguments();
+        ////////////////////////////////////Add new family member to arraylist
+        final Bundle bundle = this.getArguments();
         if(bundle != null)
         {
+            // utk cek klw bundle ini dtng drimana --> di pkai kalau bundle ny tidak hny datang dri addfamilyfragment
             //int isAdd = bundle.getInt("isAddFam");
             //if(isAdd == 1)
             //{
@@ -84,7 +92,15 @@ public class FamilyFragment extends Fragment {
 
 
         /////////////////////////////////////////////Create family member list////////////////////////////////////////////////
-        for (int row = 0; row < fm.size(); row++) {
+        ArrayList<Integer> listIndexFamily = new ArrayList<>();
+        for (int i = 0; i < fm.size(); i++) {
+            if (currentUser.equalsIgnoreCase(fm.get(i).getUser())) {
+                myFamilyMember.add(fm.get(i));
+                listIndexFamily.add(i);
+            }
+        }
+
+        for (int row = 0; row < myFamilyMember.size(); row++) {
             TableRow tableRow = new TableRow(getActivity());
             tableRow.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT, 100
@@ -92,35 +108,35 @@ public class FamilyFragment extends Fragment {
             table.addView(tableRow);
             for (int column = 0; column < NUM_COLS; column++) {
                 final Button folderButton = new Button(getActivity());
-                //folderButton.setId(listIndexCourse.get(row));
+                folderButton.setId(listIndexFamily.get(row));
 
-                if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("son"))
+                if(currentUser.equalsIgnoreCase(myFamilyMember.get(row).getUser()) && myFamilyMember.get(row).getStatus().equalsIgnoreCase("son"))
                 {
-                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son_f2685f, 0, 0, 0);
+                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son, 0, 0, 0);
                 }
-                else if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("daughter"))
+                else if(currentUser.equalsIgnoreCase(myFamilyMember.get(row).getUser()) && myFamilyMember.get(row).getStatus().equalsIgnoreCase("daughter"))
                 {
-                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son_52c5d0, 0, 0, 0);
+                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.daughter, 0, 0, 0);
                 }
-                /*else if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("wife"))
+                else if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("wife"))
                 {
-                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son_52c5d0, 0, 0, 0);
+                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.wife, 0, 0, 0);
                 }
                 else if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("father"))
                 {
-                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son_52c5d0, 0, 0, 0);
+                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.father, 0, 0, 0);
                 }
                 else if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("mother"))
                 {
-                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son_52c5d0, 0, 0, 0);
+                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mother, 0, 0, 0);
                 }
                 else if(currentUser.equalsIgnoreCase(fm.get(row).getUser()) && fm.get(row).getStatus().equalsIgnoreCase("husband"))
                 {
-                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son_52c5d0, 0, 0, 0);
-                }*/
+                    folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.husband, 0, 0, 0);
+                }
 
                 folderButton.setPadding(40, 30, 0, 30);
-                folderButton.setText("      " + fm.get(row).getName());
+                folderButton.setText("      " + myFamilyMember.get(row).getName());
                 folderButton.setTextSize(12);
                 folderButton.setBackgroundColor(getResources().getColor(R.color.transparent_background));
                 folderButton.setGravity(Gravity.LEFT);
@@ -128,7 +144,17 @@ public class FamilyFragment extends Fragment {
 
                 folderButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-
+                        int choosen = folderButton.getId();
+                        String choosen_user = myFamilyMember.get(choosen).getUser();
+                        String choosen_name = myFamilyMember.get(choosen).getName();
+                        Bundle choosen_bundle = new Bundle();
+                        choosen_bundle.putString("cuser", choosen_user);
+                        choosen_bundle.putString("cname", choosen_name);
+                        CategoryFragment fragment = new CategoryFragment();
+                        fragment.setArguments(choosen_bundle);
+                        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, fragment);
+                        fragmentTransaction.commit();
                     }
                 });
 

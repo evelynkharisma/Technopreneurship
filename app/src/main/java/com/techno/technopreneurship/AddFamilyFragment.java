@@ -49,7 +49,7 @@ public class AddFamilyFragment extends Fragment {
                     //familyFragment.fm.add(new FamilyMember(fam_user, fam_name, fam_status));
                     FamilyFragment fragment = new FamilyFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putInt("isAddFam",1);
+                    //bundle.putInt("isAddFam",1);      //klw ada bundle lain slain dari addfamilyfragment
                     bundle.putString("add_fam_name", name.getText().toString());
                     bundle.putString("add_fam_status", dropdown.getSelectedItem().toString());
                     fragment.setArguments(bundle);
