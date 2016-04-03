@@ -76,7 +76,7 @@ public class AllergyFragment extends Fragment {
             }
         }
 
-        for (int row = 0; row < myAllergies.size()-1; row++) {
+        for (int row = 0; row < myAllergies.size(); row++) {
             TableRow tableRow = new TableRow(getActivity());
             tableRow.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT, 100
