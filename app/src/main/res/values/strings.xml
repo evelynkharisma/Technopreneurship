@@ -34,7 +34,7 @@
         <item>wife</item>
         <item>son</item>
         <item>daughter</item>
-        <item>granny</item>
-        <item>grandpa</item>
+        <item>mother</item>
+        <item>father</item>
     </string-array>
 </resources>

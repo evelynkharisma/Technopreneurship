@@ -13,37 +13,41 @@ import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.FamilyMember;
 
-public class AddFamilyFragment extends Fragment {
+public class AddAllergyFragment extends Fragment {
 
-    Spinner dropdown;
-    EditText name;
-    Button btn_add;
-    public AddFamilyFragment() {
+    EditText allergy;
+    Button addAllergy;
+    public AddAllergyFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_add_family, container, false);
+        final View view = inflater.inflate(R.layout.fragment_add_allergy, container, false);
 
-        dropdown = (Spinner)view.findViewById(R.id.spinner1);
-        name = (EditText) view.findViewById(R.id.add_name_fill);
-        btn_add = (Button) view.findViewById(R.id.add_btn);
+        //////////////////////////////////////Determine which user and which member////////////////////////////////
+        final Bundle bundle = this.getArguments();
+        final String currentUser = bundle.getString("cuser");
+        final String currentName = bundle.getString("cname");
 
-        btn_add.setOnClickListener(new View.OnClickListener() {
+        allergy = (EditText) view.findViewById(R.id.add_allergy_fill);
+        addAllergy = (Button) view.findViewById(R.id.add_allergy_btn);
+
+        addAllergy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name == null || dropdown == null)
+                if(allergy == null)
                 {
-                    Toast.makeText(getActivity().getApplicationContext(), "name and status need to be filled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "allergy need to be filled", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    FamilyFragment fragment = new FamilyFragment();
+                    AllergyFragment fragment = new AllergyFragment();
                     Bundle bundle = new Bundle();
-                    bundle.putString("add_fam_name", name.getText().toString());
-                    bundle.putString("add_fam_status", dropdown.getSelectedItem().toString());
+                    bundle.putString("add_allergy", allergy.getText().toString());
+                    bundle.putString("cuser", currentUser);
+                    bundle.putString("cname", currentName);
                     fragment.setArguments(bundle);
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);

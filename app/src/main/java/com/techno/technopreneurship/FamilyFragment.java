@@ -69,8 +69,8 @@ public class FamilyFragment extends Fragment {
         });
 
         //////////////////////////////////////////////Temp add family member/////////////////////////////////////////////////////
-        fm.add(new FamilyMember("user", "son1", "son"));
-        fm.add(new FamilyMember("user", "daughter1", "daughter"));
+        fm.add(new FamilyMember("user", "son", "son"));
+        fm.add(new FamilyMember("user", "daughter", "daughter"));
         fm.add(new FamilyMember("user", "wife", "wife"));
         fm.add(new FamilyMember("user", "husband", "husband"));
         fm.add(new FamilyMember("user", "grand father", "father"));
