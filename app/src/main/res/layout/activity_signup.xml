@@ -40,7 +40,7 @@
         android:id="@+id/scrollView1"
         android:layout_below="@id/sign_up_desc2"
         android:layout_width="match_parent"
-        android:layout_height="410dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="20dp">
 
         <RelativeLayout
@@ -462,20 +462,23 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="20dp"/>
 
+            <Button
+                android:id="@+id/sign_up_btn_sign_up"
+                android:layout_below="@+id/sign_up_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Sign Up"
+                android:textSize="15dp"
+                android:background="@color/sign_in"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"/>
+
         </RelativeLayout>
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/sign_up_btn_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Sign Up"
-        android:textSize="15dp"
-        android:background="@color/sign_in"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"/>
+
 
 </RelativeLayout>

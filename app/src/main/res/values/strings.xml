@@ -37,4 +37,11 @@
         <item>mother</item>
         <item>father</item>
     </string-array>
+
+    <!--String entries for status dropdown-->
+    <string-array name="vaccine_stage">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

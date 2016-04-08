@@ -13,30 +13,30 @@
         <!--android:background="@color/background"-->
 
         <TextView
-            android:id="@+id/add_bc_tittle"
+            android:id="@+id/add_bt_tittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Blood Count"
+            android:text="Add Blood Tension"
             android:textColor="@color/login_red"
             android:textSize="18dp"
             android:gravity="center_horizontal"
             android:paddingTop="20dp"/>
 
         <TextView
-            android:id="@+id/add_rbc"
-            android:layout_below="@id/add_bc_tittle"
+            android:id="@+id/add_systol"
+            android:layout_below="@id/add_bt_tittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Red Blood Cell"
+            android:text="Systol"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="12dp" />
 
         <EditText
-            android:id="@+id/add_rbc_fill"
-            android:layout_below="@id/add_bc_tittle"
-            android:layout_width="170dp"
+            android:id="@+id/add_systol_fill"
+            android:layout_below="@id/add_bt_tittle"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="12dp"
@@ -48,20 +48,20 @@
             android:layout_alignParentRight="true" />
 
         <TextView
-            android:id="@+id/add_wbc"
-            android:layout_below="@id/add_rbc"
+            android:id="@+id/add_diastol"
+            android:layout_below="@id/add_systol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="White Blood Cell"
+            android:text="Diastol"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="12dp"/>
 
         <EditText
-            android:id="@+id/add_wbc_fill"
-            android:layout_below="@id/add_rbc_fill"
-            android:layout_width="170dp"
+            android:id="@+id/add_diastol_fill"
+            android:layout_below="@id/add_systol_fill"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="12dp"
@@ -72,34 +72,10 @@
             android:textColorHint="@color/gray"
             android:layout_alignParentRight="true" />
 
-        <TextView
-            android:id="@+id/add_thrombocyte"
-            android:layout_below="@id/add_wbc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thrombocyte"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="12dp"/>
-
-        <EditText
-            android:id="@+id/add_thrombocyte_fill"
-            android:layout_below="@id/add_wbc_fill"
-            android:layout_width="170dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/edittextstyle"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            android:textColor="@color/gray"
-            android:textColorHint="@color/gray"
-            android:layout_alignParentRight="true" />
 
         <Button
-            android:id="@+id/add_bc_btn"
-            android:layout_below="@+id/add_thrombocyte_fill"
+            android:id="@+id/add_bt_btn"
+            android:layout_below="@+id/add_diastol_fill"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Confirm"
@@ -110,7 +86,7 @@
             android:layout_marginBottom="10dp" />
 
         <Space
-            android:layout_below="@id/add_bc_btn"
+            android:layout_below="@id/add_bt_btn"
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 

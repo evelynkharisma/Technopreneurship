@@ -63,6 +63,111 @@ public class CategoryFragment extends Fragment {
             }
         });
 
+        blood_tension = (ImageButton) view.findViewById(R.id.c3);
+        blood_tension.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                BloodTensionFragment fragment = new BloodTensionFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        cholesterol = (ImageButton) view.findViewById(R.id.c4);
+        cholesterol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                CholesterolFragment fragment = new CholesterolFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        diabetes = (ImageButton) view.findViewById(R.id.c5);
+        diabetes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                DiabetesFragment fragment = new DiabetesFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        heart_rate = (ImageButton) view.findViewById(R.id.c6);
+        heart_rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                HeartRateFragment fragment = new HeartRateFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        uric_acid = (ImageButton) view.findViewById(R.id.c7);
+        uric_acid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                UricAcidFragment fragment = new UricAcidFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        urine_test = (ImageButton) view.findViewById(R.id.c8);
+        urine_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                UrineTestFragment fragment = new UrineTestFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        vaccine = (ImageButton) view.findViewById(R.id.c9);
+        vaccine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                VaccineFragment fragment = new VaccineFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
 
         return view;
     }

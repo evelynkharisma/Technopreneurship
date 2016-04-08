@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="com.techno.technopreneurship.FamilyFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+        <!--android:background="@color/background"-->
+
+        <TextView
+            android:id="@+id/add_ut_tittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Uric Acid"
+            android:textColor="@color/login_red"
+            android:textSize="18dp"
+            android:gravity="center_horizontal"
+            android:paddingTop="20dp"/>
+
+        <TextView
+            android:id="@+id/add_protein"
+            android:layout_below="@id/add_ut_tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protein"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch1"
+            android:layout_below="@+id/add_ut_tittle"
+            android:layout_toRightOf="@+id/add_protein"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/add_glucose"
+            android:layout_below="@id/add_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Glucose"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch2"
+            android:layout_below="@+id/add_protein"
+            android:layout_toRightOf="@+id/add_protein"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/add_blood"
+            android:layout_below="@id/add_glucose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blood"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch3"
+            android:layout_below="@+id/add_glucose"
+            android:layout_toRightOf="@+id/add_protein"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/add_ut_btn"
+            android:layout_below="@+id/add_blood"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Confirm"
+            android:textSize="15dp"
+            android:background="@color/sign_in"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp" />
+
+        <Space
+            android:layout_below="@id/add_ut_btn"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
