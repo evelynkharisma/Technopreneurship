@@ -63,8 +63,10 @@ public class AllergyFragment extends Fragment {
 
         if(bundle != null)
         {
-            String addAllergy = bundle.getString("add_allergy");
-            allergies.add(new Allergy(currentUser, currentName, addAllergy));
+            if(bundle.getString("add_allergy") != null){
+                String addAllergy = bundle.getString("add_allergy");
+                allergies.add(new Allergy(currentUser, currentName, addAllergy));
+            }
         }
 
         ////////////////////////////////////Create allergy list///////////////////////////////////////////////////////////////////////////

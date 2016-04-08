@@ -13,79 +13,29 @@
         <!--android:background="@color/background"-->
 
         <TextView
-            android:id="@+id/add_Family_tittle"
+            android:id="@+id/add_bc_tittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Family Member"
+            android:text="Add Blood Count"
             android:textColor="@color/login_red"
             android:textSize="18dp"
             android:gravity="center_horizontal"
             android:paddingTop="20dp"/>
 
         <TextView
-            android:id="@+id/add_name"
-            android:layout_below="@id/add_Family_tittle"
+            android:id="@+id/add_rbc"
+            android:layout_below="@id/add_bc_tittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name in KTP"
+            android:text="Red Blood Cell"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="12dp" />
 
         <EditText
-            android:id="@+id/add_name_fill"
-            android:layout_below="@id/add_Family_tittle"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/edittextstyle"
-            android:paddingStart="20dp"
-            android:paddingEnd="10dp"
-            android:textColor="@color/gray"
-            android:textColorHint="@color/gray"
-            android:layout_alignParentRight="true" />
-
-
-        <TextView
-            android:id="@+id/add_status"
-            android:layout_below="@id/add_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="43dp"
-            android:layout_marginLeft="12dp"/>
-
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_below="@+id/add_name_fill"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:textSize="14dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown"
-            android:layout_alignParentRight="true"
-            android:entries="@array/family_status"/>
-
-        <TextView
-            android:id="@+id/add_blood"
-            android:layout_below="@id/spinner1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Blood Type"
-            android:textColor="@color/black"
-            android:textSize="14dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginLeft="12dp"/>
-
-        <EditText
-            android:id="@+id/add_blood_fill"
-            android:layout_below="@id/spinner1"
+            android:id="@+id/add_rbc_fill"
+            android:layout_below="@id/add_bc_tittle"
             android:layout_width="180dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
@@ -98,19 +48,19 @@
             android:layout_alignParentRight="true" />
 
         <TextView
-            android:id="@+id/add_height"
-            android:layout_below="@id/add_blood"
+            android:id="@+id/add_wbc"
+            android:layout_below="@id/add_rbc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Height"
+            android:text="White Blood Cell"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="12dp"/>
 
         <EditText
-            android:id="@+id/add_height_fill"
-            android:layout_below="@id/add_blood_fill"
+            android:id="@+id/add_wbc_fill"
+            android:layout_below="@id/add_rbc_fill"
             android:layout_width="180dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
@@ -120,23 +70,22 @@
             android:paddingEnd="10dp"
             android:textColor="@color/gray"
             android:textColorHint="@color/gray"
-            android:hint="kg"
             android:layout_alignParentRight="true" />
 
         <TextView
-            android:id="@+id/add_weight"
-            android:layout_below="@id/add_height"
+            android:id="@+id/add_thrombocyte"
+            android:layout_below="@id/add_wbc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weight"
+            android:text="Thrombocyte"
             android:textColor="@color/black"
             android:textSize="14dp"
             android:layout_marginTop="25dp"
             android:layout_marginLeft="12dp"/>
 
         <EditText
-            android:id="@+id/add_weight_fill"
-            android:layout_below="@id/add_height_fill"
+            android:id="@+id/add_thrombocyte_fill"
+            android:layout_below="@id/add_wbc_fill"
             android:layout_width="180dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"
@@ -146,12 +95,11 @@
             android:paddingEnd="10dp"
             android:textColor="@color/gray"
             android:textColorHint="@color/gray"
-            android:hint="cm"
             android:layout_alignParentRight="true" />
 
         <Button
-            android:id="@+id/add_btn"
-            android:layout_below="@+id/add_weight"
+            android:id="@+id/add_bc_btn"
+            android:layout_below="@+id/add_thrombocyte_fill"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:text="Confirm"
@@ -162,7 +110,7 @@
             android:layout_marginBottom="10dp" />
 
         <Space
-            android:layout_below="@id/add_btn"
+            android:layout_below="@id/add_allergy_btn"
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 

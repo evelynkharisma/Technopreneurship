@@ -36,23 +36,104 @@
         android:textSize="12dp"
         android:gravity="center_horizontal" />
 
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_below="@id/sign_up_desc2"
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_marginTop="20dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/sign_up_desc2">
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/sign_up_name"
+                android:id="@+id/sign_up_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="Username"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="12dp"/>
 
             <EditText
+                android:id="@+id/sign_up_username_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_pass"
+                android:layout_below="@id/sign_up_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_pass_fill"
+                android:layout_below="@id/sign_up_username_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_cPass"
+                android:layout_below="@id/sign_up_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm Pass"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_cPass_fill"
+                android:layout_below="@id/sign_up_pass_fill"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/sign_up_name"
+                android:layout_below="@id/sign_up_cPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name in KTP"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
                 android:id="@+id/sign_up_name_fill"
+                android:layout_below="@id/sign_up_cPass_fill"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
@@ -72,7 +153,7 @@
                 android:text="Address"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginLeft="12dp"/>
 
             <EditText
@@ -221,7 +302,7 @@
                 android:layout_below="@id/sign_up_bday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Identity No."
+                android:text="KTP"
                 android:textColor="@color/black"
                 android:textSize="14dp"
                 android:layout_marginTop="27dp"
@@ -242,19 +323,56 @@
                 android:layout_alignParentRight="true" />
 
             <TextView
-                android:id="@+id/sign_up_GPhone"
+                android:id="@+id/sign_up_Emergency_Contact"
                 android:layout_below="@id/sign_up_ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Guardian Phone"
+                android:text="Emergency Contact"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:layout_marginTop="27dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <TextView
+                android:id="@+id/sign_up_EName"
+                android:layout_below="@id/sign_up_Emergency_Contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - Name"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="23dp"
                 android:layout_marginLeft="12dp"/>
 
             <EditText
-                android:id="@+id/sign_up_GPhone_fill"
-                android:layout_below="@id/sign_up_ID_fill"
+                android:id="@+id/sign_up_EName_fill"
+                android:layout_below="@id/sign_up_Emergency_Contact"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true" />
+
+
+            <TextView
+                android:id="@+id/sign_up_EPhone"
+                android:layout_below="@id/sign_up_EName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- Phone"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <EditText
+                android:id="@+id/sign_up_EPhone_fill"
+                android:layout_below="@id/sign_up_EName_fill"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
@@ -268,7 +386,7 @@
 
             <TextView
                 android:id="@+id/sign_up_blood"
-                android:layout_below="@id/sign_up_GPhone"
+                android:layout_below="@id/sign_up_EPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blood Type"
@@ -279,7 +397,7 @@
 
             <EditText
                 android:id="@+id/sign_up_blood_fill"
-                android:layout_below="@id/sign_up_GPhone_fill"
+                android:layout_below="@id/sign_up_EPhone_fill"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
@@ -314,6 +432,7 @@
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray"
+                android:hint="kg"
                 android:layout_alignParentRight="true" />
 
             <TextView
@@ -339,21 +458,24 @@
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray"
-                android:layout_alignParentRight="true" />
-
-            <Button
-                android:id="@+id/sign_up_btn_sign_up"
-                android:layout_below="@+id/sign_up_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Sign Up"
-                android:textSize="15dp"
-                android:background="@color/sign_in"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"/>
+                android:hint="cm"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="20dp"/>
 
         </RelativeLayout>
 
+    </ScrollView>
+
+    <Button
+        android:id="@+id/sign_up_btn_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Sign Up"
+        android:textSize="15dp"
+        android:background="@color/sign_in"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="15dp"/>
 
 </RelativeLayout>
