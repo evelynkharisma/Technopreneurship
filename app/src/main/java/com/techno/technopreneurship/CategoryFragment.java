@@ -19,6 +19,7 @@ public class CategoryFragment extends Fragment {
     ImageButton uric_acid;
     ImageButton urine_test;
     ImageButton vaccine;
+    ImageButton profile;
 
     public CategoryFragment() {
         // Required empty public constructor
@@ -161,6 +162,21 @@ public class CategoryFragment extends Fragment {
                 choosen_bundle.putString("cuser", famUser);
                 choosen_bundle.putString("cname", famName);
                 VaccineFragment fragment = new VaccineFragment();
+                fragment.setArguments(choosen_bundle);
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+
+        profile = (ImageButton) view.findViewById(R.id.c10);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle choosen_bundle = new Bundle();
+                choosen_bundle.putString("cuser", famUser);
+                choosen_bundle.putString("cname", famName);
+                ProfileFragment fragment = new ProfileFragment();
                 fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);

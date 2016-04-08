@@ -98,6 +98,14 @@
                 android:src="@drawable/vaccine"
                 android:layout_marginTop="20dp"/>
 
+            <ImageButton
+                android:id="@+id/c10"
+                android:layout_below="@id/c8"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="20dp"
+                android:layout_alignParentRight="true" />
+
 
         </RelativeLayout>
 

@@ -12,13 +12,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Cholesterol;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class CholesterolFragment extends Fragment {
     public CholesterolFragment() {
