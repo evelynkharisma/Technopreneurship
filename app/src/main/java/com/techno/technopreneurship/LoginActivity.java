@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.techno.technopreneurship.Object.FamilyMember;
+import com.techno.technopreneurship.Object.Global;
+import com.techno.technopreneurship.Object.HealthDetails;
+import com.techno.technopreneurship.Object.User;
+
+import java.util.Date;
 
 public class LoginActivity extends Activity  {
     Button btn_login;
@@ -21,6 +29,21 @@ public class LoginActivity extends Activity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+//        String username, String name, String gender, String status, String address, String email, Integer phone, Integer ktp, String emergencyName, Integer emergencyPhone
+        FamilyMember newFam = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.getLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
+        User newUser = new User("jan", "123");
+//        String username, Date birthday, double weight, double height
+        Date myBirthday = new Date();
+        myBirthday.setDate(9);
+        myBirthday.setMonth(6);
+        myBirthday.setYear(1996);
+        final HealthDetails newHealth = new HealthDetails("jan", myBirthday, 150.00, 53);
+
+        Global.users.add(newUser);
+        Global.familyMembers.add(newFam);
+        Global.healthDetailses.add(newHealth);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -32,12 +55,26 @@ public class LoginActivity extends Activity  {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")) {
-                    //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                } else {
-                    //Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < Global.users.size(); i++) {
+                    if (username.getText().toString().equalsIgnoreCase(Global.users.get(i).getUsername()) && password.getText().toString().equals(Global.users.get(i).getPassword())) {
+                        //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+
+                        Global.setMainFamilyMember(username.getText().toString());
+                        Log.i("login current user", Global.currentMainFamilyMember.getUsername() + "");
+                        Log.i("login current Name", Global.currentMainFamilyMember.getName() + "");
+                        Global.currentUsername = Global.users.get(i).getUsername();
+                        Global.currentName = Global.currentMainFamilyMember.getName();
+                        Global.currentMainHealthDetail = newHealth;
+                        Global.setCurrentFamilyMember();
+
+//                        Log.i("login age", age + "");
+
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Not registered", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

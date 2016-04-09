@@ -6,33 +6,47 @@ import java.util.ArrayList;
  * Created by User on 4/1/2016.
  */
 public class Global {
-    public Global(){}
+    public static String currentUsername;
+    public static String currentName;
+    public static FamilyMember currentMainFamilyMember;
+    public static HealthDetails currentMainHealthDetail;
+    public static ArrayList<FamilyMember> currentFamily = new ArrayList<>();
+    public static ArrayList<Allergy> currentAllergies = new ArrayList<>();
 
-    private String currentUser = "user";
-    private String addFamName;
-    private String addFamStatus;
+    public static ArrayList<User> users =  new ArrayList<>();
+    public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
+    public static ArrayList<HealthDetails> healthDetailses = new ArrayList<>();
+    public static ArrayList<Allergy> allergies = new ArrayList<>();
 
-    public String getCurrentUser() {
-        return currentUser;
+    public static void setMainFamilyMember(String username) {
+        for (FamilyMember famMember : Global.familyMembers) {
+            if (famMember.getUsername().equalsIgnoreCase(username) && famMember.getStatus().equalsIgnoreCase("main")) {
+                Global.currentMainFamilyMember = famMember;
+            }
+        }
     }
 
-    public void setCurrentUser(String currentUser) {
-        this.currentUser = currentUser;
+    /**
+     * List of family member having username <i>Global.users</i>
+     */
+    public static void setCurrentFamilyMember() {
+        Global.currentFamily.clear();
+        for (FamilyMember famMember : Global.familyMembers) {
+            if (famMember.getUsername().equalsIgnoreCase(Global.currentUsername)) {
+                Global.currentFamily.add(famMember);
+            }
+        }
     }
 
-    public String getAddFamName() {
-        return addFamName;
-    }
-
-    public void setAddFamName(String addFamName) {
-        this.addFamName = addFamName;
-    }
-
-    public String getAddFamStatus() {
-        return addFamStatus;
-    }
-
-    public void setAddFamStatus(String addFamStatus) {
-        this.addFamStatus = addFamStatus;
+    /**
+     * List of current user's allergies
+     */
+    public static void setCurrentAllergy() {
+        Global.currentAllergies.clear();
+        for (Allergy allergy : Global.allergies) {
+            if (allergy.getUser().equalsIgnoreCase(Global.currentUsername) && allergy.getName().equalsIgnoreCase(Global.currentName)) {
+                Global.currentAllergies.add(allergy);
+            }
+        }
     }
 }

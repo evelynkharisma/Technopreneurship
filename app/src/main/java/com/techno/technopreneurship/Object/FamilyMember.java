@@ -4,24 +4,38 @@ package com.techno.technopreneurship.Object;
  * Created by User on 4/1/2016.
  */
 public class FamilyMember {
-    public FamilyMember(){}
-
-    public FamilyMember(String user, String name, String status){
-        this.user = user;
-        this.name = name;
-        this.status = status;
-    }
-
-    private String user;
+    private String username;
     private String name;
     private String status;
+    private String address;
+    private String email;
+    private String gender;
+    private Long phone;
+    private Integer ktp;
+    private String emergencyName;
+    private Long emergencyPhone;
 
-    public String getUser() {
-        return user;
+    public FamilyMember() {}
+
+    public FamilyMember(String username, String name, String gender, String status, String address, String email, Long phone, Integer ktp, String emergencyName, Long emergencyPhone) {
+        this.username = username;
+        this.name = name;
+        this.status = status;
+        this.address = address;
+        this.email = email;
+        this.gender = gender;
+        this.phone = phone;
+        this.ktp = ktp;
+        this.emergencyName = emergencyName;
+        this.emergencyPhone = emergencyPhone;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -38,5 +52,61 @@ public class FamilyMember {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
+    public Integer getKtp() {
+        return ktp;
+    }
+
+    public void setKtp(Integer ktp) {
+        this.ktp = ktp;
+    }
+
+    public String getEmergencyName() {
+        return emergencyName;
+    }
+
+    public void setEmergencyName(String emergencyName) {
+        this.emergencyName = emergencyName;
+    }
+
+    public Long getEmergencyPhone() {
+        return emergencyPhone;
+    }
+
+    public void setEmergencyPhone(Long emergencyPhone) {
+        this.emergencyPhone = emergencyPhone;
     }
 }

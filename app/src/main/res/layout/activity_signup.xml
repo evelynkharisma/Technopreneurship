@@ -146,8 +146,38 @@
                 android:layout_alignParentRight="true" />
 
             <TextView
-                android:id="@+id/sign_up_add"
+                android:id="@+id/sign_up_gender"
                 android:layout_below="@id/sign_up_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:id="@+id/sign_up_gender_fill"
+                        android:layout_below="@id/sign_up_name_fill"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:layout_alignStart="@+id/sign_up_name_fill">
+                <RadioButton android:id="@+id/sign_up_female"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Female"
+                             android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/sign_up_male"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="Male"
+                             android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/sign_up_add"
+                android:layout_below="@id/sign_up_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Address"
@@ -158,7 +188,7 @@
 
             <EditText
                 android:id="@+id/sign_up_add_fill"
-                android:layout_below="@id/sign_up_name_fill"
+                android:layout_below="@id/sign_up_gender_fill"
                 android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"

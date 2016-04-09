@@ -60,7 +60,7 @@
             android:layout_marginLeft="12dp"/>
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/add_status_fill"
             android:layout_below="@+id/add_name_fill"
             android:layout_width="200dp"
             android:layout_height="50dp"
@@ -74,7 +74,7 @@
 
         <TextView
             android:id="@+id/add_blood"
-            android:layout_below="@id/spinner1"
+            android:layout_below="@id/add_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Blood Type"
@@ -85,7 +85,7 @@
 
         <EditText
             android:id="@+id/add_blood_fill"
-            android:layout_below="@id/spinner1"
+            android:layout_below="@id/add_status_fill"
             android:layout_width="180dp"
             android:layout_height="30dp"
             android:layout_marginTop="15dp"

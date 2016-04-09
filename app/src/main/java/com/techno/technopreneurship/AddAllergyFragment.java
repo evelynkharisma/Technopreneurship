@@ -1,25 +1,23 @@
 package com.techno.technopreneurship;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.techno.technopreneurship.Object.FamilyMember;
+import com.techno.technopreneurship.Object.Allergy;
+import com.techno.technopreneurship.Object.Global;
 
 public class AddAllergyFragment extends Fragment {
 
     EditText allergy;
     Button addAllergy;
-    public AddAllergyFragment() {
-        // Required empty public constructor
-    }
+
+    public AddAllergyFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,9 +25,9 @@ public class AddAllergyFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_add_allergy, container, false);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         allergy = (EditText) view.findViewById(R.id.add_allergy_fill);
         addAllergy = (Button) view.findViewById(R.id.add_allergy_btn);
@@ -44,11 +42,11 @@ public class AddAllergyFragment extends Fragment {
                 else
                 {
                     AllergyFragment fragment = new AllergyFragment();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("add_allergy", allergy.getText().toString());
-                    bundle.putString("cuser", currentUser);
-                    bundle.putString("cname", currentName);
-                    fragment.setArguments(bundle);
+                    Allergy newAllergy = new Allergy(Global.currentUsername, Global.currentName, allergy.getText().toString());
+
+                    Global.allergies.add(newAllergy);
+                    Global.setCurrentAllergy();
+
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);
                     fragmentTransaction.commit();

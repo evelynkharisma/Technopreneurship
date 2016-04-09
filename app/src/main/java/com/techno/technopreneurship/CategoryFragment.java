@@ -30,19 +30,19 @@ public class CategoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_category, container, false);
 
-        final Bundle bundle = this.getArguments();
-        final String famUser = bundle.getString("cuser");
-        final String famName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String famUser = bundle.getString("cuser");
+//        final String famName = bundle.getString("cname");
 
         allergy = (ImageButton) view.findViewById(R.id.c1);
         allergy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 AllergyFragment fragment = new AllergyFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -53,11 +53,11 @@ public class CategoryFragment extends Fragment {
         blood_count.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 BloodCountFragment fragment = new BloodCountFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -68,11 +68,11 @@ public class CategoryFragment extends Fragment {
         blood_tension.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 BloodTensionFragment fragment = new BloodTensionFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -83,11 +83,11 @@ public class CategoryFragment extends Fragment {
         cholesterol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 CholesterolFragment fragment = new CholesterolFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -98,11 +98,11 @@ public class CategoryFragment extends Fragment {
         diabetes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();?
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 DiabetesFragment fragment = new DiabetesFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -113,11 +113,11 @@ public class CategoryFragment extends Fragment {
         heart_rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 HeartRateFragment fragment = new HeartRateFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -128,11 +128,11 @@ public class CategoryFragment extends Fragment {
         uric_acid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 UricAcidFragment fragment = new UricAcidFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -143,11 +143,11 @@ public class CategoryFragment extends Fragment {
         urine_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 UrineTestFragment fragment = new UrineTestFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -158,11 +158,11 @@ public class CategoryFragment extends Fragment {
         vaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 VaccineFragment fragment = new VaccineFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -173,11 +173,11 @@ public class CategoryFragment extends Fragment {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", famUser);
-                choosen_bundle.putString("cname", famName);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", famUser);
+//                choosen_bundle.putString("cname", famName);
                 ProfileFragment fragment = new ProfileFragment();
-                fragment.setArguments(choosen_bundle);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
