@@ -12,34 +12,26 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.techno.technopreneurship.Object.Blood_Count;
-import com.techno.technopreneurship.Object.Blood_Tension;
-import com.techno.technopreneurship.Object.Diabetes;
-import com.techno.technopreneurship.Object.HeartRate;
-import com.techno.technopreneurship.Object.UricAcid;
-import com.techno.technopreneurship.Object.UrineTest;
-
-import java.util.ArrayList;
+import com.techno.technopreneurship.Object.Global;
 
 public class UrineTestFragment extends Fragment {
     public UrineTestFragment() {
         // Required empty public constructor
     }
 
-    public ArrayList<UrineTest> urineTests = new ArrayList<UrineTest>();
-    public ArrayList<UrineTest> myUrineTests = new ArrayList<UrineTest>();
+//    public ArrayList<UrineTest> urineTests = new ArrayList<UrineTest>();
+//    public ArrayList<UrineTest> myUrineTests = new ArrayList<UrineTest>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_urine_test, container, false);
 
         TableLayout table = (TableLayout) view.findViewById(R.id.UT_Table);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addUT);
@@ -47,10 +39,10 @@ public class UrineTestFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddUrineTestFragment fragment = new AddUrineTestFragment();
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", currentUser);
-                choosen_bundle.putString("cname", currentName);
-                fragment.setArguments(choosen_bundle);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", currentUser);
+//                choosen_bundle.putString("cname", currentName);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -58,29 +50,29 @@ public class UrineTestFragment extends Fragment {
         });
 
         ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-        urineTests.add(new UrineTest("user","user","03-04-2016",true, false, false));
-        urineTests.add(new UrineTest("user","user","01-04-2016",false, false, false));
+//        urineTests.add(new UrineTest("user","user","03-04-2016",true, false, false));
+//        urineTests.add(new UrineTest("user","user","01-04-2016",false, false, false));
 
 
-        if(bundle != null)
-        {
-            if(bundle.getString("exist") != null){
-                String adddate = bundle.getString("date");
-                boolean addProtein = bundle.getBoolean("protein");
-                boolean addGlucose = bundle.getBoolean("glucose");
-                boolean addBlood = bundle.getBoolean("blood");
-                urineTests.add(new UrineTest(currentUser, currentName, adddate, addProtein, addGlucose, addBlood));
-            }
-        }
+//        if(bundle != null)
+//        {
+//            if(bundle.getString("exist") != null){
+//                String adddate = bundle.getString("date");
+//                boolean addProtein = bundle.getBoolean("protein");
+//                boolean addGlucose = bundle.getBoolean("glucose");
+//                boolean addBlood = bundle.getBoolean("blood");
+//                urineTests.add(new UrineTest(currentUser, currentName, adddate, addProtein, addGlucose, addBlood));
+//            }
+//        }
 
         ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-        for (int i = 0; i < urineTests.size(); i++) {
-            if (currentUser.equalsIgnoreCase(urineTests.get(i).getUser()) && currentName.equalsIgnoreCase(urineTests.get(i).getName())) {
-                myUrineTests.add(urineTests.get(i));
-                listIndexAllergy.add(i);
-            }
-        }
+//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
+//        for (int i = 0; i < urineTests.size(); i++) {
+//            if (currentUser.equalsIgnoreCase(urineTests.get(i).getUser()) && currentName.equalsIgnoreCase(urineTests.get(i).getName())) {
+//                myUrineTests.add(urineTests.get(i));
+//                listIndexAllergy.add(i);
+//            }
+//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -122,12 +114,12 @@ public class UrineTestFragment extends Fragment {
 
 
         Integer count=0;
-        int myBCSize = myUrineTests.size();
+        int myBCSize = Global.currentUrineTest.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = myUrineTests.get(i).getDate();
-            boolean p = myUrineTests.get(i).isProtein();
-            boolean g = myUrineTests.get(i).isGlucose();
-            boolean b = myUrineTests.get(i).isBlood();
+            String date = Global.currentUrineTest.get(i).getDate();
+            boolean p = Global.currentUrineTest.get(i).isProtein();
+            boolean g = Global.currentUrineTest.get(i).isGlucose();
+            boolean b = Global.currentUrineTest.get(i).isBlood();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());

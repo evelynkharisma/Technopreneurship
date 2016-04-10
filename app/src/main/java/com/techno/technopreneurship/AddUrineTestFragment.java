@@ -1,16 +1,15 @@
 package com.techno.technopreneurship;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.RadioGroup;
 import android.widget.Switch;
-import android.widget.Toast;
 
+import com.techno.technopreneurship.Object.Global;
 import com.techno.technopreneurship.Object.UrineTest;
 
 import java.text.SimpleDateFormat;
@@ -31,21 +30,20 @@ public class AddUrineTestFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_urine_test, container, false);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         protein = (Switch) view.findViewById(R.id.switch1);
-            protein.setChecked(false);
+        protein.setChecked(false);
         glucose = (Switch) view.findViewById(R.id.switch2);
-            glucose.setChecked(false);
+        glucose.setChecked(false);
         blood = (Switch) view.findViewById(R.id.switch3);
-            blood.setChecked(false);
+        blood.setChecked(false);
         addUT = (Button) view.findViewById(R.id.add_ut_btn);
 
         protein.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -85,19 +83,25 @@ public class AddUrineTestFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 UrineTestFragment fragment = new UrineTestFragment();
-                Bundle bundle = new Bundle();
+//                Bundle bundle = new Bundle();
                 //temp use to get date data
                 Date today = Calendar.getInstance().getTime();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 String dateFormat = formatter.format(today);
-                bundle.putString("date", dateFormat);
-                bundle.putBoolean("protein", p);
-                bundle.putBoolean("glucose", g);
-                bundle.putBoolean("blood", b);
-                bundle.putString("exist", "add data");
-                bundle.putString("cuser", currentUser);
-                bundle.putString("cname", currentName);
-                fragment.setArguments(bundle);
+//                bundle.putString("date", dateFormat);
+//                bundle.putBoolean("protein", p);
+//                bundle.putBoolean("glucose", g);
+//                bundle.putBoolean("blood", b);
+//                bundle.putString("exist", "add data");
+//                bundle.putString("cuser", currentUser);
+//                bundle.putString("cname", currentName);
+//                fragment.setArguments(bundle);
+
+//                String user, String name, String date, boolean protein, boolean glucose, boolean blood
+                UrineTest newUrineTest = new UrineTest(Global.currentUsername, Global.currentName, dateFormat, p, g, b);
+                Global.urineTests.add(newUrineTest);
+                Global.updateCurrentUrineTest();
+
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
