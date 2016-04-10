@@ -12,10 +12,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Global;
-
-import java.util.ArrayList;
 
 public class BloodCountFragment extends Fragment {
     public BloodCountFragment() {
@@ -119,12 +116,12 @@ public class BloodCountFragment extends Fragment {
 
 //        Global.updateCurrentBloodCount();
         Integer count=0;
-        int myBCSize = Global.currentBloodCounts.size();
+        int myBCSize = Global.currentBloodCount.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = Global.currentBloodCounts.get(i).getDate();
-            Double rbc = Global.currentBloodCounts.get(i).getRedBC();
-            Double wbc = Global.currentBloodCounts.get(i).getWhiteBC();
-            Double throm = Global.currentBloodCounts.get(i).getThrombocyte();
+            String date = Global.currentBloodCount.get(i).getDate();
+            Double rbc = Global.currentBloodCount.get(i).getRedBC();
+            Double wbc = Global.currentBloodCount.get(i).getWhiteBC();
+            Double throm = Global.currentBloodCount.get(i).getThrombocyte();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());

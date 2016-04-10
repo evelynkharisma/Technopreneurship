@@ -15,13 +15,15 @@ public class Global {
 
     public static ArrayList<FamilyMember> currentFamily = new ArrayList<>();
     public static ArrayList<Allergy> currentAllergies = new ArrayList<>();
-    public static ArrayList<Blood_Count> currentBloodCounts = new ArrayList<>();
+    public static ArrayList<Blood_Count> currentBloodCount = new ArrayList<>();
+    public static ArrayList<Blood_Tension> currentBloodTension = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
     public static ArrayList<HealthDetails> healthDetailses = new ArrayList<>();
     public static ArrayList<Allergy> allergies = new ArrayList<>();
     public static ArrayList<Blood_Count> bloodCounts = new ArrayList<>();
+    public static ArrayList<Blood_Tension> bloodTensions = new ArrayList<>();
 
 
     /**
@@ -85,10 +87,19 @@ public class Global {
     }
 
     public static void updateCurrentBloodCount() {
-        Global.currentBloodCounts.clear();
+        Global.currentBloodCount.clear();
         for (Blood_Count bloodcount: Global.bloodCounts) {
             if (bloodcount.getUsername().equalsIgnoreCase(Global.currentUsername) && bloodcount.getName().equalsIgnoreCase(Global.currentName)) {
-                Global.currentBloodCounts.add(bloodcount);
+                Global.currentBloodCount.add(bloodcount);
+            }
+        }
+    }
+
+    public static void updateCurrentBloodTension() {
+        Global.currentBloodTension.clear();
+        for (Blood_Tension bloodTension : Global.bloodTensions) {
+            if (bloodTension.getUser().equalsIgnoreCase(Global.currentUsername) && bloodTension.getName().equalsIgnoreCase(Global.currentName)) {
+                Global.currentBloodTension.add(bloodTension);
             }
         }
     }
