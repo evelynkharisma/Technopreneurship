@@ -13,6 +13,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.techno.technopreneurship.Object.Cholesterol;
+import com.techno.technopreneurship.Object.Global;
 
 import java.util.ArrayList;
 
@@ -21,21 +22,20 @@ public class CholesterolFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public ArrayList<Cholesterol> cholesterols = new ArrayList<Cholesterol>();
-    public ArrayList<Cholesterol> myCholesterols = new ArrayList<Cholesterol>();
+    //    public ArrayList<Cholesterol> cholesterols = new ArrayList<Cholesterol>();
+//    public ArrayList<Cholesterol> myCholesterols = new ArrayList<Cholesterol>();
     private static final int NUM_COLS = 1;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_cholesterol, container, false);
 
         TableLayout table = (TableLayout) view.findViewById(R.id.Cholesterol_Table);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addCholesterol);
@@ -43,10 +43,12 @@ public class CholesterolFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddCholesterolFragment fragment = new AddCholesterolFragment();
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", currentUser);
-                choosen_bundle.putString("cname", currentName);
-                fragment.setArguments(choosen_bundle);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", currentUser);
+//                choosen_bundle.putString("cname", currentName);
+//                fragment.setArguments(choosen_bundle);
+
+
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -54,29 +56,29 @@ public class CholesterolFragment extends Fragment {
         });
 
         ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-        cholesterols.add(new Cholesterol("user","user","03-04-2016",5.3,5.4,200));
-        cholesterols.add(new Cholesterol("user","user","01-04-2016",7,6,250));
+//        cholesterols.add(new Cholesterol("user","user","03-04-2016",5.3,5.4,200));
+//        cholesterols.add(new Cholesterol("user","user","01-04-2016",7,6,250));
 
 
-        if(bundle != null)
-        {
-            if(bundle.getString("hdl") != null){
-                String adddate = bundle.getString("date");
-                String addhdl = bundle.getString("hdl");
-                String addldl = bundle.getString("ldl");
-                String addtotal = bundle.getString("total");
-                cholesterols.add(new Cholesterol(currentUser, currentName, adddate, Double.parseDouble(addhdl), Double.parseDouble(addldl), Double.parseDouble(addtotal)));
-            }
-        }
+//        if(bundle != null)
+//        {
+//            if(bundle.getString("hdl") != null){
+//                String adddate = bundle.getString("date");
+//                String addhdl = bundle.getString("hdl");
+//                String addldl = bundle.getString("ldl");
+//                String addtotal = bundle.getString("total");
+//                cholesterols.add(new Cholesterol(currentUser, currentName, adddate, Double.parseDouble(addhdl), Double.parseDouble(addldl), Double.parseDouble(addtotal)));
+//            }
+//        }
 
         ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-        for (int i = 0; i < cholesterols.size(); i++) {
-            if (currentUser.equalsIgnoreCase(cholesterols.get(i).getUser()) && currentName.equalsIgnoreCase(cholesterols.get(i).getName())) {
-                myCholesterols.add(cholesterols.get(i));
-                listIndexAllergy.add(i);
-            }
-        }
+//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
+//        for (int i = 0; i < cholesterols.size(); i++) {
+//            if (currentUser.equalsIgnoreCase(cholesterols.get(i).getUser()) && currentName.equalsIgnoreCase(cholesterols.get(i).getName())) {
+//                myCholesterols.add(cholesterols.get(i));
+//                listIndexAllergy.add(i);
+//            }
+//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -118,12 +120,12 @@ public class CholesterolFragment extends Fragment {
 
 
         Integer count=0;
-        int myBCSize = myCholesterols.size();
+        int myBCSize = Global.currentCholesterol.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = myCholesterols.get(i).getDate();
-            Double hdl = myCholesterols.get(i).getHdl();
-            Double ldl = myCholesterols.get(i).getLdl();
-            Double total = myCholesterols.get(i).getTotal();
+            String date = Global.currentCholesterol.get(i).getDate();
+            Double hdl = Global.currentCholesterol.get(i).getHdl();
+            Double ldl = Global.currentCholesterol.get(i).getLdl();
+            Double total = Global.currentCholesterol.get(i).getTotal();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());

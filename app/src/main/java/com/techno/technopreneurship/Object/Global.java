@@ -17,6 +17,7 @@ public class Global {
     public static ArrayList<Allergy> currentAllergies = new ArrayList<>();
     public static ArrayList<Blood_Count> currentBloodCount = new ArrayList<>();
     public static ArrayList<Blood_Tension> currentBloodTension = new ArrayList<>();
+    public static ArrayList<Cholesterol> currentCholesterol = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
@@ -24,6 +25,7 @@ public class Global {
     public static ArrayList<Allergy> allergies = new ArrayList<>();
     public static ArrayList<Blood_Count> bloodCounts = new ArrayList<>();
     public static ArrayList<Blood_Tension> bloodTensions = new ArrayList<>();
+    public static ArrayList<Cholesterol> cholesterols = new ArrayList<>();
 
 
     /**
@@ -103,4 +105,14 @@ public class Global {
             }
         }
     }
+
+    public static void updateCurrentCholesterol() {
+        Global.currentCholesterol.clear();
+        for (Cholesterol cholesterol : Global.cholesterols) {
+            if (cholesterol.getUser().equalsIgnoreCase(Global.currentUsername) && cholesterol.getName().equalsIgnoreCase(Global.currentName)) {
+                Global.currentCholesterol.add(cholesterol);
+            }
+        }
+    }
+
 }
