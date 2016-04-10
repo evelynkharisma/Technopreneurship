@@ -8,8 +8,10 @@ import java.util.ArrayList;
 public class Global {
     public static String currentUsername;
     public static String currentName;
+
     public static FamilyMember currentMainFamilyMember;
     public static HealthDetails currentMainHealthDetail;
+
     public static ArrayList<FamilyMember> currentFamily = new ArrayList<>();
     public static ArrayList<Allergy> currentAllergies = new ArrayList<>();
 
@@ -18,10 +20,29 @@ public class Global {
     public static ArrayList<HealthDetails> healthDetailses = new ArrayList<>();
     public static ArrayList<Allergy> allergies = new ArrayList<>();
 
+
+    /**
+     * Set the main user of family having username <i>username</i>
+     * @param username username of current family
+     */
     public static void setMainFamilyMember(String username) {
         for (FamilyMember famMember : Global.familyMembers) {
             if (famMember.getUsername().equalsIgnoreCase(username) && famMember.getStatus().equalsIgnoreCase("main")) {
                 Global.currentMainFamilyMember = famMember;
+                break;
+            }
+        }
+    }
+
+    /**
+     * Set the health details of current main user
+     * @param username username of current family
+     */
+    public static void setMainHealthDetail(String username, String name){
+        for (HealthDetails healthDetails : Global.healthDetailses) {
+            if (healthDetails.getUsername().equalsIgnoreCase(username) && healthDetails.getName().equalsIgnoreCase(Global.currentMainFamilyMember.getName())) {
+                Global.currentMainHealthDetail = healthDetails;
+                break;
             }
         }
     }

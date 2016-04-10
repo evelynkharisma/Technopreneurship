@@ -7,14 +7,16 @@ import java.util.Date;
  */
 public class HealthDetails {
     private String username;
+    private String name;
     private Date birthday;
     private double weight;
     private double height;
 
     public HealthDetails() {}
 
-    public HealthDetails(String username, Date birthday, double weight, double height) {
+    public HealthDetails(String username, String name, Date birthday, double weight, double height) {
         this.username = username;
+        this.name = name;
         this.birthday = birthday;
         this.weight = weight;
         this.height = height;
@@ -26,6 +28,14 @@ public class HealthDetails {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getBirthday() {

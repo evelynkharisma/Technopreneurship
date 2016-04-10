@@ -30,19 +30,18 @@ public class LoginActivity extends Activity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        String username, String name, String gender, String status, String address, String email, Integer phone, Integer ktp, String emergencyName, Integer emergencyPhone
-        FamilyMember newFam = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.getLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
+        FamilyMember newFamMember = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.getLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
         User newUser = new User("jan", "123");
-//        String username, Date birthday, double weight, double height
         Date myBirthday = new Date();
         myBirthday.setDate(9);
         myBirthday.setMonth(6);
-        myBirthday.setYear(1996);
-        final HealthDetails newHealth = new HealthDetails("jan", myBirthday, 150.00, 53);
+        myBirthday.setYear(96);
+        HealthDetails newHealthDetail = new HealthDetails("jan", "janis", myBirthday, 10.00, 10.00);
 
         Global.users.add(newUser);
-        Global.familyMembers.add(newFam);
-        Global.healthDetailses.add(newHealth);
+        Global.familyMembers.add(newFamMember);
+        Global.healthDetailses.add(newHealthDetail);
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -60,12 +59,14 @@ public class LoginActivity extends Activity  {
                         //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
 
                         Global.setMainFamilyMember(username.getText().toString());
+                        Global.setMainHealthDetail(username.getText().toString(), Global.currentMainFamilyMember.getName());
                         Log.i("login current user", Global.currentMainFamilyMember.getUsername() + "");
                         Log.i("login current Name", Global.currentMainFamilyMember.getName() + "");
-                        Global.currentUsername = Global.users.get(i).getUsername();
+                        Log.i("login birthday ", Global.currentMainHealthDetail.getBirthday().toString());
+
+
                         Global.currentName = Global.currentMainFamilyMember.getName();
-                        Global.currentMainHealthDetail = newHealth;
-                        Global.setCurrentFamilyMember();
+                        Global.currentUsername = Global.currentMainFamilyMember.getUsername();
 
 //                        Log.i("login age", age + "");
 

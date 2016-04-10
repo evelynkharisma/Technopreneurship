@@ -17,8 +17,6 @@ import com.techno.technopreneurship.Object.User;
 
 import java.util.Date;
 
-import static android.Manifest.permission.READ_CONTACTS;
-
 public class SignupActivity extends Activity {
     Button btn_sign_up;
     EditText username;
@@ -94,7 +92,7 @@ public class SignupActivity extends Activity {
                             email.getText().toString(), Long.parseLong(phone.getText().toString()), Integer.parseInt(ID.getText().toString()), eName.getText().toString(),
                             Long.parseLong(ePhone.getText().toString()));
 
-                    HealthDetails newHealthDetail = new HealthDetails(username.getText().toString(), bday, Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()));
+                    HealthDetails newHealthDetail = new HealthDetails(username.getText().toString(), name.getText().toString(), bday, Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()));
 
                     Global.users.add(newUser);
                     Global.familyMembers.add(newFamMember);
