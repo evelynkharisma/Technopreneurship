@@ -13,32 +13,29 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.techno.technopreneurship.Object.Blood_Count;
+import com.techno.technopreneurship.Object.Global;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class BloodCountFragment extends Fragment {
     public BloodCountFragment() {
         // Required empty public constructor
     }
 
-    public ArrayList<Blood_Count> blood_counts = new ArrayList<Blood_Count>();
-    public ArrayList<Blood_Count> myBlood_counts = new ArrayList<Blood_Count>();
+    //    public ArrayList<Blood_Count> blood_counts = new ArrayList<Blood_Count>();
+//    public ArrayList<Blood_Count> myBlood_counts = new ArrayList<Blood_Count>();
     private static final int NUM_COLS = 1;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_blood_count, container, false);
 
         TableLayout table = (TableLayout) view.findViewById(R.id.BC_Table);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addBC);
@@ -46,10 +43,10 @@ public class BloodCountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddBloodCountFragment fragment = new AddBloodCountFragment();
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", currentUser);
-                choosen_bundle.putString("cname", currentName);
-                fragment.setArguments(choosen_bundle);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", currentUser);
+//                choosen_bundle.putString("cname", currentName);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -57,29 +54,29 @@ public class BloodCountFragment extends Fragment {
         });
 
         ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-        blood_counts.add(new Blood_Count("user","user","03-04-2016",5.3,5.4,200));
-        blood_counts.add(new Blood_Count("user","user","01-04-2016",7,6,250));
+//        blood_counts.add(new Blood_Count("user","user","03-04-2016",5.3,5.4,200));
+//        blood_counts.add(new Blood_Count("user","user","01-04-2016",7,6,250));
 
 
-        if(bundle != null)
-        {
-            if(bundle.getString("rbc") != null){
-                String adddate = bundle.getString("date");
-                String addrbc = bundle.getString("rbc");
-                String addwbc = bundle.getString("wbc");
-                String addthrombocyte = bundle.getString("thrombocyte");
-                blood_counts.add(new Blood_Count(currentUser, currentName, adddate, Double.parseDouble(addrbc), Double.parseDouble(addwbc), Double.parseDouble(addthrombocyte)));
-            }
-        }
+//        if(bundle != null)
+//        {
+//            if(bundle.getString("rbc") != null){
+//                String adddate = bundle.getString("date");
+//                String addrbc = bundle.getString("rbc");
+//                String addwbc = bundle.getString("wbc");
+//                String addthrombocyte = bundle.getString("thrombocyte");
+//                blood_counts.add(new Blood_Count(currentUser, currentName, adddate, Double.parseDouble(addrbc), Double.parseDouble(addwbc), Double.parseDouble(addthrombocyte)));
+//            }
+//        }
 
         ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-        for (int i = 0; i < blood_counts.size(); i++) {
-            if (currentUser.equalsIgnoreCase(blood_counts.get(i).getUser()) && currentName.equalsIgnoreCase(blood_counts.get(i).getName())) {
-                myBlood_counts.add(blood_counts.get(i));
-                listIndexAllergy.add(i);
-            }
-        }
+//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
+//        for (int i = 0; i < blood_counts.size(); i++) {
+//            if (currentUser.equalsIgnoreCase(blood_counts.get(i).getUsername()) && currentName.equalsIgnoreCase(blood_counts.get(i).getName())) {
+//                myBlood_counts.add(blood_counts.get(i));
+//                listIndexAllergy.add(i);
+//            }
+//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -120,13 +117,14 @@ public class BloodCountFragment extends Fragment {
         table.addView(tableRow);
 
 
+//        Global.updateCurrentBloodCount();
         Integer count=0;
-        int myBCSize = myBlood_counts.size();
+        int myBCSize = Global.currentBloodCounts.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = myBlood_counts.get(i).getDate();
-            Double rbc = myBlood_counts.get(i).getRedBC();
-            Double wbc = myBlood_counts.get(i).getWhiteBC();
-            Double throm = myBlood_counts.get(i).getThrombocyte();
+            String date = Global.currentBloodCounts.get(i).getDate();
+            Double rbc = Global.currentBloodCounts.get(i).getRedBC();
+            Double wbc = Global.currentBloodCounts.get(i).getWhiteBC();
+            Double throm = Global.currentBloodCounts.get(i).getThrombocyte();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());

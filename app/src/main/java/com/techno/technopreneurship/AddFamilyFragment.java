@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -66,7 +65,7 @@ public class AddFamilyFragment extends Fragment {
 
                     Global.familyMembers.add(newMember);
                     Global.healthDetailses.add(newHealthDetails);
-                    Global.setCurrentFamilyMember();
+                    Global.updateCurrentFamilyMember();
 
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);

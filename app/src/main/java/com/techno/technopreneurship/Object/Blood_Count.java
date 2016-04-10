@@ -1,12 +1,10 @@
 package com.techno.technopreneurship.Object;
 
-import java.util.Date;
-
 /**
  * Created by User on 4/8/2016.
  */
 public class Blood_Count {
-    private String user;
+    private String username;
     private String name;
     private String date;
     private double redBC;
@@ -17,7 +15,7 @@ public class Blood_Count {
 
     public Blood_Count(String user, String name, String date, double redBC, double whiteBC, double thrombocyte)
     {
-        this.user = user;
+        this.username = user;
         this.name = name;
         this.date = date;
         this.redBC = redBC;
@@ -25,12 +23,12 @@ public class Blood_Count {
         this.thrombocyte = thrombocyte;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {

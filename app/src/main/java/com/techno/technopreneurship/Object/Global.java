@@ -11,14 +11,17 @@ public class Global {
 
     public static FamilyMember currentMainFamilyMember;
     public static HealthDetails currentMainHealthDetail;
+    public static Blood_Count currentMainBloodCount;
 
     public static ArrayList<FamilyMember> currentFamily = new ArrayList<>();
     public static ArrayList<Allergy> currentAllergies = new ArrayList<>();
+    public static ArrayList<Blood_Count> currentBloodCounts = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
     public static ArrayList<HealthDetails> healthDetailses = new ArrayList<>();
     public static ArrayList<Allergy> allergies = new ArrayList<>();
+    public static ArrayList<Blood_Count> bloodCounts = new ArrayList<>();
 
 
     /**
@@ -34,9 +37,19 @@ public class Global {
         }
     }
 
+    public static void setMainBloodCount(String username, String name) {
+        for (Blood_Count bloodCount : Global.bloodCounts) {
+            if (bloodCount.getUsername().equalsIgnoreCase(username) && bloodCount.getName().equalsIgnoreCase(Global.currentMainFamilyMember.getName())) {
+                Global.currentMainBloodCount = bloodCount;
+                break;
+            }
+        }
+    }
+
     /**
-     * Set the health details of current main user
+     * Set the health details of current main user having username <i>username</i> and name <i>name</i>
      * @param username username of current family
+     * @param name name of current main family
      */
     public static void setMainHealthDetail(String username, String name){
         for (HealthDetails healthDetails : Global.healthDetailses) {
@@ -50,7 +63,7 @@ public class Global {
     /**
      * List of family member having username <i>Global.users</i>
      */
-    public static void setCurrentFamilyMember() {
+    public static void updateCurrentFamilyMember() {
         Global.currentFamily.clear();
         for (FamilyMember famMember : Global.familyMembers) {
             if (famMember.getUsername().equalsIgnoreCase(Global.currentUsername)) {
@@ -62,11 +75,20 @@ public class Global {
     /**
      * List of current user's allergies
      */
-    public static void setCurrentAllergy() {
+    public static void updateCurrentAllergy() {
         Global.currentAllergies.clear();
         for (Allergy allergy : Global.allergies) {
             if (allergy.getUser().equalsIgnoreCase(Global.currentUsername) && allergy.getName().equalsIgnoreCase(Global.currentName)) {
                 Global.currentAllergies.add(allergy);
+            }
+        }
+    }
+
+    public static void updateCurrentBloodCount() {
+        Global.currentBloodCounts.clear();
+        for (Blood_Count bloodcount: Global.bloodCounts) {
+            if (bloodcount.getUsername().equalsIgnoreCase(Global.currentUsername) && bloodcount.getName().equalsIgnoreCase(Global.currentName)) {
+                Global.currentBloodCounts.add(bloodcount);
             }
         }
     }

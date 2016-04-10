@@ -49,7 +49,7 @@ public class FamilyFragment extends Fragment {
         Calendar mainBirthday = Calendar.getInstance();
         mainBirthday.setTime(Global.currentMainHealthDetail.getBirthday());
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        int bornYear = mainBirthday.get(Calendar.YEAR) - 1900;
+        int bornYear = mainBirthday.get(Calendar.YEAR);
         int age = currentYear - bornYear;
 
         Log.i("fam current year", Calendar.getInstance().get(Calendar.YEAR) + "");
@@ -84,7 +84,9 @@ public class FamilyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Global.currentName = Global.currentMainFamilyMember.getName();
-                Global.setCurrentAllergy();
+                Global.updateCurrentAllergy();
+                Global.updateCurrentBloodCount();
+
                 CategoryFragment fragment = new CategoryFragment();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -104,7 +106,6 @@ public class FamilyFragment extends Fragment {
 //            //{
 //                String addFamName = bundle.getString("add_fam_name");
 //                String addFamStatus = bundle.getString("add_fam_status");
-//                String addFamStatus = bundle.getString("add_fam_status");
 //                fm.add(new FamilyMember(currentUser, addFamName, addFamStatus));
 //            //}
 //        }
@@ -113,12 +114,13 @@ public class FamilyFragment extends Fragment {
         /////////////////////////////////////////////Create family member list////////////////////////////////////////////////
 //        ArrayList<Integer> listIndexFamily = new ArrayList<>();
 //        for (int i = 0; i < fm.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(fm.get(i).getUser())) {
+//            if (currentUser.equalsIgnoreCase(fm.get(i).getUsername())) {
 //                myFamilyMember.add(fm.get(i));
 //                listIndexFamily.add(i);
 //            }
 //        }
 
+//        Global.updateCurrentFamilyMember();
         for (int row = 0; row < Global.currentFamily.size(); row++) {
             TableRow tableRow = new TableRow(getActivity());
             tableRow.setLayoutParams(new TableLayout.LayoutParams(
@@ -161,7 +163,8 @@ public class FamilyFragment extends Fragment {
 //                            choosen_bundle.putString("cname", choosen_name);
 
                             Global.currentName = Global.currentFamily.get(choosen).getName();
-                            Global.setCurrentAllergy();
+                            Global.updateCurrentAllergy();
+                            Global.updateCurrentBloodCount();
                             Log.i("fam folder clicked", Global.currentFamily.get(choosen).getName());
 
                             CategoryFragment fragment = new CategoryFragment();

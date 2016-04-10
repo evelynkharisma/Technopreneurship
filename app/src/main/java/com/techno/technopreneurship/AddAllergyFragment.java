@@ -45,7 +45,7 @@ public class AddAllergyFragment extends Fragment {
                     Allergy newAllergy = new Allergy(Global.currentUsername, Global.currentName, allergy.getText().toString());
 
                     Global.allergies.add(newAllergy);
-                    Global.setCurrentAllergy();
+                    Global.updateCurrentAllergy();
 
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);
