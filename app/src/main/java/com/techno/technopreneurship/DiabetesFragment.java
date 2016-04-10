@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Blood_Tension;
 import com.techno.technopreneurship.Object.Diabetes;
+import com.techno.technopreneurship.Object.Global;
 
 import java.util.ArrayList;
 
@@ -23,20 +24,19 @@ public class DiabetesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public ArrayList<Diabetes> diabetes = new ArrayList<Diabetes>();
-    public ArrayList<Diabetes> myDiabetes = new ArrayList<Diabetes>();
+//    public ArrayList<Diabetes> diabetes = new ArrayList<Diabetes>();
+//    public ArrayList<Diabetes> myDiabetes = new ArrayList<Diabetes>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_diabetes, container, false);
 
         TableLayout table = (TableLayout) view.findViewById(R.id.Diabetes_Table);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addDiabetes);
@@ -44,10 +44,10 @@ public class DiabetesFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddDiabetesFragment fragment = new AddDiabetesFragment();
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", currentUser);
-                choosen_bundle.putString("cname", currentName);
-                fragment.setArguments(choosen_bundle);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", currentUser);
+//                choosen_bundle.putString("cname", currentName);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -55,27 +55,27 @@ public class DiabetesFragment extends Fragment {
         });
 
         ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-        diabetes.add(new Diabetes("user","user","03-04-2016",5.3));
-        diabetes.add(new Diabetes("user","user","01-04-2016",7));
+//        diabetes.add(new Diabetes("user","user","03-04-2016",5.3));
+//        diabetes.add(new Diabetes("user","user","01-04-2016",7));
 
 
-        if(bundle != null)
-        {
-            if(bundle.getString("diabetes") != null){
-                String adddate = bundle.getString("date");
-                String adddiabetes = bundle.getString("diabetes");
-                diabetes.add(new Diabetes(currentUser, currentName, adddate, Double.parseDouble(adddiabetes)));
-            }
-        }
+//        if(bundle != null)
+//        {
+//            if(bundle.getString("diabeteses") != null){
+//                String adddate = bundle.getString("date");
+//                String adddiabetes = bundle.getString("diabeteses");
+//                diabetes.add(new Diabetes(currentUser, currentName, adddate, Double.parseDouble(adddiabetes)));
+//            }
+//        }
 
         ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-        for (int i = 0; i < diabetes.size(); i++) {
-            if (currentUser.equalsIgnoreCase(diabetes.get(i).getUser()) && currentName.equalsIgnoreCase(diabetes.get(i).getName())) {
-                myDiabetes.add(diabetes.get(i));
-                listIndexAllergy.add(i);
-            }
-        }
+//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
+//        for (int i = 0; i < diabetes.size(); i++) {
+//            if (currentUser.equalsIgnoreCase(diabetes.get(i).getUser()) && currentName.equalsIgnoreCase(diabetes.get(i).getName())) {
+//                myDiabetes.add(diabetes.get(i));
+//                listIndexAllergy.add(i);
+//            }
+//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -103,10 +103,10 @@ public class DiabetesFragment extends Fragment {
 
 
         Integer count=0;
-        int myBCSize = myDiabetes.size();
+        int myBCSize = Global.currentDiabetes.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = myDiabetes.get(i).getDate();
-            Double diabetes = myDiabetes.get(i).getDiabetes();
+            String date = Global.currentDiabetes.get(i).getDate();
+            Double diabetes = Global.currentDiabetes.get(i).getDiabetes();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
