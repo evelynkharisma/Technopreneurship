@@ -22,6 +22,7 @@ public class Global {
     public static ArrayList<HeartRate> currentHeartRate = new ArrayList<>();
     public static ArrayList<UricAcid> currentUricAcid = new ArrayList<>();
     public static ArrayList<UrineTest> currentUrineTest = new ArrayList<>();
+    public static ArrayList<Vaccine> currentVaccine = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
@@ -34,7 +35,7 @@ public class Global {
     public static ArrayList<HeartRate> heartRates = new ArrayList<>();
     public static ArrayList<UricAcid> uricAcids = new ArrayList<>();
     public static ArrayList<UrineTest> urineTests = new ArrayList<>();
-
+    public static ArrayList<Vaccine> vaccines = new ArrayList<>();
 
     /**
      * Set the main user of family having username <i>username</i>
@@ -155,6 +156,15 @@ public class Global {
         for (UrineTest urinTest : Global.urineTests) {
             if (urinTest.getUser().equalsIgnoreCase(Global.currentUsername) && urinTest.getName().equalsIgnoreCase(Global.currentName)) {
                 Global.currentUrineTest.add(urinTest);
+            }
+        }
+    }
+
+    public static void updateCurrentVaccine() {
+        Global.currentVaccine.clear();
+        for (Vaccine vaccine : Global.vaccines) {
+            if (vaccine.getUser().equalsIgnoreCase(Global.currentUsername) && vaccine.getName().equalsIgnoreCase(Global.currentName)) {
+                Global.currentVaccine.add(vaccine);
             }
         }
     }

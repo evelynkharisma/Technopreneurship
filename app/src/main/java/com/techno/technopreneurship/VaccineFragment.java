@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Blood_Tension;
 import com.techno.technopreneurship.Object.Diabetes;
+import com.techno.technopreneurship.Object.Global;
 import com.techno.technopreneurship.Object.HeartRate;
 import com.techno.technopreneurship.Object.Vaccine;
 
@@ -25,20 +26,19 @@ public class VaccineFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public ArrayList<Vaccine> vaccines = new ArrayList<Vaccine>();
-    public ArrayList<Vaccine> myVaccines = new ArrayList<Vaccine>();
+//    public ArrayList<Vaccine> vaccines = new ArrayList<Vaccine>();
+//    public ArrayList<Vaccine> myVaccines = new ArrayList<Vaccine>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_vaccine, container, false);
 
         TableLayout table = (TableLayout) view.findViewById(R.id.V_Table);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addV);
@@ -46,10 +46,12 @@ public class VaccineFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddVaccineFragment fragment = new AddVaccineFragment();
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", currentUser);
-                choosen_bundle.putString("cname", currentName);
-                fragment.setArguments(choosen_bundle);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", currentUser);
+//                choosen_bundle.putString("cname", currentName);
+//                fragment.setArguments(choosen_bundle);
+
+
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -57,27 +59,27 @@ public class VaccineFragment extends Fragment {
         });
 
         ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-        vaccines.add(new Vaccine("user","user","03-01-2016","Hepatitis B","1"));
-        vaccines.add(new Vaccine("user","user","03-02-2016","Hepatitis B","2"));
+//        vaccines.add(new Vaccine("user","user","03-01-2016","Hepatitis B","1"));
+//        vaccines.add(new Vaccine("user","user","03-02-2016","Hepatitis B","2"));
 
-        if(bundle != null)
-        {
-            if(bundle.getString("vaccine") != null){
-                String adddate = bundle.getString("date");
-                String addv = bundle.getString("vaccine");
-                String addstage = bundle.getString("stage");
-                vaccines.add(new Vaccine(currentUser, currentName, adddate, addv, addstage));
-            }
-        }
+//        if(bundle != null)
+//        {
+//            if(bundle.getString("vaccine") != null){
+//                String adddate = bundle.getString("date");
+//                String addv = bundle.getString("vaccine");
+//                String addstage = bundle.getString("stage");
+//                vaccines.add(new Vaccine(currentUser, currentName, adddate, addv, addstage));
+//            }
+//        }
 
         ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-        for (int i = 0; i < vaccines.size(); i++) {
-            if (currentUser.equalsIgnoreCase(vaccines.get(i).getUser()) && currentName.equalsIgnoreCase(vaccines.get(i).getName())) {
-                myVaccines.add(vaccines.get(i));
-                listIndexAllergy.add(i);
-            }
-        }
+//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
+//        for (int i = 0; i < vaccines.size(); i++) {
+//            if (currentUser.equalsIgnoreCase(vaccines.get(i).getUser()) && currentName.equalsIgnoreCase(vaccines.get(i).getName())) {
+//                myVaccines.add(vaccines.get(i));
+//                listIndexAllergy.add(i);
+//            }
+//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -112,11 +114,11 @@ public class VaccineFragment extends Fragment {
 
 
         Integer count=0;
-        int myBCSize = myVaccines.size();
+        int myBCSize = Global.currentVaccine.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = myVaccines.get(i).getDate();
-            String v = myVaccines.get(i).getVaccine();
-            String s = myVaccines.get(i).getStage();
+            String date = Global.currentVaccine.get(i).getDate();
+            String v = Global.currentVaccine.get(i).getVaccine();
+            String s = Global.currentVaccine.get(i).getStage();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
