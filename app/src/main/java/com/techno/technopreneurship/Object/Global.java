@@ -19,6 +19,7 @@ public class Global {
     public static ArrayList<Blood_Tension> currentBloodTension = new ArrayList<>();
     public static ArrayList<Cholesterol> currentCholesterol = new ArrayList<>();
     public static ArrayList<Diabetes> currentDiabetes = new ArrayList<>();
+    public static ArrayList<HeartRate> currentHeartRate = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
@@ -28,6 +29,7 @@ public class Global {
     public static ArrayList<Blood_Tension> bloodTensions = new ArrayList<>();
     public static ArrayList<Cholesterol> cholesterols = new ArrayList<>();
     public static ArrayList<Diabetes> diabeteses = new ArrayList<>();
+    public static ArrayList<HeartRate> heartRates = new ArrayList<>();
 
 
     /**
@@ -122,6 +124,15 @@ public class Global {
         for (Diabetes diabetes: Global.diabeteses) {
             if (diabetes.getUser().equalsIgnoreCase(Global.currentUsername) && diabetes.getName().equalsIgnoreCase(Global.currentName)) {
                 Global.currentDiabetes.add(diabetes);
+            }
+        }
+    }
+
+    public static void updateCurrentHeartRate() {
+        Global.currentHeartRate.clear();
+        for (HeartRate heartRate : Global.heartRates) {
+            if (heartRate.getUser().equalsIgnoreCase(Global.currentUsername) && heartRate.getName().equalsIgnoreCase(Global.currentName)) {
+                Global.currentHeartRate.add(heartRate);
             }
         }
     }

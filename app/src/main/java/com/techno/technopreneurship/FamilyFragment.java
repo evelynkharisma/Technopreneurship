@@ -89,6 +89,7 @@ public class FamilyFragment extends Fragment {
                 Global.updateCurrentBloodTension();
                 Global.updateCurrentCholesterol();
                 Global.updateCurrentDiabetes();
+                Global.updateCurrentHeartRate();
 
                 CategoryFragment fragment = new CategoryFragment();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -171,6 +172,7 @@ public class FamilyFragment extends Fragment {
                             Global.updateCurrentBloodTension();
                             Global.updateCurrentCholesterol();
                             Global.updateCurrentDiabetes();
+                            Global.updateCurrentHeartRate();
 
                             Log.i("fam folder clicked", Global.currentFamily.get(choosen).getName());
 
