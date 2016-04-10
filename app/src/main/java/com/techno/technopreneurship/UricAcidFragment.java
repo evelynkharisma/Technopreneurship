@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Blood_Tension;
 import com.techno.technopreneurship.Object.Diabetes;
+import com.techno.technopreneurship.Object.Global;
 import com.techno.technopreneurship.Object.HeartRate;
 import com.techno.technopreneurship.Object.UricAcid;
 
@@ -25,20 +26,19 @@ public class UricAcidFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public ArrayList<UricAcid> uricAcids = new ArrayList<UricAcid>();
-    public ArrayList<UricAcid> myUricAcids = new ArrayList<UricAcid>();
+//    public ArrayList<UricAcid> uricAcids = new ArrayList<UricAcid>();
+//    public ArrayList<UricAcid> myUricAcids = new ArrayList<UricAcid>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_uric_acid, container, false);
 
         TableLayout table = (TableLayout) view.findViewById(R.id.UA_Table);
 
         //////////////////////////////////////Determine which user and which member////////////////////////////////
-        final Bundle bundle = this.getArguments();
-        final String currentUser = bundle.getString("cuser");
-        final String currentName = bundle.getString("cname");
+//        final Bundle bundle = this.getArguments();
+//        final String currentUser = bundle.getString("cuser");
+//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addUA);
@@ -46,10 +46,10 @@ public class UricAcidFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddUricAcidFragment fragment = new AddUricAcidFragment();
-                Bundle choosen_bundle = new Bundle();
-                choosen_bundle.putString("cuser", currentUser);
-                choosen_bundle.putString("cname", currentName);
-                fragment.setArguments(choosen_bundle);
+//                Bundle choosen_bundle = new Bundle();
+//                choosen_bundle.putString("cuser", currentUser);
+//                choosen_bundle.putString("cname", currentName);
+//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -57,27 +57,27 @@ public class UricAcidFragment extends Fragment {
         });
 
         ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-        uricAcids.add(new UricAcid("user","user","03-04-2016",5.3));
-        uricAcids.add(new UricAcid("user","user","01-04-2016",7));
+//        uricAcids.add(new UricAcid("user","user","03-04-2016",5.3));
+//        uricAcids.add(new UricAcid("user","user","01-04-2016",7));
 
 
-        if(bundle != null)
-        {
-            if(bundle.getString("uricacid") != null){
-                String adddate = bundle.getString("date");
-                String addua = bundle.getString("uricacid");
-                uricAcids.add(new UricAcid(currentUser, currentName, adddate, Double.parseDouble(addua)));
-            }
-        }
+//        if(bundle != null)
+//        {
+//            if(bundle.getString("uricacid") != null){
+//                String adddate = bundle.getString("date");
+//                String addua = bundle.getString("uricacid");
+//                uricAcids.add(new UricAcid(currentUser, currentName, adddate, Double.parseDouble(addua)));
+//            }
+//        }
 
         ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-        for (int i = 0; i < uricAcids.size(); i++) {
-            if (currentUser.equalsIgnoreCase(uricAcids.get(i).getUser()) && currentName.equalsIgnoreCase(uricAcids.get(i).getName())) {
-                myUricAcids.add(uricAcids.get(i));
-                listIndexAllergy.add(i);
-            }
-        }
+//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
+//        for (int i = 0; i < uricAcids.size(); i++) {
+//            if (currentUser.equalsIgnoreCase(uricAcids.get(i).getUser()) && currentName.equalsIgnoreCase(uricAcids.get(i).getName())) {
+//                myUricAcids.add(uricAcids.get(i));
+//                listIndexAllergy.add(i);
+//            }
+//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -105,10 +105,10 @@ public class UricAcidFragment extends Fragment {
 
 
         Integer count=0;
-        int myBCSize = myUricAcids.size();
+        int myBCSize = Global.currentUricAcid.size();
         for (int i = myBCSize-1; i >= 0; i--){
-            String date = myUricAcids.get(i).getDate();
-            Double ua = myUricAcids.get(i).getUricAcid();
+            String date = Global.currentUricAcid.get(i).getDate();
+            Double ua = Global.currentUricAcid.get(i).getUricAcid();
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
