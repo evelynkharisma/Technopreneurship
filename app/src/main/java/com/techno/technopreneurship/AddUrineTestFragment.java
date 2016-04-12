@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 
 import com.techno.technopreneurship.Object.Global;
+import com.techno.technopreneurship.Object.Reward;
 import com.techno.technopreneurship.Object.UrineTest;
 
 import java.text.SimpleDateFormat;
@@ -32,11 +33,6 @@ public class AddUrineTestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_urine_test, container, false);
-
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
 
         protein = (Switch) view.findViewById(R.id.switch1);
         protein.setChecked(false);
@@ -83,24 +79,22 @@ public class AddUrineTestFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 UrineTestFragment fragment = new UrineTestFragment();
-//                Bundle bundle = new Bundle();
                 //temp use to get date data
                 Date today = Calendar.getInstance().getTime();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                 String dateFormat = formatter.format(today);
-//                bundle.putString("date", dateFormat);
-//                bundle.putBoolean("protein", p);
-//                bundle.putBoolean("glucose", g);
-//                bundle.putBoolean("blood", b);
-//                bundle.putString("exist", "add data");
-//                bundle.putString("cuser", currentUser);
-//                bundle.putString("cname", currentName);
-//                fragment.setArguments(bundle);
 
-//                String user, String name, String date, boolean protein, boolean glucose, boolean blood
                 UrineTest newUrineTest = new UrineTest(Global.currentUsername, Global.currentName, dateFormat, p, g, b);
                 Global.urineTests.add(newUrineTest);
                 Global.updateCurrentUrineTest();
+
+                if (Global.currentUser.getFirstDataUrineTest()) {
+                    Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Urine Test", "first data in each category", 20000, true);
+                    Global.rewards.add(newReward);
+                    Global.updateCurrentReward();
+                    Global.currentUser.setFirstDataUrineTest(false);
+                }
+
 
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);

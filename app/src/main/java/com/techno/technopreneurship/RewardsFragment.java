@@ -53,10 +53,10 @@ public class RewardsFragment extends Fragment {
                 if (Global.currentReward.get(row).getAvailable()) {
                     if (Global.currentReward.get(row).getType().equalsIgnoreCase("first three member")) {
                         folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son, 0, 0, 0);
-                        folderButton.setText("  First Three Member Added");
+                        folderButton.setText("  " + Global.currentReward.get(row).getDetail());
                     } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("first data in each category")) {
                         folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.daughter, 0, 0, 0);
-                        folderButton.setText("  Your First Data Entry");
+                        folderButton.setText("  " + Global.currentReward.get(row).getDetail());
                     } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("first time request from hospital")) {
                         folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mother, 0, 0, 0);
                         folderButton.setText("  First Request from Hospital");
@@ -76,7 +76,7 @@ public class RewardsFragment extends Fragment {
                         public void onClick(View v) {
                             int choosen = folderButton.getId();
 
-                            Log.i("reward folder clicked", folderButton.getText() + "");
+                            Log.i("reward folder clicked", folderButton.getText()+"");
 
 //                            CategoryFragment fragment = new CategoryFragment();
 //                            android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();

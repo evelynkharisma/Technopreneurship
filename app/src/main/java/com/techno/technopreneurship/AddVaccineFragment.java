@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Global;
+import com.techno.technopreneurship.Object.Reward;
 import com.techno.technopreneurship.Object.Vaccine;
 
 import java.text.SimpleDateFormat;
@@ -30,11 +31,6 @@ public class AddVaccineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_vaccine, container, false);
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
-
         vac = (EditText) view.findViewById(R.id.add_V_fill);
         sta = (Spinner)view.findViewById(R.id.add_V_stage);
         addV = (Button) view.findViewById(R.id.add_V_btn);
@@ -51,16 +47,17 @@ public class AddVaccineFragment extends Fragment {
                     Date today = Calendar.getInstance().getTime();
                     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                     String dateFormat = formatter.format(today);
-//                bundle.putString("date", dateFormat);
-//                bundle.putString("vaccine", vac.getText().toString());
-//                bundle.putString("stage", sta.getSelectedItem().toString());
-//                bundle.putString("cuser", currentUser);
-//                bundle.putString("cname", currentName);
-//                fragment.setArguments(bundle);
 
                     Vaccine newVaccine = new Vaccine(Global.currentUsername, Global.currentName, dateFormat, vac.getText().toString(), sta.getSelectedItem().toString());
                     Global.vaccines.add(newVaccine);
                     Global.updateCurrentVaccine();
+
+                    if (Global.currentUser.getFirstDataVaccine()) {
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Vaccine", "first data in each category", 20000, true);
+                        Global.rewards.add(newReward);
+                        Global.updateCurrentReward();
+                        Global.currentUser.setFirstDataVaccine(false);
+                    }
 
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);
