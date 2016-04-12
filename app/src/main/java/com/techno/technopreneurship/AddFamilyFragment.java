@@ -13,6 +13,11 @@ import android.widget.Toast;
 import com.techno.technopreneurship.Object.FamilyMember;
 import com.techno.technopreneurship.Object.Global;
 import com.techno.technopreneurship.Object.HealthDetails;
+import com.techno.technopreneurship.Object.Reward;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AddFamilyFragment extends Fragment {
 
@@ -34,7 +39,7 @@ public class AddFamilyFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_family, container, false);
 
-        status = (Spinner)view.findViewById(R.id.add_status_fill);
+        status = (Spinner) view.findViewById(R.id.add_status_fill);
 
         name = (EditText) view.findViewById(R.id.add_name_fill);
         bloodType = (EditText) view.findViewById(R.id.add_blood_fill);
@@ -45,12 +50,9 @@ public class AddFamilyFragment extends Fragment {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(name == null || status == null)
-                {
+                if (name == null || status == null) {
                     Toast.makeText(getActivity().getApplicationContext(), "name and status need to be filled", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                } else {
                     FamilyFragment fragment = new FamilyFragment();
 
                     FamilyMember newMember = new FamilyMember();
@@ -66,6 +68,18 @@ public class AddFamilyFragment extends Fragment {
                     Global.familyMembers.add(newMember);
                     Global.healthDetailses.add(newHealthDetails);
                     Global.updateCurrentFamilyMember();
+
+                    if (Global.currentFamily.size() > 3 && Global.currentUser.getFirstThreeReward()) {
+                        Date today = Calendar.getInstance().getTime();
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                        String dateFormat = formatter.format(today);
+
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Three", "first three member", 10000, true);
+                        Global.rewards.add(newReward);
+                        Global.updateCurrentReward();
+
+                        Global.currentUser.setFirstThreeReward(false);
+                    }
 
                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);

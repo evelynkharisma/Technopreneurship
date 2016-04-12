@@ -67,6 +67,7 @@ public class LoginActivity extends Activity  {
 
                         Global.currentName = Global.currentMainFamilyMember.getName();
                         Global.currentUsername = Global.currentMainFamilyMember.getUsername();
+                        Global.currentUser = Global.users.get(i);
 
 //                        Log.i("login age", age + "");
 

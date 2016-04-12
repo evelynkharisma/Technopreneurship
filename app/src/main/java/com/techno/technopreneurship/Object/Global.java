@@ -9,6 +9,7 @@ public class Global {
     public static String currentUsername;
     public static String currentName;
 
+    public static User currentUser;
     public static FamilyMember currentMainFamilyMember;
     public static HealthDetails currentMainHealthDetail;
     public static Blood_Count currentMainBloodCount;
@@ -23,6 +24,7 @@ public class Global {
     public static ArrayList<UricAcid> currentUricAcid = new ArrayList<>();
     public static ArrayList<UrineTest> currentUrineTest = new ArrayList<>();
     public static ArrayList<Vaccine> currentVaccine = new ArrayList<>();
+    public static ArrayList<Reward> currentReward = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
@@ -36,6 +38,7 @@ public class Global {
     public static ArrayList<UricAcid> uricAcids = new ArrayList<>();
     public static ArrayList<UrineTest> urineTests = new ArrayList<>();
     public static ArrayList<Vaccine> vaccines = new ArrayList<>();
+    public static ArrayList<Reward> rewards = new ArrayList<>();
 
     /**
      * Set the main user of family having username <i>username</i>
@@ -165,6 +168,15 @@ public class Global {
         for (Vaccine vaccine : Global.vaccines) {
             if (vaccine.getUser().equalsIgnoreCase(Global.currentUsername) && vaccine.getName().equalsIgnoreCase(Global.currentName)) {
                 Global.currentVaccine.add(vaccine);
+            }
+        }
+    }
+
+    public static void updateCurrentReward() {
+        Global.currentReward.clear();
+        for (Reward reward : Global.rewards) {
+            if (reward.getUsername().equalsIgnoreCase(Global.currentUsername)) {
+                Global.currentReward.add(reward);
             }
         }
     }

@@ -84,13 +84,13 @@ public class MainActivity extends AppCompatActivity
 //            Intent intent = new Intent(MainActivity.this, MainActivity.class);
 //            startActivity(intent);
         } else if (id == R.id.nav_promotions) {
-
             Intent intent = new Intent(MainActivity.this, PromotionFragment.class);
             startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.nav_rewards) {
+            RewardsFragment fragment = new RewardsFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
