@@ -52,7 +52,7 @@ public class AddCholesterolFragment extends Fragment {
                     Global.updateCurrentCholesterol();
 
                     if (Global.currentUser.getFirstDataCholesterol()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Cholesterol", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Cholesterol", "cholesterol", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataCholesterol(false);

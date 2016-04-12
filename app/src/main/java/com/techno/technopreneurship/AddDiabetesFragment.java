@@ -48,7 +48,7 @@ public class AddDiabetesFragment extends Fragment {
                     Global.updateCurrentDiabetes();
 
                     if (Global.currentUser.getFirstDataDiabetes()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Diabetes", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Diabetes", "diabetes", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataDiabetes(false);

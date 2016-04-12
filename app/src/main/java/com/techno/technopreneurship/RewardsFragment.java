@@ -29,77 +29,94 @@ import com.techno.technopreneurship.Object.Global;
 public class RewardsFragment extends Fragment {
     private static final int NUM_COLS = 1;
 
-    public RewardsFragment() {
-        // Required empty public constructor
-    }
+    public RewardsFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_rewards, container, false);
 
-        TableLayout table = (TableLayout) view.findViewById(R.id.rewardsTable);
+        Button btnThreeMember = (Button)  view.findViewById(R.id.rewards_addThreeMember);
+        Button btnAllergy = (Button)  view.findViewById(R.id.rewards_firstDataAllergy);
+        Button btnBloodCount = (Button)  view.findViewById(R.id.rewards_firstDataBloodCount);
+        Button btnBloodTension = (Button)  view.findViewById(R.id.rewards_firstDataBloodTension);
+        Button btnCholesterol = (Button)  view.findViewById(R.id.rewards_firstDataCholesterol);
+        Button btnDiabetes = (Button)  view.findViewById(R.id.rewards_firstDataDiabetes);
+        Button btnHeartRate = (Button)  view.findViewById(R.id.rewards_firstDataHeartRate);
+        Button btnUricAcid = (Button)  view.findViewById(R.id.rewards_firstDataUricAcid);
+        Button btnUrineTest = (Button)  view.findViewById(R.id.rewards_firstDataUrineTest);
+        Button btnVaccine = (Button)  view.findViewById(R.id.rewards_firstDataVaccine);
+        Button btnOneYear = (Button)  view.findViewById(R.id.rewards_oneYear);
+
+//        TableLayout table = (TableLayout) view.findViewById(R.id.rewardsTable);
 
         for (int row = 0; row < Global.currentReward.size(); row++) {
-            TableRow tableRow = new TableRow(getActivity());
-            tableRow.setLayoutParams(new TableLayout.LayoutParams(
-                    TableLayout.LayoutParams.MATCH_PARENT, 100
-            ));
-            table.addView(tableRow);
-            for (int column = 0; column < NUM_COLS; column++) {
-                final Button folderButton = new Button(getActivity());
-                folderButton.setId(row);
+//            TableRow tableRow = new TableRow(getActivity());
+//            tableRow.setLayoutParams(new TableLayout.LayoutParams(
+//                    TableLayout.LayoutParams.MATCH_PARENT, 100
+//            ));
+//            table.addView(tableRow);
+//            for (int column = 0; column < NUM_COLS; column++) {
+//                final Button folderButton = new Button(getActivity());
+//                folderButton.setId(row);
 
-                if (Global.currentReward.get(row).getAvailable()) {
-                    if (Global.currentReward.get(row).getType().equalsIgnoreCase("first three member")) {
-                        folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.son, 0, 0, 0);
-                        folderButton.setText("  " + Global.currentReward.get(row).getDetail());
-                    } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("first data in each category")) {
-                        folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.daughter, 0, 0, 0);
-                        folderButton.setText("  " + Global.currentReward.get(row).getDetail());
-                    } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("first time request from hospital")) {
-                        folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.mother, 0, 0, 0);
-                        folderButton.setText("  First Request from Hospital");
-                    } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("one year")) {
-                        folderButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.father, 0, 0, 0);
-                        folderButton.setText("  One Year!");
-                    }
-
-
-                    folderButton.setPadding(40, 30, 0, 30);
-                    folderButton.setTextSize(12);
-                    folderButton.setBackgroundColor(getResources().getColor(R.color.transparent_background));
-                    folderButton.setGravity(Gravity.LEFT);
-                    folderButton.setGravity(Gravity.CENTER_VERTICAL);
-
-                    folderButton.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            int choosen = folderButton.getId();
-
-                            Log.i("reward folder clicked", folderButton.getText()+"");
-
-//                            CategoryFragment fragment = new CategoryFragment();
-//                            android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//                            fragmentTransaction.commit();
-                        }
-                    });
-
-                    tableRow.addView(folderButton);
+            if (Global.currentReward.get(row).getAvailable()) {
+                if (Global.currentReward.get(row).getType().equalsIgnoreCase("first three member")) {
+                    btnThreeMember.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("allergy")) {
+                    btnAllergy.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood count")) {
+                    btnBloodCount.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood tension")) {
+                    btnBloodTension.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("cholesterol")) {
+                    btnCholesterol.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("diabetes")) {
+                    btnDiabetes.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("heart rate")) {
+                    btnHeartRate.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("uric acid")) {
+                    btnUricAcid.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("urine test")) {
+                    btnUrineTest.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("vaccine")) {
+                    btnVaccine.setEnabled(true);
+                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("one year")) {
+                    btnOneYear.setEnabled(true);
                 }
+
+
+//                    folderButton.setPadding(40, 30, 0, 30);
+//                    folderButton.setTextSize(12);
+//                    folderButton.setBackgroundColor(getResources().getColor(R.color.transparent_background));
+//                    folderButton.setGravity(Gravity.LEFT);
+//                    folderButton.setGravity(Gravity.CENTER_VERTICAL);
+//
+//                    folderButton.setOnClickListener(new View.OnClickListener() {
+//                        public void onClick(View v) {
+//                            int choosen = folderButton.getId();
+//
+//                            Log.i("reward folder clicked", folderButton.getText()+"");
+//
+////                            CategoryFragment fragment = new CategoryFragment();
+////                            android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+////                            fragmentTransaction.replace(R.id.fragment_container, fragment);
+////                            fragmentTransaction.commit();
+//                        }
+//                    });
+
+//                    tableRow.addView(folderButton);
             }
-            View line = new View(getActivity());
-            TableRow.LayoutParams separatorLayoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2);
-            separatorLayoutParams.setMargins(100, 0, 0, 0);
-            line.setBackgroundColor(Color.GRAY);
-            table.addView(line, separatorLayoutParams);
-
-            Space rowSpace = new Space(getActivity());
-            rowSpace.setMinimumHeight(20);
-            table.addView(rowSpace);
         }
-        /////////////////////////////////////////Create Family List End//////////////////////////////////////////////////////
-
+//            View line = new View(getActivity());
+//            TableRow.LayoutParams separatorLayoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2);
+//            separatorLayoutParams.setMargins(100, 0, 0, 0);
+//            line.setBackgroundColor(Color.GRAY);
+//            table.addView(line, separatorLayoutParams);
+//
+//            Space rowSpace = new Space(getActivity());
+//            rowSpace.setMinimumHeight(20);
+//            table.addView(rowSpace);
         return view;
     }
 }

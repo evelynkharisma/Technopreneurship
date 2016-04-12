@@ -53,7 +53,7 @@ public class AddVaccineFragment extends Fragment {
                     Global.updateCurrentVaccine();
 
                     if (Global.currentUser.getFirstDataVaccine()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Vaccine", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Vaccine", "vaccine", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataVaccine(false);

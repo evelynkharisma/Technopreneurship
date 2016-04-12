@@ -51,7 +51,7 @@ public class AddUricAcidFragment extends Fragment {
                     Global.updateCurrentUricAcid();
 
                     if (Global.currentUser.getFirstDataUricAcid()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Uric Acid", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Uric Acid", "uric acid", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataUricAcid(false);

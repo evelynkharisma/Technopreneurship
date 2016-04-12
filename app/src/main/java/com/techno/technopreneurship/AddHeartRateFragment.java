@@ -49,7 +49,7 @@ public class AddHeartRateFragment extends Fragment {
                     Global.updateCurrentHeartRate();
 
                     if (Global.currentUser.getFirstDataHealthRate()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Heart Rate", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Heart Rate", "heart rate", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataHealthRate(false);

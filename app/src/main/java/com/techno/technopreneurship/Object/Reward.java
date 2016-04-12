@@ -4,12 +4,14 @@ package com.techno.technopreneurship.Object;
  * Created by janistan on 4/12/2016.
  */
 public class Reward {
+
     private String username;
     private String date;
     private String detail;
     private String type;
     private Integer voucher;
     private Boolean available;
+    private Boolean used = false;
 
     public Reward() { }
 
@@ -68,5 +70,13 @@ public class Reward {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public Boolean getUsed() {
+        return used;
+    }
+
+    public void setUsed(Boolean used) {
+        this.used = used;
     }
 }

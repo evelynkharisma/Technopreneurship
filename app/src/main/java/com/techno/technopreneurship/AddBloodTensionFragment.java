@@ -50,7 +50,7 @@ public class AddBloodTensionFragment extends Fragment {
                     Global.updateCurrentBloodTension();
 
                     if (Global.currentUser.getFirstDataBloodTension()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Blood Tension", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Blood Tension", "blood tension", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataBloodTension(false);

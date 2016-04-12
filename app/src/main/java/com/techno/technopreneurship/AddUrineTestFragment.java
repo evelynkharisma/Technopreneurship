@@ -89,7 +89,7 @@ public class AddUrineTestFragment extends Fragment {
                 Global.updateCurrentUrineTest();
 
                 if (Global.currentUser.getFirstDataUrineTest()) {
-                    Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Urine Test", "first data in each category", 20000, true);
+                    Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Urine Test", "urine test", 20000, true);
                     Global.rewards.add(newReward);
                     Global.updateCurrentReward();
                     Global.currentUser.setFirstDataUrineTest(false);

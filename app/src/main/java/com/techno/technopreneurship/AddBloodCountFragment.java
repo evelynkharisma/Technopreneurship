@@ -53,7 +53,7 @@ public class AddBloodCountFragment extends Fragment {
                     Global.updateCurrentBloodCount();
 
                     if (Global.currentUser.getFirstDataBloodCount()) {
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Blood Count", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Blood Count", "blood count", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataBloodCount(false);

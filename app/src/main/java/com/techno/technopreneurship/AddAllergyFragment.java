@@ -29,11 +29,6 @@ public class AddAllergyFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_allergy, container, false);
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
-
         allergy = (EditText) view.findViewById(R.id.add_allergy_fill);
         addAllergy = (Button) view.findViewById(R.id.add_allergy_btn);
 
@@ -54,7 +49,7 @@ public class AddAllergyFragment extends Fragment {
                         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                         String dateFormat = formatter.format(today);
 
-                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Allergy", "first data in each category", 20000, true);
+                        Reward newReward = new Reward(Global.currentUsername, dateFormat, "First Data of Allergy", "allergy", 20000, true);
                         Global.rewards.add(newReward);
                         Global.updateCurrentReward();
                         Global.currentUser.setFirstDataAllergy(false);
