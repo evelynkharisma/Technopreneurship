@@ -39,6 +39,9 @@ public class Global {
     public static ArrayList<UrineTest> urineTests = new ArrayList<>();
     public static ArrayList<Vaccine> vaccines = new ArrayList<>();
     public static ArrayList<Reward> rewards = new ArrayList<>();
+    public static ArrayList<Doctor> doctors = new ArrayList<>();
+    public static ArrayList<Hospital> hospitals = new ArrayList<>();
+
 
     /**
      * Set the main user of family having username <i>username</i>

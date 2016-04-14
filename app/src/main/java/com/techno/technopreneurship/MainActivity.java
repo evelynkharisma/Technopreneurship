@@ -91,9 +91,17 @@ public class MainActivity extends AppCompatActivity
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_listHospital) {
+            ListHospitalFragment fragment = new ListHospitalFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_favoriteDoctors) {
+            FavoriteDoctorFragment fragment = new FavoriteDoctorFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
 
         }
 

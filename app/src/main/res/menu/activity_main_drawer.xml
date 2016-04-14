@@ -8,8 +8,10 @@
             android:title="Promotions" />
         <item android:id="@+id/nav_rewards" android:icon="@android:drawable/ic_menu_slideshow"
               android:title="Rewards" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+        <item android:id="@+id/nav_listHospital" android:icon="@android:drawable/ic_menu_manage"
+              android:title="Hospital List" />
+        <item android:id="@+id/nav_favoriteDoctors" android:icon="@android:drawable/ic_menu_manage"
+              android:title="Favorite Doctors" />
     </group>
 
     <item android:title="Communicate">

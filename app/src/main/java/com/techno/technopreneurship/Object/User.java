@@ -1,5 +1,7 @@
 package com.techno.technopreneurship.Object;
 
+import java.util.ArrayList;
+
 /**
  * Created by janistan on 4/9/2016.
  */
@@ -16,6 +18,7 @@ public class User {
     private Boolean firstDataUricAcid = true;
     private Boolean firstDataUrineTest = true;
     private Boolean firstDataVaccine = true;
+    private ArrayList<Doctor> favorite = new ArrayList<>();
 
     public User() {}
 
@@ -118,5 +121,13 @@ public class User {
 
     public void setFirstDataUrineTest(Boolean firstDataUrineTest) {
         this.firstDataUrineTest = firstDataUrineTest;
+    }
+
+    public ArrayList<Doctor> getFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(ArrayList<Doctor> favorite) {
+        this.favorite = favorite;
     }
 }

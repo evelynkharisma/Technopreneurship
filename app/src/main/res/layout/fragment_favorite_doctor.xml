@@ -1,0 +1,40 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".FavoriteDoctorFragment">
+
+    <RelativeLayout
+        android:id="@+id/BC_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/sign_in">
+
+        <TextView
+            android:id="@+id/category_tittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Doctors"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/category_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:id="@+id/FavDoctor_Table"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="0dp"
+            android:stretchColumns="*"></TableLayout>
+    </ScrollView>
+</FrameLayout>

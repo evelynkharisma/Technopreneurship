@@ -69,9 +69,6 @@ public class LoginActivity extends Activity  {
                         Global.currentUsername = Global.currentMainFamilyMember.getUsername();
                         Global.currentUser = Global.users.get(i);
 
-//                        Log.i("login age", age + "");
-
-
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     } else {
