@@ -101,33 +101,6 @@ public class FamilyFragment extends Fragment {
             }
         });
 
-        //////////////////////////////////////////////Temp add family member/////////////////////////////////////////////////////
-
-        ////////////////////////////////////Add new family member to arraylist
-//        final Bundle bundle = this.getArguments();
-//        if(bundle != null)
-//        {
-//            // utk cek klw bundle ini dtng drimana --> di pkai kalau bundle ny tidak hny datang dri addfamilyfragment
-//            //int isAdd = bundle.getInt("isAddFam");
-//            //if(isAdd == 1)
-//            //{
-//                String addFamName = bundle.getString("add_fam_name");
-//                String addFamStatus = bundle.getString("add_fam_status");
-//                fm.add(new FamilyMember(currentUser, addFamName, addFamStatus));
-//            //}
-//        }
-
-
-        /////////////////////////////////////////////Create family member list////////////////////////////////////////////////
-//        ArrayList<Integer> listIndexFamily = new ArrayList<>();
-//        for (int i = 0; i < fm.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(fm.get(i).getUsername())) {
-//                myFamilyMember.add(fm.get(i));
-//                listIndexFamily.add(i);
-//            }
-//        }
-
-//        Global.updateCurrentFamilyMember();
         for (int row = 0; row < Global.currentFamily.size(); row++) {
             TableRow tableRow = new TableRow(getActivity());
             tableRow.setLayoutParams(new TableLayout.LayoutParams(

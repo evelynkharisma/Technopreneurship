@@ -5,8 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,7 +21,10 @@ import java.util.Date;
 
 public class AddVaccineFragment extends Fragment {
 
-    EditText vac;
+    AutoCompleteTextView vaccine;
+
+    String[] arr = { "Diphtheria", "Hepatitis A","Hepatitis B", "Human papillomavirus", "Polio", "Tetanus   "};
+
     Spinner sta;
     Button addV;
     public AddVaccineFragment() {
@@ -31,14 +35,19 @@ public class AddVaccineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_vaccine, container, false);
 
-        vac = (EditText) view.findViewById(R.id.add_V_fill);
+        vaccine = (AutoCompleteTextView) view.findViewById(R.id.add_V_fill); //this.getActivity
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> (this.getActivity(),android.R.layout.select_dialog_item, arr);
+
+        vaccine.setThreshold(2); //copy
+        vaccine.setAdapter(adapter); //copy
+
         sta = (Spinner)view.findViewById(R.id.add_V_stage);
         addV = (Button) view.findViewById(R.id.add_V_btn);
 
         addV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(vac == null || sta == null) {
+                if(vaccine == null || sta == null) {
                     Toast.makeText(getActivity().getApplicationContext(), "all field need to be filled", Toast.LENGTH_SHORT).show();
                 } else {
                     VaccineFragment fragment = new VaccineFragment();
@@ -48,7 +57,7 @@ public class AddVaccineFragment extends Fragment {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
                     String dateFormat = formatter.format(today);
 
-                    Vaccine newVaccine = new Vaccine(Global.currentUsername, Global.currentName, dateFormat, vac.getText().toString(), sta.getSelectedItem().toString());
+                    Vaccine newVaccine = new Vaccine(Global.currentUsername, Global.currentName, dateFormat, vaccine.getText().toString(), sta.getSelectedItem().toString());
                     Global.vaccines.add(newVaccine);
                     Global.updateCurrentVaccine();
 

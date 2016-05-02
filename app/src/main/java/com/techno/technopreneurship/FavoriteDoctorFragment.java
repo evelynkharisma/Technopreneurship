@@ -52,22 +52,29 @@ public class FavoriteDoctorFragment extends Fragment {
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
+        TextView label_day = new TextView(getActivity());
+        label_day.setId(21);
+        label_day.setText("Day");
+        label_day.setTextColor(Color.WHITE);
+        label_day.setPadding(5, 5, 5, 5);
+        tableRow.addView(label_day);
+
         TextView label_hdl = new TextView(getActivity());
-        label_hdl.setId(21);
+        label_hdl.setId(22);
         label_hdl.setText("Start Time");
         label_hdl.setTextColor(Color.WHITE);
         label_hdl.setPadding(5, 5, 5, 5);
         tableRow.addView(label_hdl);
 
         TextView label_ldl = new TextView(getActivity());
-        label_ldl.setId(22);
+        label_ldl.setId(23);
         label_ldl.setText("End Time");
         label_ldl.setTextColor(Color.WHITE);
         label_ldl.setPadding(5, 5, 5, 5);
         tableRow.addView(label_ldl);
 
         TextView label_total = new TextView(getActivity());
-        label_total.setId(23);
+        label_total.setId(24);
         label_total.setText("Hospital");
         label_total.setTextColor(Color.WHITE);
         label_total.setPadding(5, 5, 5, 5);

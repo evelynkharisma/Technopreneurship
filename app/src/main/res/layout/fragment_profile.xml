@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="@color/background">
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+                android:background="@color/background">
 
     <TextView
         android:id="@+id/sign_up_tittle"
@@ -36,7 +36,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="12dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_username"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
@@ -108,7 +108,8 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="12dp"/>
 
-            <TextView
+
+            <EditText
                 android:id="@+id/profile_name_fill"
                 android:layout_below="@id/profile_cPass_fill"
                 android:layout_width="150dp"
@@ -121,8 +122,32 @@
                 android:layout_alignParentRight="true" />
 
             <TextView
-                android:id="@+id/profile_add"
+                android:id="@+id/profile_gender"
                 android:layout_below="@id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="12dp"/>
+
+
+            <EditText
+                android:id="@+id/profile_gender_fill"
+                android:layout_below="@id/profile_name_fill"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="12dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="10dp"
+                android:textColor="@color/gray"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/profile_add"
+                android:layout_below="@id/profile_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Address"
@@ -133,7 +158,7 @@
 
             <EditText
                 android:id="@+id/profile_add_fill"
-                android:layout_below="@id/profile_name_fill"
+                android:layout_below="@id/profile_gender_fill"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
@@ -207,7 +232,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_alignEnd="@+id/sign_up_add" />
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_bday_day_fill"
                 android:layout_below="@id/profile_phone_fill"
                 android:layout_toLeftOf="@+id/profile_bday_month_fill"
@@ -229,7 +254,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginRight="4dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_bday_month_fill"
                 android:layout_below="@id/profile_phone_fill"
                 android:layout_toLeftOf="@+id/profile_bday_year_fill"
@@ -251,7 +276,7 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginRight="4dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_bday_year_fill"
                 android:layout_below="@id/profile_phone_fill"
                 android:layout_width="60dp"
@@ -274,7 +299,7 @@
                 android:layout_marginTop="27dp"
                 android:layout_marginLeft="12dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_ID_fill"
                 android:layout_below="@id/profile_bday_year_fill"
                 android:layout_width="150dp"
@@ -359,7 +384,7 @@
                 android:layout_marginTop="23dp"
                 android:layout_marginLeft="12dp"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/profile_blood_fill"
                 android:layout_below="@id/profile_EPhone_fill"
                 android:layout_width="150dp"

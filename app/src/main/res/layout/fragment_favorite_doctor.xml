@@ -1,11 +1,13 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".FavoriteDoctorFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/background"
+                tools:context=".FavoriteDoctorFragment">
 
     <RelativeLayout
-        android:id="@+id/BC_tittle"
+        android:id="@+id/FavDoc_tittle"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/sign_in">
@@ -24,7 +26,7 @@
     </RelativeLayout>
 
     <ScrollView
-        android:layout_below="@+id/category_tittle"
+        android:layout_below="@+id/FavDoc_tittle"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -37,4 +39,4 @@
             android:layout_marginTop="0dp"
             android:stretchColumns="*"></TableLayout>
     </ScrollView>
-</FrameLayout>
+</RelativeLayout>

@@ -1,7 +1,6 @@
 package com.techno.technopreneurship;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -84,8 +83,10 @@ public class MainActivity extends AppCompatActivity
 //            Intent intent = new Intent(MainActivity.this, MainActivity.class);
 //            startActivity(intent);
         } else if (id == R.id.nav_promotions) {
-            Intent intent = new Intent(MainActivity.this, PromotionFragment.class);
-            startActivity(intent);
+            PromotionFragment fragment = new PromotionFragment();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_rewards) {
             RewardsFragment fragment = new RewardsFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

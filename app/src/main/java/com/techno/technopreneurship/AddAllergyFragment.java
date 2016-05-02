@@ -5,8 +5,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Allergy;
@@ -19,7 +20,9 @@ import java.util.Date;
 
 public class AddAllergyFragment extends Fragment {
 
-    EditText allergy;
+    AutoCompleteTextView allergy;
+
+    String[] arr = { "Peanut", "Paracetamol","Pineapple", "Cataflam", "Almond", "Alcohol"};
     Button addAllergy;
 
     public AddAllergyFragment() {}
@@ -29,7 +32,12 @@ public class AddAllergyFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_allergy, container, false);
 
-        allergy = (EditText) view.findViewById(R.id.add_allergy_fill);
+        allergy = (AutoCompleteTextView) view.findViewById(R.id.add_allergy_fill); //this.getActivity
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> (this.getActivity(),android.R.layout.select_dialog_item, arr);
+
+        allergy.setThreshold(2); //copy
+        allergy.setAdapter(adapter); //copy
+
         addAllergy = (Button) view.findViewById(R.id.add_allergy_btn);
 
         addAllergy.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.techno.technopreneurship;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,23 +22,15 @@ import com.techno.technopreneurship.Object.HeartRate;
 import java.util.ArrayList;
 
 public class HeartRateFragment extends Fragment {
-    public HeartRateFragment() {
-        // Required empty public constructor
-    }
-
-//    public ArrayList<HeartRate> heartRates = new ArrayList<HeartRate>();
-//    public ArrayList<HeartRate> myHeartRates = new ArrayList<HeartRate>();
+    public HeartRateFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_heart_rate, container, false);
 
-        TableLayout table = (TableLayout) view.findViewById(R.id.HR_Table);
+        Global.currentCategory = "heart rate";
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
+        TableLayout table = (TableLayout) view.findViewById(R.id.HR_Table);
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addHR);
@@ -45,38 +38,21 @@ public class HeartRateFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddHeartRateFragment fragment = new AddHeartRateFragment();
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", currentUser);
-//                choosen_bundle.putString("cname", currentName);
-//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });
 
-        ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-//        heartRates.add(new HeartRate("user","user","03-04-2016",5.3));
-//        heartRates.add(new HeartRate("user","user","01-04-2016",7));
+        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartHeartRate);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LineChartActivity.class);
+                startActivity(intent);
+            }
+        });
 
-
-//        if(bundle != null)
-//        {
-//            if(bundle.getString("heartrate") != null){
-//                String adddate = bundle.getString("date");
-//                String addhr = bundle.getString("heartrate");
-//                heartRates.add(new HeartRate(currentUser, currentName, adddate, Double.parseDouble(addhr)));
-//            }
-//        }
-
-        ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-//        for (int i = 0; i < heartRates.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(heartRates.get(i).getUser()) && currentName.equalsIgnoreCase(heartRates.get(i).getName())) {
-//                myHeartRates.add(heartRates.get(i));
-//                listIndexAllergy.add(i);
-//            }
-//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());

@@ -48,17 +48,8 @@ public class RewardsFragment extends Fragment {
         Button btnVaccine = (Button)  view.findViewById(R.id.rewards_firstDataVaccine);
         Button btnOneYear = (Button)  view.findViewById(R.id.rewards_oneYear);
 
-//        TableLayout table = (TableLayout) view.findViewById(R.id.rewardsTable);
 
         for (int row = 0; row < Global.currentReward.size(); row++) {
-//            TableRow tableRow = new TableRow(getActivity());
-//            tableRow.setLayoutParams(new TableLayout.LayoutParams(
-//                    TableLayout.LayoutParams.MATCH_PARENT, 100
-//            ));
-//            table.addView(tableRow);
-//            for (int column = 0; column < NUM_COLS; column++) {
-//                final Button folderButton = new Button(getActivity());
-//                folderButton.setId(row);
 
             if (Global.currentReward.get(row).getAvailable()) {
                 if (Global.currentReward.get(row).getType().equalsIgnoreCase("first three member")) {
@@ -84,39 +75,9 @@ public class RewardsFragment extends Fragment {
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("one year")) {
                     btnOneYear.setEnabled(true);
                 }
-
-
-//                    folderButton.setPadding(40, 30, 0, 30);
-//                    folderButton.setTextSize(12);
-//                    folderButton.setBackgroundColor(getResources().getColor(R.color.transparent_background));
-//                    folderButton.setGravity(Gravity.LEFT);
-//                    folderButton.setGravity(Gravity.CENTER_VERTICAL);
-//
-//                    folderButton.setOnClickListener(new View.OnClickListener() {
-//                        public void onClick(View v) {
-//                            int choosen = folderButton.getId();
-//
-//                            Log.i("reward folder clicked", folderButton.getText()+"");
-//
-////                            CategoryFragment fragment = new CategoryFragment();
-////                            android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-////                            fragmentTransaction.replace(R.id.fragment_container, fragment);
-////                            fragmentTransaction.commit();
-//                        }
-//                    });
-
-//                    tableRow.addView(folderButton);
             }
         }
-//            View line = new View(getActivity());
-//            TableRow.LayoutParams separatorLayoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 2);
-//            separatorLayoutParams.setMargins(100, 0, 0, 0);
-//            line.setBackgroundColor(Color.GRAY);
-//            table.addView(line, separatorLayoutParams);
-//
-//            Space rowSpace = new Space(getActivity());
-//            rowSpace.setMinimumHeight(20);
-//            table.addView(rowSpace);
+
         return view;
     }
 }

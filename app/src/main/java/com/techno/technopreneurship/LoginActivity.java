@@ -78,14 +78,15 @@ public class LoginActivity extends Activity  {
             }
         });
 
-        /*btn_forgot_pass=(Button)findViewById(R.id.btn_forgot_pass);
+        btn_forgot_pass=(Button)findViewById(R.id.btn_forgot_pass);
 
         btn_forgot_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(intent);
             }
-        });*/
+        });
 
         btn_sign_up=(Button)findViewById(R.id.btn_sign_up);
 

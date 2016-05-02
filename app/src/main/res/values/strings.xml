@@ -6,7 +6,7 @@
 
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="prompt_username">USERNAME</string>
@@ -44,4 +44,8 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+    <string
+        name="title_activity_forgot_password">
+        ForgotPassword
+    </string>
 </resources>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Global {
     public static String currentUsername;
     public static String currentName;
+    public static String currentCategory;
 
     public static User currentUser;
     public static FamilyMember currentMainFamilyMember;
@@ -25,6 +26,7 @@ public class Global {
     public static ArrayList<UrineTest> currentUrineTest = new ArrayList<>();
     public static ArrayList<Vaccine> currentVaccine = new ArrayList<>();
     public static ArrayList<Reward> currentReward = new ArrayList<>();
+    public static ArrayList<Integer> promotions = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();

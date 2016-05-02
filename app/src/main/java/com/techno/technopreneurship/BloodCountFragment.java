@@ -1,5 +1,6 @@
 package com.techno.technopreneurship;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,12 +16,8 @@ import android.widget.TextView;
 import com.techno.technopreneurship.Object.Global;
 
 public class BloodCountFragment extends Fragment {
-    public BloodCountFragment() {
-        // Required empty public constructor
-    }
+    public BloodCountFragment() {    }
 
-    //    public ArrayList<Blood_Count> blood_counts = new ArrayList<Blood_Count>();
-//    public ArrayList<Blood_Count> myBlood_counts = new ArrayList<Blood_Count>();
     private static final int NUM_COLS = 1;
 
     @Override
@@ -29,10 +26,7 @@ public class BloodCountFragment extends Fragment {
 
         TableLayout table = (TableLayout) view.findViewById(R.id.BC_Table);
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
+        Global.currentCategory = "blood count";
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addBC);
@@ -40,40 +34,20 @@ public class BloodCountFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddBloodCountFragment fragment = new AddBloodCountFragment();
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", currentUser);
-//                choosen_bundle.putString("cname", currentName);
-//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });
 
-        ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-//        blood_counts.add(new Blood_Count("user","user","03-04-2016",5.3,5.4,200));
-//        blood_counts.add(new Blood_Count("user","user","01-04-2016",7,6,250));
-
-
-//        if(bundle != null)
-//        {
-//            if(bundle.getString("rbc") != null){
-//                String adddate = bundle.getString("date");
-//                String addrbc = bundle.getString("rbc");
-//                String addwbc = bundle.getString("wbc");
-//                String addthrombocyte = bundle.getString("thrombocyte");
-//                blood_counts.add(new Blood_Count(currentUser, currentName, adddate, Double.parseDouble(addrbc), Double.parseDouble(addwbc), Double.parseDouble(addthrombocyte)));
-//            }
-//        }
-
-        ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-//        for (int i = 0; i < blood_counts.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(blood_counts.get(i).getUsername()) && currentName.equalsIgnoreCase(blood_counts.get(i).getName())) {
-//                myBlood_counts.add(blood_counts.get(i));
-//                listIndexAllergy.add(i);
-//            }
-//        }
+        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartBloodCount);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LineChartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -113,8 +87,6 @@ public class BloodCountFragment extends Fragment {
 
         table.addView(tableRow);
 
-
-//        Global.updateCurrentBloodCount();
         Integer count=0;
         int myBCSize = Global.currentBloodCount.size();
         for (int i = myBCSize-1; i >= 0; i--){

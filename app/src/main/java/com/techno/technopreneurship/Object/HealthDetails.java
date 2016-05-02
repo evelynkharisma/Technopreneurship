@@ -8,15 +8,17 @@ import java.util.Date;
 public class HealthDetails {
     private String username;
     private String name;
+    private String bloodType;
     private Date birthday;
     private double weight;
     private double height;
 
     public HealthDetails() {}
 
-    public HealthDetails(String username, String name, Date birthday, double weight, double height) {
+    public HealthDetails(String username, String name, String bloodType, Date birthday, double weight, double height) {
         this.username = username;
         this.name = name;
+        this.bloodType = bloodType;
         this.birthday = birthday;
         this.weight = weight;
         this.height = height;
@@ -60,5 +62,13 @@ public class HealthDetails {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public String getBloodType() {
+        return bloodType;
+    }
+
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
     }
 }

@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background"
-    tools:context="com.techno.technopreneurship.FamilyFragment">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/background"
+                tools:context="com.techno.technopreneurship.FamilyFragment">
 
     <RelativeLayout
         android:id="@+id/BC_tittle"
@@ -50,11 +50,17 @@
         android:layout_alignParentEnd="true">
 
         <android.support.design.widget.FloatingActionButton android:id="@+id/btn_addCholesterol"
-            android:layout_width="50dp" android:layout_height="50dp"
-            android:layout_marginBottom="25dp"
-            android:layout_marginRight="25dp"
-            android:src="@android:drawable/ic_input_add"
-            app:backgroundTint="#2f43f6" />
+                                                            android:layout_width="50dp" android:layout_height="50dp"
+                                                            android:layout_marginBottom="25dp"
+                                                            android:layout_marginRight="25dp"
+                                                            android:src="@android:drawable/ic_input_add"
+                                                            app:backgroundTint="#2f43f6" />
+
+        <android.support.design.widget.FloatingActionButton android:id="@+id/btn_chartCholesterol"
+                                                            android:layout_width="50dp" android:layout_height="50dp"
+                                                            android:layout_marginBottom="25dp"
+                                                            android:layout_marginRight="25dp"
+                                                            app:backgroundTint="#2f43f6" />
     </LinearLayout>
 
 </RelativeLayout>

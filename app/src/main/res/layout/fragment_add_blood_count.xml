@@ -35,6 +35,7 @@
 
         <EditText
             android:id="@+id/add_rbc_fill"
+            android:inputType="numberDecimal"
             android:layout_below="@id/add_bc_tittle"
             android:layout_width="170dp"
             android:layout_height="30dp"
@@ -60,6 +61,7 @@
 
         <EditText
             android:id="@+id/add_wbc_fill"
+            android:inputType="numberDecimal"
             android:layout_below="@id/add_rbc_fill"
             android:layout_width="170dp"
             android:layout_height="30dp"
@@ -85,6 +87,7 @@
 
         <EditText
             android:id="@+id/add_thrombocyte_fill"
+            android:inputType="numberDecimal"
             android:layout_below="@id/add_wbc_fill"
             android:layout_width="170dp"
             android:layout_height="30dp"

@@ -1,5 +1,6 @@
 package com.techno.technopreneurship;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,24 +20,16 @@ import com.techno.technopreneurship.Object.Global;
 import java.util.ArrayList;
 
 public class BloodTensionFragment extends Fragment {
-    public BloodTensionFragment() {
-        // Required empty public constructor
-    }
-
-//    public ArrayList<Blood_Tension> blood_tensions = new ArrayList<Blood_Tension>();
-//    public ArrayList<Blood_Tension> myBlood_tensions = new ArrayList<Blood_Tension>();
+    public BloodTensionFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_blood_tension, container, false);
 
-        TableLayout table = (TableLayout) view.findViewById(R.id.BT_Table);
+        Global.currentCategory = "blood tension";
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
+        TableLayout table = (TableLayout) view.findViewById(R.id.BT_Table);
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addBT);
@@ -44,39 +37,20 @@ public class BloodTensionFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddBloodTensionFragment fragment = new AddBloodTensionFragment();
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", currentUser);
-//                choosen_bundle.putString("cname", currentName);
-//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });
 
-        ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-//        blood_tensions.add(new Blood_Tension("user","user","03-04-2016",5.3,5.4));
-//        blood_tensions.add(new Blood_Tension("user","user","01-04-2016",7,6));
-
-
-//        if(bundle != null)
-//        {
-//            if(bundle.getString("systol") != null){
-//                String adddate = bundle.getString("date");
-//                String addsystol = bundle.getString("systol");
-//                String adddiastol = bundle.getString("diastol");
-//                blood_tensions.add(new Blood_Tension(currentUser, currentName, adddate, Double.parseDouble(addsystol), Double.parseDouble(adddiastol)));
-//            }
-//        }
-
-        ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-//        for (int i = 0; i < blood_tensions.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(blood_tensions.get(i).getUser()) && currentName.equalsIgnoreCase(blood_tensions.get(i).getName())) {
-//                myBlood_tensions.add(blood_tensions.get(i));
-//                listIndexAllergy.add(i);
-//            }
-//        }
+        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartBloodTension);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LineChartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());

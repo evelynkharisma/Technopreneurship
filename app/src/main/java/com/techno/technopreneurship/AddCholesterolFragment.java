@@ -37,7 +37,7 @@ public class AddCholesterolFragment extends Fragment {
         addCholesterol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(hdl == null || ldl == null | total == null) {
+                if(hdl.getText().toString().equalsIgnoreCase(null) || ldl.getText().toString().equalsIgnoreCase(null) || total.getText().toString().equalsIgnoreCase(null)) {
                     Toast.makeText(getActivity().getApplicationContext(), "all field need to be filled", Toast.LENGTH_SHORT).show();
                 } else {
                     CholesterolFragment fragment = new CholesterolFragment();
