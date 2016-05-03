@@ -34,6 +34,7 @@ public class AddVaccineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_vaccine, container, false);
+        Global.currentPage = "AddVaccineFragment";
 
         vaccine = (AutoCompleteTextView) view.findViewById(R.id.add_V_fill); //this.getActivity
         ArrayAdapter<String> adapter = new ArrayAdapter<String> (this.getActivity(),android.R.layout.select_dialog_item, arr);

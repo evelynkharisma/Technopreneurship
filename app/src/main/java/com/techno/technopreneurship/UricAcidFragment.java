@@ -25,16 +25,20 @@ import java.util.ArrayList;
 public class UricAcidFragment extends Fragment {
     public UricAcidFragment() {}
 
+    boolean visible;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_uric_acid, container, false);
+        Global.currentPage = "UricAcidFragment";
 
         Global.currentCategory = "uric acid";
 
         TableLayout table = (TableLayout) view.findViewById(R.id.UA_Table);
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addUA);
+        final FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addUA);
+        fab.setVisibility(View.INVISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +49,8 @@ public class UricAcidFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartUricAcid);
+        final FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartUricAcid);
+        fab2.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,10 +59,28 @@ public class UricAcidFragment extends Fragment {
             }
         });
 
+        visible = false;
+
+        FloatingActionButton fab3 = (FloatingActionButton) view.findViewById(R.id.btn_menu);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!visible) {
+                    fab.setVisibility(View.VISIBLE);
+                    fab2.setVisibility(View.VISIBLE);
+                    visible = true;
+                } else {
+                    fab.setVisibility(View.INVISIBLE);
+                    fab2.setVisibility(View.INVISIBLE);
+                    visible = false;
+                }
+            }
+        });
+
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -65,14 +88,12 @@ public class UricAcidFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("DATE");
-        label_date.setTextColor(Color.WHITE);
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
         TextView label_ua = new TextView(getActivity());
         label_ua.setId(21);
         label_ua.setText("Uric Acid");
-        label_ua.setTextColor(Color.WHITE);
         label_ua.setPadding(5, 5, 5, 5);
         tableRow.addView(label_ua);
 
@@ -87,23 +108,21 @@ public class UricAcidFragment extends Fragment {
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
-            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
+            if(count%2!=0) tr.setBackgroundColor((getResources().getColor(R.color.table)));
             tr.setId(100 + count);
             tr.setLayoutParams(new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.FILL_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT));
 
             TextView labelDATE = new TextView(getActivity());
-            labelDATE.setId(200+count);
+            labelDATE.setId(200 + count);
             labelDATE.setText(date);
-            labelDATE.setPadding(2, 0, 5, 0);
-            labelDATE.setTextColor(Color.WHITE);
+            labelDATE.setPadding(2, 30, 5, 30);
             tr.addView(labelDATE);
 
             TextView labelUA = new TextView(getActivity());
-            labelUA.setId(200+count);
+            labelUA.setId(200 + count);
             labelUA.setText(ua.toString());
-            labelUA.setTextColor(Color.WHITE);
             tr.addView(labelUA);
 
             // finally add this table row tr to the table row tableRow

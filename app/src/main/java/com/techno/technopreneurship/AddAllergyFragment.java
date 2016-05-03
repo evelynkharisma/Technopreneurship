@@ -31,6 +31,7 @@ public class AddAllergyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_allergy, container, false);
+        Global.currentPage = "AddAllergyFragment";
 
         allergy = (AutoCompleteTextView) view.findViewById(R.id.add_allergy_fill); //this.getActivity
         ArrayAdapter<String> adapter = new ArrayAdapter<String> (this.getActivity(),android.R.layout.select_dialog_item, arr);

@@ -51,11 +51,11 @@ public class ListHospitalFragment extends Fragment {
 
 
         Global.hospitals.clear();
-        Global.hospitals.add(new Hospital(0, "Pertamina Hospital", 1,  "Monday", "07:00", "12:00"));
-        Global.hospitals.add(new Hospital(1, "Global Doctor Jakarta Int'l Medical Center ", 2, "Monday", "07:00", "12:00"));
-        Global.hospitals.add(new Hospital(2, "Metropolitan Medical Centre (MMC) ", 3, "Tuesday", "07:00", "12:00"));
-        Global.hospitals.add(new Hospital(3, "Pertamina Hospital", 4, "Wednesday", "07:00", "12:00"));
-        Global.hospitals.add(new Hospital(3, "Pertamina Hospital", 0, "Monday", "07:00", "12:00"));
+        Global.hospitals.add(new Hospital(0, "Pertamina Hospital", 1,  "Mon", "07:00", "12:00"));
+        Global.hospitals.add(new Hospital(1, "Jakarta Medical Center ", 2, "Mon", "07:00", "12:00"));
+        Global.hospitals.add(new Hospital(2, "Metropolitan Medical Centre ", 3, "Tues", "07:00", "12:00"));
+        Global.hospitals.add(new Hospital(3, "Pertamina Hospital", 4, "Wed", "07:00", "12:00"));
+        Global.hospitals.add(new Hospital(3, "Pertamina Hospital", 0, "Mon", "07:00", "12:00"));
 
         final ArrayList<String> listHospital = new ArrayList<>();
         for (Hospital hospital : Global.hospitals) {

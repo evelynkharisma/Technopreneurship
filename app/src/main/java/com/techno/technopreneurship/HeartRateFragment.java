@@ -24,16 +24,20 @@ import java.util.ArrayList;
 public class HeartRateFragment extends Fragment {
     public HeartRateFragment() {}
 
+    boolean visible;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_heart_rate, container, false);
+        Global.currentPage = "HeartRateFragment";
 
         Global.currentCategory = "heart rate";
 
         TableLayout table = (TableLayout) view.findViewById(R.id.HR_Table);
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addHR);
+        final FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addHR);
+        fab.setVisibility(View.INVISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +48,8 @@ public class HeartRateFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartHeartRate);
+        final FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartHeartRate);
+        fab2.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,11 +58,29 @@ public class HeartRateFragment extends Fragment {
             }
         });
 
+        visible = false;
+
+        FloatingActionButton fab3 = (FloatingActionButton) view.findViewById(R.id.btn_menu);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!visible) {
+                    fab.setVisibility(View.VISIBLE);
+                    fab2.setVisibility(View.VISIBLE);
+                    visible = true;
+                } else {
+                    fab.setVisibility(View.INVISIBLE);
+                    fab2.setVisibility(View.INVISIBLE);
+                    visible = false;
+                }
+            }
+        });
+
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -65,14 +88,12 @@ public class HeartRateFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("DATE");
-        label_date.setTextColor(Color.WHITE);
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
         TextView label_hr = new TextView(getActivity());
         label_hr.setId(21);
         label_hr.setText("Heart Rate");
-        label_hr.setTextColor(Color.WHITE);
         label_hr.setPadding(5, 5, 5, 5);
         tableRow.addView(label_hr);
 
@@ -87,23 +108,21 @@ public class HeartRateFragment extends Fragment {
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
-            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
+            if(count%2!=0) tr.setBackgroundColor(getResources().getColor(R.color.table));
             tr.setId(100 + count);
             tr.setLayoutParams(new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.FILL_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT));
 
             TextView labelDATE = new TextView(getActivity());
-            labelDATE.setId(200+count);
+            labelDATE.setId(200 + count);
             labelDATE.setText(date);
-            labelDATE.setPadding(2, 0, 5, 0);
-            labelDATE.setTextColor(Color.WHITE);
+            labelDATE.setPadding(2, 30, 5, 30);
             tr.addView(labelDATE);
 
             TextView labelHR = new TextView(getActivity());
-            labelHR.setId(200+count);
+            labelHR.setId(200 + count);
             labelHR.setText(hr.toString());
-            labelHR.setTextColor(Color.WHITE);
             tr.addView(labelHR);
 
             // finally add this table row tr to the table row tableRow

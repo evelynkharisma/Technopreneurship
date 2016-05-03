@@ -32,6 +32,7 @@ public class VaccineFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_vaccine, container, false);
+        Global.currentPage = "VaccineFragment";
 
         TableLayout table = (TableLayout) view.findViewById(R.id.V_Table);
 
@@ -84,7 +85,7 @@ public class VaccineFragment extends Fragment {
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -92,21 +93,18 @@ public class VaccineFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("DATE");
-        label_date.setTextColor(Color.WHITE);
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
         TextView label_v = new TextView(getActivity());
         label_v.setId(21);
         label_v.setText("Vaccine");
-        label_v.setTextColor(Color.WHITE);
         label_v.setPadding(5, 5, 5, 5);
         tableRow.addView(label_v);
 
         TextView label_s = new TextView(getActivity());
         label_s.setId(21);
         label_s.setText("Stage");
-        label_s.setTextColor(Color.WHITE);
         label_s.setPadding(5, 5, 5, 5);
         tableRow.addView(label_s);
 
@@ -122,29 +120,26 @@ public class VaccineFragment extends Fragment {
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
-            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
+            if(count%2!=0) tr.setBackgroundColor(getResources().getColor(R.color.table));
             tr.setId(100 + count);
             tr.setLayoutParams(new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.FILL_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT));
 
             TextView labelDATE = new TextView(getActivity());
-            labelDATE.setId(200+count);
+            labelDATE.setId(200 + count);
             labelDATE.setText(date);
-            labelDATE.setPadding(2, 0, 5, 0);
-            labelDATE.setTextColor(Color.WHITE);
+            labelDATE.setPadding(2, 30, 5, 30);
             tr.addView(labelDATE);
 
             TextView labelV = new TextView(getActivity());
             labelV.setId(200 + count);
             labelV.setText(v.toString());
-            labelV.setTextColor(Color.WHITE);
             tr.addView(labelV);
 
             TextView labelS = new TextView(getActivity());
-            labelS.setId(200+count);
+            labelS.setId(200 + count);
             labelS.setText(s.toString());
-            labelS.setTextColor(Color.WHITE);
             tr.addView(labelS);
 
             // finally add this table row tr to the table row tableRow

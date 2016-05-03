@@ -28,6 +28,7 @@ public class AddUricAcidFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_uric_acid, container, false);
+        Global.currentPage = "AddUricAcidFragment";
 
 
         ua = (EditText) view.findViewById(R.id.add_ua_fill);

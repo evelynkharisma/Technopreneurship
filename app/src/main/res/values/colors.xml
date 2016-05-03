@@ -7,7 +7,9 @@
     <color name="black">#000000</color>
     <color name="gray">#999182</color>
     <color name="login_red">#F2685F</color>
-    <color name="background">#BCE3DE</color>
+    <color name="background2">#F3F7F6</color>
+    <color name="background">#c6efff</color>
+    <color name="table">#98d3ea</color>
     <color name="sign_in">#52C5D0</color>
     <color name="transparent_background">#00BCE3DE</color>
     <color name="transparent_background_50">#50BCE3DE</color>

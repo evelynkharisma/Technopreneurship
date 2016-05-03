@@ -100,7 +100,8 @@
         android:layout_height="50dp"
         android:text="Redeem"
         android:textSize="15dp"
-        android:background="@color/sign_in"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
         android:layout_centerHorizontal="true"
         android:layout_alignTop="@+id/code"
         android:layout_marginTop="60dp" />

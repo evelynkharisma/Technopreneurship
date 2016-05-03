@@ -26,6 +26,7 @@ public class AddDiabetesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_diabetes, container, false);
+        Global.currentPage = "AddDiabetesFragment";
 
         diabetes = (EditText) view.findViewById(R.id.add_diabetes_fill);
         addDiabetes = (Button) view.findViewById(R.id.add_diabetes_btn);

@@ -27,6 +27,7 @@ public class AddBloodTensionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_blood_tension, container, false);
+        Global.currentPage = "AddBloodTensionFragment";
 
 
         systol = (EditText) view.findViewById(R.id.add_systol_fill);

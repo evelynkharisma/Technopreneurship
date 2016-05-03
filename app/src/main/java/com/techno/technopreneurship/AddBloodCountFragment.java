@@ -29,6 +29,7 @@ public class AddBloodCountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_blood_count, container, false);
+        Global.currentPage = "AddBloodCountFragment";
 
         rbc = (EditText) view.findViewById(R.id.add_rbc_fill);
         wbc = (EditText) view.findViewById(R.id.add_wbc_fill);

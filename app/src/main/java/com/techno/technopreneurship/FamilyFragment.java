@@ -38,6 +38,7 @@ public class FamilyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_family, container, false);
+        Global.currentPage = "FamilyFragment";
 
         TextView mainName = (TextView) view.findViewById(R.id.selected_name_data);
         TextView mainAge = (TextView) view.findViewById(R.id.selected_age_data);

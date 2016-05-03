@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -28,30 +28,30 @@
 
             <ImageButton
                 android:id="@+id/c1"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:src="@drawable/allergy"/>
 
             <ImageButton
                 android:id="@+id/c2"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:src="@drawable/blood_count"
                 android:layout_alignParentRight="true" />
 
             <ImageButton
                 android:id="@+id/c3"
                 android:layout_below="@id/c1"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/blood_tension"/>
 
             <ImageButton
                 android:id="@+id/c4"
                 android:layout_below="@id/c2"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/cholestrol"
                 android:layout_alignParentRight="true" />
@@ -59,16 +59,16 @@
             <ImageButton
                 android:id="@+id/c5"
                 android:layout_below="@id/c3"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/diabetes"/>
 
             <ImageButton
                 android:id="@+id/c6"
                 android:layout_below="@id/c4"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/heart_rate"
                 android:layout_alignParentRight="true" />
@@ -76,16 +76,16 @@
             <ImageButton
                 android:id="@+id/c7"
                 android:layout_below="@id/c5"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:src="@drawable/uric_acid"
                 android:layout_marginTop="20dp"/>
 
             <ImageButton
                 android:id="@+id/c8"
                 android:layout_below="@id/c6"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/urine_test"
                 android:layout_alignParentRight="true" />
@@ -93,16 +93,16 @@
             <ImageButton
                 android:id="@+id/c9"
                 android:layout_below="@id/c7"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:src="@drawable/vaccine"
                 android:layout_marginTop="20dp"/>
 
             <ImageButton
                 android:id="@+id/c10"
                 android:layout_below="@id/c8"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
                 android:layout_marginTop="20dp"
                 android:layout_alignParentRight="true" />
 

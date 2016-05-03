@@ -43,7 +43,7 @@ public class FavoriteDoctorFragment extends Fragment {
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -51,36 +51,31 @@ public class FavoriteDoctorFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("Doctor's Name");
-        label_date.setTextColor(Color.WHITE);
-        label_date.setPadding(5, 5, 5, 5);
+        label_date.setPadding(7, 5, 7, 5);
         tableRow.addView(label_date);
 
         TextView label_day = new TextView(getActivity());
         label_day.setId(21);
         label_day.setText("Day");
-        label_day.setTextColor(Color.WHITE);
-        label_day.setPadding(5, 5, 5, 5);
+        label_day.setPadding(7, 5, 7, 5);
         tableRow.addView(label_day);
 
         TextView label_hdl = new TextView(getActivity());
         label_hdl.setId(22);
-        label_hdl.setText("Start Time");
-        label_hdl.setTextColor(Color.WHITE);
-        label_hdl.setPadding(5, 5, 5, 5);
+        label_hdl.setText("Start");
+        label_hdl.setPadding(7, 5, 7, 5);
         tableRow.addView(label_hdl);
 
         TextView label_ldl = new TextView(getActivity());
         label_ldl.setId(23);
-        label_ldl.setText("End Time");
-        label_ldl.setTextColor(Color.WHITE);
-        label_ldl.setPadding(5, 5, 5, 5);
+        label_ldl.setText("End");
+        label_ldl.setPadding(7, 5, 7, 5);
         tableRow.addView(label_ldl);
 
         TextView label_total = new TextView(getActivity());
         label_total.setId(24);
         label_total.setText("Hospital");
-        label_total.setTextColor(Color.WHITE);
-        label_total.setPadding(5, 5, 5, 5);
+        label_total.setPadding(7, 5, 7, 5);
         tableRow.addView(label_total);
 
         table.addView(tableRow);
@@ -92,7 +87,7 @@ public class FavoriteDoctorFragment extends Fragment {
             for (Doctor doc : Global.currentUser.getFavorite()) {
                 if (doc.getId() == hos.getDoctorId()) {
                     TableRow tr = new TableRow(getActivity());
-                    if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
+                    if(count%2!=0) tr.setBackgroundColor(getResources().getColor(R.color.table));
                     tr.setId(100 + count);
                     tr.setLayoutParams(new FrameLayout.LayoutParams(
                             FrameLayout.LayoutParams.FILL_PARENT,
@@ -100,33 +95,30 @@ public class FavoriteDoctorFragment extends Fragment {
 
                     TextView labelDoctorName = new TextView(getActivity());
                     labelDoctorName.setId(200 + count);
+                    labelDoctorName.setMaxWidth(20);
                     labelDoctorName.setText(doc.getName());
-                    labelDoctorName.setTextColor(Color.WHITE);
+                    labelDoctorName.setPadding(7, 35, 7, 55);
                     tr.addView(labelDoctorName);
 
                     TextView labelDay = new TextView(getActivity());
                     labelDay.setId(200 + count);
                     labelDay.setText(hos.getDay());
-                    labelDay.setPadding(2, 0, 5, 0);
-                    labelDay.setTextColor(Color.WHITE);
                     tr.addView(labelDay);
 
                     TextView labelStartTime = new TextView(getActivity());
                     labelStartTime.setId(200 + count);
                     labelStartTime.setText(hos.getStartTime());
-                    labelStartTime.setTextColor(Color.WHITE);
                     tr.addView(labelStartTime);
 
                     TextView labelEndTime = new TextView(getActivity());
                     labelEndTime.setId(200 + count);
                     labelEndTime.setText(hos.getEndTime());
-                    labelEndTime.setTextColor(Color.WHITE);
                     tr.addView(labelEndTime);
 
                     TextView labelHospitalName = new TextView(getActivity());
                     labelHospitalName.setId(200 + count);
+                    labelHospitalName.setMaxWidth(20);
                     labelHospitalName.setText(hos.getName());
-                    labelHospitalName.setTextColor(Color.WHITE);
                     tr.addView(labelHospitalName);
 
                     // finally add this table row tr to the table row tableRow

@@ -9,6 +9,7 @@ public class Global {
     public static String currentUsername;
     public static String currentName;
     public static String currentCategory;
+    public static String currentPage;
 
     public static User currentUser;
     public static FamilyMember currentMainFamilyMember;

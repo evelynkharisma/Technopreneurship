@@ -28,6 +28,7 @@ public class AddHeartRateFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_heart_rate, container, false);
+        Global.currentPage = "AddHeartRateFragment";
 
         hr = (EditText) view.findViewById(R.id.add_hr_fill);
         addHR = (Button) view.findViewById(R.id.add_hr_btn);

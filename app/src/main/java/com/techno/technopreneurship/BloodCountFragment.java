@@ -19,17 +19,20 @@ public class BloodCountFragment extends Fragment {
     public BloodCountFragment() {    }
 
     private static final int NUM_COLS = 1;
+    boolean visible;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_blood_count, container, false);
+        Global.currentPage = "BloodCountFragment";
 
         TableLayout table = (TableLayout) view.findViewById(R.id.BC_Table);
 
         Global.currentCategory = "blood count";
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addBC);
+        final FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addBC);
+        fab.setVisibility(View.INVISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +43,8 @@ public class BloodCountFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartBloodCount);
+        final FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartBloodCount);
+        fab2.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,10 +53,30 @@ public class BloodCountFragment extends Fragment {
             }
         });
 
+        visible = false;
+
+        FloatingActionButton fab3 = (FloatingActionButton) view.findViewById(R.id.btn_menu);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!visible) {
+                    fab.setVisibility(View.VISIBLE);
+                    fab2.setVisibility(View.VISIBLE);
+                    visible = true;
+                } else {
+                    fab.setVisibility(View.INVISIBLE);
+                    fab2.setVisibility(View.INVISIBLE);
+                    visible = false;
+                }
+            }
+        });
+
+
+
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -60,28 +84,24 @@ public class BloodCountFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("DATE");
-        label_date.setTextColor(Color.WHITE);
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
         TextView label_rbc = new TextView(getActivity());
         label_rbc.setId(21);
         label_rbc.setText("RBC");
-        label_rbc.setTextColor(Color.WHITE);
         label_rbc.setPadding(5, 5, 5, 5);
         tableRow.addView(label_rbc);
 
         TextView label_wbc = new TextView(getActivity());
         label_wbc.setId(22);
         label_wbc.setText("WBC");
-        label_wbc.setTextColor(Color.WHITE);
         label_wbc.setPadding(5, 5, 5, 5);
         tableRow.addView(label_wbc);
 
         TextView label_thrombocyte = new TextView(getActivity());
         label_thrombocyte.setId(23);
         label_thrombocyte.setText("Thrombocyte");
-        label_thrombocyte.setTextColor(Color.WHITE);
         label_thrombocyte.setPadding(5, 5, 5, 5);
         tableRow.addView(label_thrombocyte);
 
@@ -97,35 +117,31 @@ public class BloodCountFragment extends Fragment {
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
-            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
-            tr.setId(100+count);
+            if(count%2!=0) tr.setBackgroundColor(getResources().getColor(R.color.table));
+            tr.setId(100 + count);
             tr.setLayoutParams(new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.FILL_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT));
 
             TextView labelDATE = new TextView(getActivity());
-            labelDATE.setId(200+count);
+            labelDATE.setId(200 + count);
             labelDATE.setText(date);
-            labelDATE.setPadding(2, 0, 5, 0);
-            labelDATE.setTextColor(Color.WHITE);
+            labelDATE.setPadding(2, 30, 5, 30);
             tr.addView(labelDATE);
 
             TextView labelRBC = new TextView(getActivity());
             labelRBC.setId(200 + count);
             labelRBC.setText(rbc.toString());
-            labelRBC.setTextColor(Color.WHITE);
             tr.addView(labelRBC);
 
             TextView labelWBC = new TextView(getActivity());
-            labelWBC.setId(200+count);
+            labelWBC.setId(200 + count);
             labelWBC.setText(wbc.toString());
-            labelWBC.setTextColor(Color.WHITE);
             tr.addView(labelWBC);
 
             TextView labelTHROM = new TextView(getActivity());
-            labelTHROM.setId(200+count);
+            labelTHROM.setId(200 + count);
             labelTHROM.setText(throm.toString());
-            labelTHROM.setTextColor(Color.WHITE);
             tr.addView(labelTHROM);
 
             // finally add this table row tr to the table row tableRow

@@ -2,25 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_familyMemberPage" android:icon="@android:drawable/ic_menu_camera"
+        <item android:id="@+id/nav_familyMemberPage" android:icon="@android:drawable/ic_menu_report_image"
             android:title="Family Member" />
-        <item android:id="@+id/nav_promotions" android:icon="@android:drawable/ic_menu_gallery"
+        <item android:id="@+id/nav_promotions" android:icon="@android:drawable/ic_input_get"
             android:title="Promotions" />
-        <item android:id="@+id/nav_rewards" android:icon="@android:drawable/ic_menu_slideshow"
-              android:title="Rewards" />
-        <item android:id="@+id/nav_listHospital" android:icon="@android:drawable/ic_menu_manage"
-              android:title="Hospital List" />
-        <item android:id="@+id/nav_favoriteDoctors" android:icon="@android:drawable/ic_menu_manage"
-              android:title="Favorite Doctors" />
+        <item android:id="@+id/nav_rewards" android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="Rewards" />
+        <item android:id="@+id/nav_listHospital" android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Hospital List" />
+        <item android:id="@+id/nav_favoriteDoctors" android:icon="@android:drawable/star_off"
+            android:title="Favorite Doctors" />
+        <item android:id="@+id/nav_logout" android:icon="@android:drawable/ic_lock_power_off"
+            android:title="Logout" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>

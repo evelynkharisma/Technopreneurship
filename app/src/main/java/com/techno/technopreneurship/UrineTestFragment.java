@@ -25,6 +25,7 @@ public class UrineTestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_urine_test, container, false);
+        Global.currentPage = "UrineTestFragment";
 
         TableLayout table = (TableLayout) view.findViewById(R.id.UT_Table);
 
@@ -77,7 +78,7 @@ public class UrineTestFragment extends Fragment {
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -85,28 +86,24 @@ public class UrineTestFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("DATE");
-        label_date.setTextColor(Color.WHITE);
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
         TextView label_pro = new TextView(getActivity());
         label_pro.setId(21);
         label_pro.setText("Protein");
-        label_pro.setTextColor(Color.WHITE);
         label_pro.setPadding(5, 5, 5, 5);
         tableRow.addView(label_pro);
 
         TextView label_glu = new TextView(getActivity());
         label_glu.setId(22);
         label_glu.setText("Glucose");
-        label_glu.setTextColor(Color.WHITE);
         label_glu.setPadding(5, 5, 5, 5);
         tableRow.addView(label_glu);
 
         TextView label_blo = new TextView(getActivity());
         label_blo.setId(23);
         label_blo.setText("Blood");
-        label_blo.setTextColor(Color.WHITE);
         label_blo.setPadding(5, 5, 5, 5);
         tableRow.addView(label_blo);
 
@@ -123,17 +120,16 @@ public class UrineTestFragment extends Fragment {
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
-            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
+            if(count%2!=0) tr.setBackgroundColor(getResources().getColor(R.color.table));
             tr.setId(100 + count);
             tr.setLayoutParams(new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.FILL_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT));
 
             TextView labelDATE = new TextView(getActivity());
-            labelDATE.setId(200+count);
+            labelDATE.setId(200 + count);
             labelDATE.setText(date);
-            labelDATE.setPadding(2, 0, 5, 0);
-            labelDATE.setTextColor(Color.WHITE);
+            labelDATE.setPadding(2, 30, 5, 30);
             tr.addView(labelDATE);
 
             TextView labelP = new TextView(getActivity());
@@ -143,7 +139,6 @@ public class UrineTestFragment extends Fragment {
             }else {
                 labelP.setText("x");
             }
-            labelP.setTextColor(Color.WHITE);
             tr.addView(labelP);
 
             TextView labelG = new TextView(getActivity());
@@ -153,7 +148,6 @@ public class UrineTestFragment extends Fragment {
             }else {
                 labelG.setText("x");
             }
-            labelG.setTextColor(Color.WHITE);
             tr.addView(labelG);
 
             TextView labelB = new TextView(getActivity());
@@ -163,7 +157,6 @@ public class UrineTestFragment extends Fragment {
             }else {
                 labelB.setText("x");
             }
-            labelB.setTextColor(Color.WHITE);
             tr.addView(labelB);
 
             // finally add this table row tr to the table row tableRow

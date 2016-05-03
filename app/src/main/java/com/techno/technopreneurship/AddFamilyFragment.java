@@ -38,6 +38,7 @@ public class AddFamilyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_family, container, false);
+        Global.currentPage = "AddFamilyFragment";
 
         status = (Spinner) view.findViewById(R.id.add_status_fill);
 

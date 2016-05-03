@@ -28,6 +28,7 @@ public class AddCholesterolFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_cholesterol, container, false);
+        Global.currentPage = "AddCholesterolFragment";
 
         hdl = (EditText) view.findViewById(R.id.add_hdl_fill);
         ldl = (EditText) view.findViewById(R.id.add_ldl_fill);

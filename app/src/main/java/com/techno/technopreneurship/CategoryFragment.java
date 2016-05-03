@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
 import android.widget.ImageButton;
 
+import com.techno.technopreneurship.Object.Global;
+
 
 public class CategoryFragment extends Fragment {
 
@@ -29,6 +31,7 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_category, container, false);
+        Global.currentPage = "CategoryFragment";
 
 //        final Bundle bundle = this.getArguments();
 //        final String famUser = bundle.getString("cuser");

@@ -21,18 +21,22 @@ import java.util.ArrayList;
 public class CholesterolFragment extends Fragment {
     public CholesterolFragment() {    }
 
+    boolean visible;
+
     private static final int NUM_COLS = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_cholesterol, container, false);
+        Global.currentPage = "CholesterolFragment";
 
         Global.currentCategory = "cholesterol";
 
         TableLayout table = (TableLayout) view.findViewById(R.id.Cholesterol_Table);
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addCholesterol);
+        final FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addCholesterol);
+        fab.setVisibility(View.INVISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,7 +47,8 @@ public class CholesterolFragment extends Fragment {
             }
         });
 
-        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartCholesterol);
+        final FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.btn_chartCholesterol);
+        fab2.setVisibility(View.INVISIBLE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,10 +57,28 @@ public class CholesterolFragment extends Fragment {
             }
         });
 
+        visible = false;
+
+        FloatingActionButton fab3 = (FloatingActionButton) view.findViewById(R.id.btn_menu);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!visible) {
+                    fab.setVisibility(View.VISIBLE);
+                    fab2.setVisibility(View.VISIBLE);
+                    visible = true;
+                } else {
+                    fab.setVisibility(View.INVISIBLE);
+                    fab2.setVisibility(View.INVISIBLE);
+                    visible = false;
+                }
+            }
+        });
+
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
         tableRow.setId(10);
-        tableRow.setBackgroundColor(Color.GRAY);
+        tableRow.setBackgroundColor(getResources().getColor(R.color.table));
         tableRow.setLayoutParams(new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.FILL_PARENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT));
@@ -63,28 +86,24 @@ public class CholesterolFragment extends Fragment {
         TextView label_date = new TextView(getActivity());
         label_date.setId(20);
         label_date.setText("DATE");
-        label_date.setTextColor(Color.WHITE);
         label_date.setPadding(5, 5, 5, 5);
         tableRow.addView(label_date);
 
         TextView label_hdl = new TextView(getActivity());
         label_hdl.setId(21);
         label_hdl.setText("HDL");
-        label_hdl.setTextColor(Color.WHITE);
         label_hdl.setPadding(5, 5, 5, 5);
         tableRow.addView(label_hdl);
 
         TextView label_ldl = new TextView(getActivity());
         label_ldl.setId(22);
         label_ldl.setText("LDL");
-        label_ldl.setTextColor(Color.WHITE);
         label_ldl.setPadding(5, 5, 5, 5);
         tableRow.addView(label_ldl);
 
         TextView label_total = new TextView(getActivity());
         label_total.setId(23);
         label_total.setText("Total");
-        label_total.setTextColor(Color.WHITE);
         label_total.setPadding(5, 5, 5, 5);
         tableRow.addView(label_total);
 
@@ -101,35 +120,31 @@ public class CholesterolFragment extends Fragment {
 
             // Create the table row
             TableRow tr = new TableRow(getActivity());
-            if(count%2!=0) tr.setBackgroundColor(Color.GRAY);
-            tr.setId(100+count);
+            if(count%2!=0) tr.setBackgroundColor(getResources().getColor(R.color.table));
+            tr.setId(100 + count);
             tr.setLayoutParams(new FrameLayout.LayoutParams(
                     FrameLayout.LayoutParams.FILL_PARENT,
                     FrameLayout.LayoutParams.WRAP_CONTENT));
 
             TextView labelDATE = new TextView(getActivity());
-            labelDATE.setId(200+count);
+            labelDATE.setId(200 + count);
             labelDATE.setText(date);
-            labelDATE.setPadding(2, 0, 5, 0);
-            labelDATE.setTextColor(Color.WHITE);
+            labelDATE.setPadding(2, 30, 5, 30);
             tr.addView(labelDATE);
 
             TextView labelHDL = new TextView(getActivity());
             labelHDL.setId(200 + count);
             labelHDL.setText(hdl.toString());
-            labelHDL.setTextColor(Color.WHITE);
             tr.addView(labelHDL);
 
             TextView labelLDL = new TextView(getActivity());
-            labelLDL.setId(200+count);
+            labelLDL.setId(200 + count);
             labelLDL.setText(ldl.toString());
-            labelLDL.setTextColor(Color.WHITE);
             tr.addView(labelLDL);
 
             TextView labelTOTAL = new TextView(getActivity());
-            labelTOTAL.setId(200+count);
+            labelTOTAL.setId(200 + count);
             labelTOTAL.setText(total.toString());
-            labelTOTAL.setTextColor(Color.WHITE);
             tr.addView(labelTOTAL);
 
             // finally add this table row tr to the table row tableRow

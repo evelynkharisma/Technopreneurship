@@ -33,6 +33,7 @@ public class AddUrineTestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_add_urine_test, container, false);
+        Global.currentPage = "AddUrineTestFragment";
 
         protein = (Switch) view.findViewById(R.id.switch1);
         protein.setChecked(false);

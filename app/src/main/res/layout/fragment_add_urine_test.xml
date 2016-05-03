@@ -16,7 +16,7 @@
             android:id="@+id/add_ut_tittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Uric Acid"
+            android:text="Add Urine Test"
             android:textColor="@color/login_red"
             android:textSize="18dp"
             android:gravity="center_horizontal"
@@ -92,7 +92,8 @@
             android:layout_height="50dp"
             android:text="Confirm"
             android:textSize="15dp"
-            android:background="@color/sign_in"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="10dp" />
