@@ -7,7 +7,7 @@
                 android:background="@color/background">
 
     <TextView
-        android:id="@+id/sign_up_tittle"
+        android:id="@+id/profile_tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Profile"
@@ -15,9 +15,30 @@
         android:textSize="14dp"
         android:gravity="center_horizontal" />
 
+    <TextView
+        android:id="@+id/profile_desc"
+        android:layout_below="@+id/profile_tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We need your basic medical information,"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/profile_desc2"
+        android:layout_below="@+id/profile_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="this information will be kept confidential"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:gravity="center_horizontal" />
+
     <ScrollView
         android:id="@+id/scrollView1"
-        android:layout_below="@id/sign_up_tittle"
+        android:layout_below="@id/profile_desc2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp">
@@ -38,8 +59,8 @@
 
             <EditText
                 android:id="@+id/profile_username_fill"
-                android:editable="false"
-                android:layout_width="150dp"
+                android:inputType="text"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -48,11 +69,12 @@
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray"
-                android:layout_alignParentRight="true"  />
+                android:layout_alignParentRight="true"
+                android:imeOptions="actionNext"/>
 
             <TextView
                 android:id="@+id/profile_pass"
-                android:layout_below="@id/profile_username_fill"
+                android:layout_below="@id/profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
@@ -64,8 +86,8 @@
             <EditText
                 android:id="@+id/profile_pass_fill"
                 android:inputType="textPassword"
-                android:layout_below="@id/profile_username"
-                android:layout_width="150dp"
+                android:layout_below="@id/profile_username_fill"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -91,7 +113,7 @@
                 android:id="@+id/profile_cPass_fill"
                 android:inputType="textPassword"
                 android:layout_below="@id/profile_pass_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -113,18 +135,19 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="12dp"/>
 
-
             <EditText
                 android:id="@+id/profile_name_fill"
                 android:inputType="text"
                 android:layout_below="@id/profile_cPass_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
                 android:layout_alignParentRight="true" />
 
             <TextView
@@ -138,20 +161,21 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="12dp"/>
 
-
-            <TextView
+            <EditText xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/profile_gender_fill"
+                android:editable="false"
                 android:layout_below="@id/profile_name_fill"
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="12dp"
-                android:background="@drawable/edittextstyle"
-                android:paddingStart="20dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/gray"
-                android:textColorHint="@color/gray"
-                android:layout_alignParentRight="true" />
+                  android:layout_width="200dp"
+                  android:layout_height="30dp"
+                  android:layout_marginTop="15dp"
+                  android:layout_marginRight="12dp"
+                  android:background="@drawable/edittextstyle"
+                  android:paddingStart="20dp"
+                  android:paddingEnd="10dp"
+                  android:textColor="@color/gray"
+                  android:textColorHint="@color/gray"
+                android:layout_alignStart="@+id/profile_name_fill">
+            </EditText>
 
             <TextView
                 android:id="@+id/profile_add"
@@ -166,8 +190,9 @@
 
             <EditText
                 android:id="@+id/profile_add_fill"
+                android:inputType="text"
                 android:layout_below="@id/profile_gender_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -191,8 +216,9 @@
 
             <EditText
                 android:id="@+id/profile_email_fill"
+                android:inputType="textEmailAddress"
                 android:layout_below="@id/profile_add_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -216,8 +242,9 @@
 
             <EditText
                 android:id="@+id/profile_phone_fill"
+                android:inputType="phone"
                 android:layout_below="@id/profile_email_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -235,22 +262,26 @@
                 android:layout_height="wrap_content"
                 android:text="Birthday"
                 android:textColor="@color/black"
-                android:textSize="14dp"
+                android:textSize="13dp"
                 android:layout_marginTop="27dp"
                 android:layout_marginLeft="12dp"
-                android:layout_alignEnd="@+id/sign_up_add" />
+                android:layout_alignEnd="@+id/profile_add" />
 
             <EditText
                 android:id="@+id/profile_bday_day_fill"
+                android:inputType="number"
                 android:layout_below="@id/profile_phone_fill"
                 android:layout_toLeftOf="@+id/profile_bday_month_fill"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="20dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="10dp"
                 android:paddingEnd="5dp"
-                android:textColor="@color/gray"/>
+                android:hint="DD"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:layout_below="@id/profile_phone_fill"
@@ -264,15 +295,19 @@
 
             <EditText
                 android:id="@+id/profile_bday_month_fill"
+                android:inputType="number"
                 android:layout_below="@id/profile_phone_fill"
                 android:layout_toLeftOf="@+id/profile_bday_year_fill"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="20dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="10dp"
                 android:paddingEnd="5dp"
-                android:textColor="@color/gray"/>
+                android:hint="MM"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:layout_below="@id/profile_phone_fill"
@@ -286,14 +321,18 @@
 
             <EditText
                 android:id="@+id/profile_bday_year_fill"
+                android:inputType="number"
                 android:layout_below="@id/profile_phone_fill"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="10dp"
                 android:paddingEnd="5dp"
+                android:hint="YYYY"
                 android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
                 android:layout_alignParentRight="true" />
 
             <TextView
@@ -309,14 +348,17 @@
 
             <EditText
                 android:id="@+id/profile_ID_fill"
+                android:inputType="number"
                 android:layout_below="@id/profile_bday_year_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
                 android:layout_alignParentRight="true" />
 
             <TextView
@@ -343,8 +385,9 @@
 
             <EditText
                 android:id="@+id/profile_EName_fill"
+                android:inputType="text"
                 android:layout_below="@id/profile_Emergency_Contact"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -369,8 +412,9 @@
 
             <EditText
                 android:id="@+id/profile_EPhone_fill"
+                android:inputType="phone"
                 android:layout_below="@id/profile_EName_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -394,8 +438,9 @@
 
             <EditText
                 android:id="@+id/profile_blood_fill"
+                android:inputType="text"
                 android:layout_below="@id/profile_EPhone_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -403,6 +448,7 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
                 android:layout_alignParentRight="true" />
 
             <TextView
@@ -418,8 +464,9 @@
 
             <EditText
                 android:id="@+id/profile_height_fill"
+                android:inputType="numberDecimal"
                 android:layout_below="@id/profile_blood_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -428,7 +475,7 @@
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray"
-                android:hint="kg"
+                android:hint="cm"
                 android:layout_alignParentRight="true" />
 
             <TextView
@@ -444,8 +491,9 @@
 
             <EditText
                 android:id="@+id/profile_weight_fill"
+                android:inputType="numberDecimal"
                 android:layout_below="@id/profile_height_fill"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
@@ -454,7 +502,7 @@
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
                 android:textColorHint="@color/gray"
-                android:hint="cm"
+                android:hint="kg"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="20dp"/>
 

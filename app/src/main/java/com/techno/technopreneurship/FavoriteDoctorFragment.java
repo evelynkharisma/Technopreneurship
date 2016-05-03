@@ -1,6 +1,8 @@
 package com.techno.technopreneurship;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ public class FavoriteDoctorFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_favorite_doctor, container, false);
+
 
         TableLayout table = (TableLayout) view.findViewById(R.id.FavDoctor_Table);
 
