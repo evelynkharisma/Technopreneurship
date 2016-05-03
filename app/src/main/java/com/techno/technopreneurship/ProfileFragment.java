@@ -2,11 +2,13 @@ package com.techno.technopreneurship;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.techno.technopreneurship.Object.Global;
 
@@ -19,10 +21,11 @@ public class ProfileFragment extends Fragment {
 
     Button btn_edit;
     EditText username;
+    TextView gender;
+
     EditText pass;
     EditText cPass;
     EditText name;
-    EditText gender;
     EditText add;
     EditText email;
     EditText phone;
@@ -37,18 +40,17 @@ public class ProfileFragment extends Fragment {
     EditText weight;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         btn_edit=(Button)view.findViewById(R.id.profile_btn);
-        username =(EditText) view.findViewById(R.id.profile_username);
+        username =(EditText) view.findViewById(R.id.profile_username_fill);
         username.setText(Global.currentUser.getUsername());
         pass =(EditText) view.findViewById(R.id.profile_pass_fill);
         cPass =(EditText) view.findViewById(R.id.profile_cPass_fill);
         name= (EditText) view.findViewById(R.id.profile_name_fill);
         name.setText(Global.currentMainFamilyMember.getName());
-        gender = (EditText) view.findViewById(R.id.profile_gender_fill);
+        gender = (TextView) view.findViewById(R.id.profile_gender_fill);
         gender.setText(Global.currentMainFamilyMember.getGender());
         add= (EditText) view.findViewById(R.id.profile_add_fill);
         add.setText(Global.currentMainFamilyMember.getAddress());
@@ -58,12 +60,14 @@ public class ProfileFragment extends Fragment {
         phone.setText(String.valueOf(Global.currentMainFamilyMember.getPhone()));
         day= (EditText) view.findViewById(R.id.profile_bday_day_fill);
         day.setText(String.valueOf(Global.currentMainHealthDetail.getBirthday().getDay()));
+
+        Log.i("profile dob", Global.currentMainHealthDetail.getBirthday().toString());
         month= (EditText) view.findViewById(R.id.profile_bday_month_fill);
-        month.setText(Global.currentMainHealthDetail.getBirthday().getMonth());
+        month.setText(String.valueOf(Global.currentMainHealthDetail.getBirthday().getMonth()));
         year= (EditText) view.findViewById(R.id.profile_bday_year_fill);
-        year.setText(Global.currentMainHealthDetail.getBirthday().getYear());
+        year.setText(String.valueOf(Global.currentMainHealthDetail.getBirthday().getYear()));
         ID= (EditText) view.findViewById(R.id.profile_ID_fill);
-        ID.setText(Global.currentMainFamilyMember.getKtp());
+        ID.setText(String.valueOf(Global.currentMainFamilyMember.getKtp()));
         eName =(EditText) view.findViewById(R.id.profile_EName_fill);
         eName.setText(Global.currentMainFamilyMember.getEmergencyName());
         ePhone= (EditText) view.findViewById(R.id.profile_EPhone_fill);
@@ -78,8 +82,7 @@ public class ProfileFragment extends Fragment {
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pass.getText().toString().equals(cPass.getText().toString()))
-                {
+                if (pass.getText().toString().equals(cPass.getText().toString())) {
                     Global.currentUser.setPassword(pass.getText().toString());
                 }
 
@@ -89,7 +92,6 @@ public class ProfileFragment extends Fragment {
                 bday.setDate(Integer.parseInt(day.getText().toString()));
 
                 Global.currentMainFamilyMember.setName(name.getText().toString());
-                Global.currentMainFamilyMember.setGender(gender.getText().toString());
                 Global.currentMainFamilyMember.setAddress(add.getText().toString());
                 Global.currentMainFamilyMember.setEmail(email.getText().toString());
                 Global.currentMainFamilyMember.setPhone(Long.parseLong(phone.getText().toString()));

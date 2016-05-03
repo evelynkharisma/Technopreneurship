@@ -158,11 +158,7 @@ public class CategoryFragment extends Fragment {
         vaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", famUser);
-//                choosen_bundle.putString("cname", famName);
                 VaccineFragment fragment = new VaccineFragment();
-//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
@@ -173,11 +169,7 @@ public class CategoryFragment extends Fragment {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", famUser);
-//                choosen_bundle.putString("cname", famName);
                 ProfileFragment fragment = new ProfileFragment();
-//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();

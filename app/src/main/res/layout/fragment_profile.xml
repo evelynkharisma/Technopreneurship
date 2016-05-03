@@ -27,7 +27,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/sign_up_username"
+                android:id="@+id/profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Username"
@@ -37,19 +37,22 @@
                 android:layout_marginLeft="12dp"/>
 
             <EditText
-                android:id="@+id/profile_username"
+                android:id="@+id/profile_username_fill"
+                android:editable="false"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
-                android:layout_alignParentRight="true" />
+                android:textColorHint="@color/gray"
+                android:layout_alignParentRight="true"  />
 
             <TextView
                 android:id="@+id/profile_pass"
-                android:layout_below="@id/profile_username"
+                android:layout_below="@id/profile_username_fill"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
@@ -60,6 +63,7 @@
 
             <EditText
                 android:id="@+id/profile_pass_fill"
+                android:inputType="textPassword"
                 android:layout_below="@id/profile_username"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
@@ -85,6 +89,7 @@
 
             <EditText
                 android:id="@+id/profile_cPass_fill"
+                android:inputType="textPassword"
                 android:layout_below="@id/profile_pass_fill"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
@@ -111,6 +116,7 @@
 
             <EditText
                 android:id="@+id/profile_name_fill"
+                android:inputType="text"
                 android:layout_below="@id/profile_cPass_fill"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
@@ -133,16 +139,18 @@
                 android:layout_marginLeft="12dp"/>
 
 
-            <EditText
+            <TextView
                 android:id="@+id/profile_gender_fill"
                 android:layout_below="@id/profile_name_fill"
                 android:layout_width="150dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="12dp"
+                android:background="@drawable/edittextstyle"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
                 android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
                 android:layout_alignParentRight="true" />
 
             <TextView

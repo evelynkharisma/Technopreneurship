@@ -36,7 +36,7 @@ public class LoginActivity extends Activity  {
         myBirthday.setDate(9);
         myBirthday.setMonth(6);
         myBirthday.setYear(96);
-        HealthDetails newHealthDetail = new HealthDetails("jan", "janis", myBirthday, 10.00, 10.00);
+        HealthDetails newHealthDetail = new HealthDetails("jan", "janis", "a", myBirthday, 10.00, 10.00);
 
         Global.users.add(newUser);
         Global.familyMembers.add(newFamMember);
