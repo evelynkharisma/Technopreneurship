@@ -35,6 +35,7 @@
 
         <EditText
             android:id="@+id/add_name_fill"
+            android:inputType="text"
             android:layout_below="@id/add_Family_tittle"
             android:layout_width="180dp"
             android:layout_height="30dp"
@@ -85,6 +86,7 @@
 
         <EditText
             android:id="@+id/add_blood_fill"
+            android:inputType="text"
             android:layout_below="@id/add_status_fill"
             android:layout_width="180dp"
             android:layout_height="30dp"
@@ -110,6 +112,7 @@
 
         <EditText
             android:id="@+id/add_height_fill"
+            android:inputType="numberDecimal"
             android:layout_below="@id/add_blood_fill"
             android:layout_width="180dp"
             android:layout_height="30dp"
@@ -136,6 +139,7 @@
 
         <EditText
             android:id="@+id/add_weight_fill"
+            android:inputType="numberDecimal"
             android:layout_below="@id/add_height_fill"
             android:layout_width="180dp"
             android:layout_height="30dp"

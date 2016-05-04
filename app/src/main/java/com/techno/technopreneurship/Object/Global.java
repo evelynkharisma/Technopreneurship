@@ -11,6 +11,9 @@ public class Global {
     public static String currentCategory;
     public static String currentPage;
 
+    public static Integer clickedRewardId;
+    public static Integer clickedDeleteId;
+
     public static User currentUser;
     public static FamilyMember currentMainFamilyMember;
     public static HealthDetails currentMainHealthDetail;

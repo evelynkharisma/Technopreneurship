@@ -29,11 +29,6 @@ public class AllergyFragment extends Fragment {
 
         TableLayout table = (TableLayout) view.findViewById(R.id.allergyTable);
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
-
         ////////////////////////////////////////////Add Allergy//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addAllergy);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -47,19 +42,6 @@ public class AllergyFragment extends Fragment {
             }
         });
 
-        ////////////////////////////////////Add new Allergy to arraylist//////////////////////////////////////////////
-//        allergies.add(new Allergy("user","user","peanut"));
-//        allergies.add(new Allergy("user","user","paracetamol"));
-//        allergies.add(new Allergy("user","son","diary"));
-
-
-//        if(bundle != null)
-//        {
-//            if(bundle.getString("add_allergy") != null){
-//                String addAllergy = bundle.getString("add_allergy");
-//                allergies.add(new Allergy(currentUser, currentName, addAllergy));
-//            }
-//        }
 
         ////////////////////////////////////Create allergy list///////////////////////////////////////////////////////////////////////////
 

@@ -1,6 +1,7 @@
 package com.techno.technopreneurship;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import android.widget.TableRow;
 
 import com.google.android.gms.plus.PlusOneButton;
 import com.techno.technopreneurship.Object.Global;
+
+import java.util.ArrayList;
 
 /**
  * A fragment with a Google +1 button.
@@ -36,6 +39,8 @@ public class RewardsFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_rewards, container, false);
 
+
+
         Button btnThreeMember = (Button)  view.findViewById(R.id.rewards_addThreeMember);
         Button btnAllergy = (Button)  view.findViewById(R.id.rewards_firstDataAllergy);
         Button btnBloodCount = (Button)  view.findViewById(R.id.rewards_firstDataBloodCount);
@@ -48,34 +53,67 @@ public class RewardsFragment extends Fragment {
         Button btnVaccine = (Button)  view.findViewById(R.id.rewards_firstDataVaccine);
         Button btnOneYear = (Button)  view.findViewById(R.id.rewards_oneYear);
 
+        ArrayList<Button> buttons = new ArrayList<>();
+        buttons.add(btnThreeMember);
+        buttons.add(btnAllergy);
+        buttons.add(btnBloodCount);
+        buttons.add(btnBloodTension);
+        buttons.add(btnCholesterol);
+        buttons.add(btnDiabetes);
+        buttons.add(btnHeartRate);
+        buttons.add(btnOneYear);
+        buttons.add(btnUricAcid);
+        buttons.add(btnUrineTest);
+        buttons.add(btnVaccine);
 
         for (int row = 0; row < Global.currentReward.size(); row++) {
-
-            if (Global.currentReward.get(row).getAvailable()) {
+            if (Global.currentReward.get(row).getAvailable() && !Global.currentReward.get(row).getUsed()) {
                 if (Global.currentReward.get(row).getType().equalsIgnoreCase("first three member")) {
+                    btnThreeMember.setId(row);
                     btnThreeMember.setEnabled(true);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("allergy")) {
                     btnAllergy.setEnabled(true);
+                    btnAllergy.setId(row);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood count")) {
                     btnBloodCount.setEnabled(true);
+                    btnBloodCount.setId(row);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood tension")) {
                     btnBloodTension.setEnabled(true);
+                    btnBloodTension.setId(row);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("cholesterol")) {
                     btnCholesterol.setEnabled(true);
+                    btnCholesterol.setId(row);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("diabetes")) {
                     btnDiabetes.setEnabled(true);
+                    btnDiabetes.setId(5);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("heart rate")) {
                     btnHeartRate.setEnabled(true);
+                    btnHeartRate.setId(6);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("uric acid")) {
                     btnUricAcid.setEnabled(true);
+                    btnUricAcid.setId(7);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("urine test")) {
                     btnUrineTest.setEnabled(true);
+                    btnUrineTest.setId(8);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("vaccine")) {
                     btnVaccine.setEnabled(true);
+                    btnVaccine.setId(9);
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("one year")) {
                     btnOneYear.setEnabled(true);
+                    btnOneYear.setId(10);
                 }
             }
+        }
+
+        for (final Button button : buttons) {
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Global.clickedRewardId = button.getId();
+                    Intent intent = new Intent(getActivity(), RedeemRewardActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 
         return view;
