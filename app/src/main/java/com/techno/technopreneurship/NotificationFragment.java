@@ -14,12 +14,19 @@ import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.Toast;
 
+import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Global;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class NotificationFragment extends Fragment {
 
     public NotificationFragment() {}
+
+    int index = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +42,7 @@ public class NotificationFragment extends Fragment {
             button.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             button.setTextColor(getResources().getColor(R.color.white));
             linear.addView(button);
+            index++;
 
             Space rowSpace = new Space(getActivity());
             rowSpace.setMinimumHeight(20);
@@ -52,9 +60,17 @@ public class NotificationFragment extends Fragment {
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     Toast.makeText(getActivity(), "Accepted", 100).show();
-                                    Global.notifications.clear();
 
-                                    //add patient data
+                                    if(Global.notifications.get(button.getId()).equalsIgnoreCase("Jakarta Medical Center want to add data to your medical record"))
+                                    {
+                                        Date today = Calendar.getInstance().getTime();
+                                        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                                        String dateFormat = formatter.format(today);
+
+                                        Global.bloodCounts.add(new Blood_Count(Global.currentUsername, Global.currentName, dateFormat, 120, 123, 150));
+                                    }
+
+                                    Global.notifications.remove(button.getId());
 
                                     NotificationFragment fragment = new NotificationFragment();
                                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -65,7 +81,7 @@ public class NotificationFragment extends Fragment {
                             .setNegativeButton("No", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     Toast.makeText(getActivity(), "Rejected", 100).show();
-                                    Global.notifications.clear();
+                                    Global.notifications.remove(button.getId());
                                     NotificationFragment fragment = new NotificationFragment();
                                     android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                                     fragmentTransaction.replace(R.id.fragment_container, fragment);
