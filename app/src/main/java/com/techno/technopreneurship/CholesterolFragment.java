@@ -1,7 +1,8 @@
 package com.techno.technopreneurship;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -12,11 +13,9 @@ import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.techno.technopreneurship.Object.Cholesterol;
 import com.techno.technopreneurship.Object.Global;
-
-import java.util.ArrayList;
 
 public class CholesterolFragment extends Fragment {
     public CholesterolFragment() {    }
@@ -112,7 +111,7 @@ public class CholesterolFragment extends Fragment {
 
         Integer count=0;
         int myBCSize = Global.currentCholesterol.size();
-        for (int i = myBCSize-1; i >= 0; i--){
+        for (int i = 0; i < Global.currentCholesterol.size() ; i++) {
             String date = Global.currentCholesterol.get(i).getDate();
             Double hdl = Global.currentCholesterol.get(i).getHdl();
             Double ldl = Global.currentCholesterol.get(i).getLdl();
@@ -146,6 +145,50 @@ public class CholesterolFragment extends Fragment {
             labelTOTAL.setId(200 + count);
             labelTOTAL.setText(total.toString());
             tr.addView(labelTOTAL);
+
+            Global.clickedDeleteId = i;
+            tr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                    alertDialogBuilder.setTitle("Your Title");
+
+                    alertDialogBuilder.setMessage("Delete data?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    for (int i = 0; i < Global.cholesterols.size(); i++) {
+                                        if (Global.cholesterols.get(i).getUser().equalsIgnoreCase(Global.currentCholesterol.get(Global.clickedDeleteId).getUser()) && Global.cholesterols.get(i).getName().equalsIgnoreCase(Global.currentCholesterol.get(Global.clickedDeleteId).getName())) {
+                                            Global.cholesterols.remove(i);
+                                            Global.updateCurrentCholesterol();
+
+                                            Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                            i = Global.cholesterols.size();
+                                        }
+                                    }
+
+                                    CholesterolFragment fragment = new CholesterolFragment();
+                                    android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }
+
+            });
+
 
             // finally add this table row tr to the table row tableRow
             table.addView(tr, new TableLayout.LayoutParams(

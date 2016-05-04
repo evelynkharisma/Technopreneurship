@@ -1,10 +1,13 @@
 package com.techno.technopreneurship;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Blood_Tension;
@@ -101,7 +105,7 @@ public class DiabetesFragment extends Fragment {
 
         Integer count=0;
         int myBCSize = Global.currentDiabetes.size();
-        for (int i = myBCSize-1; i >= 0; i--){
+        for (int i = 0; i < Global.currentDiabetes.size() ; i++) {
             String date = Global.currentDiabetes.get(i).getDate();
             Double diabetes = Global.currentDiabetes.get(i).getDiabetes();
 
@@ -123,6 +127,50 @@ public class DiabetesFragment extends Fragment {
             labelDia.setId(200 + count);
             labelDia.setText(diabetes.toString());
             tr.addView(labelDia);
+
+
+            Global.clickedDeleteId = i;
+            tr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                    alertDialogBuilder.setTitle("Your Title");
+
+                    alertDialogBuilder.setMessage("Delete data?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    for (int i = 0; i < Global.diabeteses.size(); i++) {
+                                        if (Global.diabeteses.get(i).getUser().equalsIgnoreCase(Global.currentDiabetes.get(Global.clickedDeleteId).getUser()) && Global.diabeteses.get(i).getName().equalsIgnoreCase(Global.currentDiabetes.get(Global.clickedDeleteId).getName())) {
+                                            Global.diabeteses.remove(i);
+                                            Global.updateCurrentDiabetes();
+
+                                            Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                            i = Global.diabeteses.size();
+                                        }
+                                    }
+
+                                    DiabetesFragment fragment = new DiabetesFragment();
+                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }
+
+            });
 
             // finally add this table row tr to the table row tableRow
             table.addView(tr, new TableLayout.LayoutParams(

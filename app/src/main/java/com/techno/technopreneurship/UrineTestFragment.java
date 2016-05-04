@@ -1,9 +1,12 @@
 package com.techno.technopreneurship;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +14,12 @@ import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Global;
 
 public class UrineTestFragment extends Fragment {
-    public UrineTestFragment() {
-        // Required empty public constructor
-    }
-
-//    public ArrayList<UrineTest> urineTests = new ArrayList<UrineTest>();
-//    public ArrayList<UrineTest> myUrineTests = new ArrayList<UrineTest>();
+    public UrineTestFragment() {    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,10 +28,6 @@ public class UrineTestFragment extends Fragment {
 
         TableLayout table = (TableLayout) view.findViewById(R.id.UT_Table);
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
 
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addUT);
@@ -40,40 +35,13 @@ public class UrineTestFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddUrineTestFragment fragment = new AddUrineTestFragment();
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", currentUser);
-//                choosen_bundle.putString("cname", currentName);
-//                fragment.setArguments(choosen_bundle);
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });
 
-        ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-//        urineTests.add(new UrineTest("user","user","03-04-2016",true, false, false));
-//        urineTests.add(new UrineTest("user","user","01-04-2016",false, false, false));
 
-
-//        if(bundle != null)
-//        {
-//            if(bundle.getString("exist") != null){
-//                String adddate = bundle.getString("date");
-//                boolean addProtein = bundle.getBoolean("protein");
-//                boolean addGlucose = bundle.getBoolean("glucose");
-//                boolean addBlood = bundle.getBoolean("blood");
-//                urineTests.add(new UrineTest(currentUser, currentName, adddate, addProtein, addGlucose, addBlood));
-//            }
-//        }
-
-        ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-//        for (int i = 0; i < urineTests.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(urineTests.get(i).getUser()) && currentName.equalsIgnoreCase(urineTests.get(i).getName())) {
-//                myUrineTests.add(urineTests.get(i));
-//                listIndexAllergy.add(i);
-//            }
-//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -112,7 +80,7 @@ public class UrineTestFragment extends Fragment {
 
         Integer count=0;
         int myBCSize = Global.currentUrineTest.size();
-        for (int i = myBCSize-1; i >= 0; i--){
+        for (int i = 0; i < Global.currentUrineTest.size() ; i++) {
             String date = Global.currentUrineTest.get(i).getDate();
             boolean p = Global.currentUrineTest.get(i).isProtein();
             boolean g = Global.currentUrineTest.get(i).isGlucose();
@@ -158,6 +126,50 @@ public class UrineTestFragment extends Fragment {
                 labelB.setText("x");
             }
             tr.addView(labelB);
+
+            Global.clickedDeleteId = i;
+            tr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                    alertDialogBuilder.setTitle("Your Title");
+
+                    alertDialogBuilder.setMessage("Delete data?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    for (int i = 0; i < Global.urineTests.size(); i++) {
+                                        if (Global.urineTests.get(i).getUser().equalsIgnoreCase(Global.currentUrineTest.get(Global.clickedDeleteId).getUser()) && Global.urineTests.get(i).getName().equalsIgnoreCase(Global.currentUrineTest.get(Global.clickedDeleteId).getName())) {
+                                            Global.urineTests.remove(i);
+                                            Global.updateCurrentUrineTest();
+
+                                            Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                            i = Global.urineTests.size();
+                                        }
+                                    }
+
+                                    UrineTestFragment fragment = new UrineTestFragment();
+                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }
+
+            });
+            
 
             // finally add this table row tr to the table row tableRow
             table.addView(tr, new TableLayout.LayoutParams(

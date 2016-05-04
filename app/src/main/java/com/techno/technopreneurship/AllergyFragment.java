@@ -1,5 +1,7 @@
 package com.techno.technopreneurship;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Global;
 
@@ -65,17 +68,86 @@ public class AllergyFragment extends Fragment {
 
                 folderButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        int choosen = folderButton.getId();
-                        String choosen_user = Global.currentAllergies.get(choosen).getUser();
-                        String choosen_name = Global.currentAllergies.get(choosen).getName();
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                        alertDialogBuilder.setTitle("Your Title");
 
-                        CategoryFragment fragment = new CategoryFragment();
+                        alertDialogBuilder.setMessage("Delete data?")
+                                .setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
 
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_container, fragment);
-                        fragmentTransaction.commit();
+                                        for (int i = 0; i < Global.allergies.size(); i++) {
+                                            if (Global.allergies.get(i).getUser().equalsIgnoreCase(Global.currentAllergies.get(Global.clickedDeleteId).getUser()) && Global.allergies.get(i).getName().equalsIgnoreCase(Global.currentAllergies.get(Global.clickedDeleteId).getName())) {
+                                                Global.allergies.remove(i);
+                                                Global.updateCurrentAllergy();
+
+                                                Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                                i = Global.allergies.size();
+                                            }
+                                        }
+
+                                        AllergyFragment fragment = new AllergyFragment();
+                                        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                        fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                        fragmentTransaction.commit();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                });
+
+                        // create alert dialog
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+
+                        // show it
+                        alertDialog.show();
                     }
                 });
+
+            Global.clickedDeleteId = row;
+            tableRow.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                            alertDialogBuilder.setTitle("Your Title");
+
+                            alertDialogBuilder.setMessage("Delete data?")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+
+                                            for (int i = 0; i < Global.bloodCounts.size(); i++) {
+                                                if (Global.allergies.get(i).getUser().equalsIgnoreCase(Global.currentAllergies.get(Global.clickedDeleteId).getUser()) && Global.bloodCounts.get(i).getName().equalsIgnoreCase(Global.currentBloodCount.get(Global.clickedDeleteId).getName())) {
+                                                    Global.allergies.remove(i);
+                                                    Global.updateCurrentAllergy();
+
+                                                    Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                                    i = Global.allergies.size();
+                                                }
+                                            }
+
+                                            AllergyFragment fragment = new AllergyFragment();
+                                            android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                            fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                            fragmentTransaction.commit();
+                                        }
+                                    })
+                                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.cancel();
+                                        }
+                                    });
+
+                            // create alert dialog
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+
+                            // show it
+                            alertDialog.show();
+
+                        }
+                    });
 
                 tableRow.addView(folderButton);
             }

@@ -1,10 +1,13 @@
 package com.techno.technopreneurship;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Blood_Tension;
@@ -102,7 +106,7 @@ public class HeartRateFragment extends Fragment {
 
         Integer count=0;
         int myBCSize = Global.currentHeartRate.size();
-        for (int i = myBCSize-1; i >= 0; i--){
+        for (int i = 0; i < Global.currentHeartRate.size() ; i++) {
             String date = Global.currentHeartRate.get(i).getDate();
             Double hr = Global.currentHeartRate.get(i).getHeartRate();
 
@@ -124,6 +128,52 @@ public class HeartRateFragment extends Fragment {
             labelHR.setId(200 + count);
             labelHR.setText(hr.toString());
             tr.addView(labelHR);
+
+            Global.clickedDeleteId = i;
+            tr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                    alertDialogBuilder.setTitle("Your Title");
+
+                    alertDialogBuilder.setMessage("Delete data?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    for (int i = 0; i < Global.heartRates.size(); i++) {
+                                        if (Global.heartRates.get(i).getUser().equalsIgnoreCase(Global.currentHeartRate.get(Global.clickedDeleteId).getUser()) && Global.heartRates.get(i).getName().equalsIgnoreCase(Global.currentHeartRate.get(Global.clickedDeleteId).getName())) {
+                                            Global.heartRates.remove(i);
+                                            Global.updateCurrentHeartRate();
+
+                                            Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                            i = Global.heartRates.size();
+                                        }
+                                    }
+
+                                    HeartRateFragment fragment = new HeartRateFragment();
+                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }
+
+            });
+
+
+
 
             // finally add this table row tr to the table row tableRow
             table.addView(tr, new TableLayout.LayoutParams(

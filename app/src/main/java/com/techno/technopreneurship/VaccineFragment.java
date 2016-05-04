@@ -1,9 +1,12 @@
 package com.techno.technopreneurship;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.techno.technopreneurship.Object.Blood_Count;
 import com.techno.technopreneurship.Object.Blood_Tension;
@@ -22,12 +26,7 @@ import com.techno.technopreneurship.Object.Vaccine;
 import java.util.ArrayList;
 
 public class VaccineFragment extends Fragment {
-    public VaccineFragment() {
-        // Required empty public constructor
-    }
-
-//    public ArrayList<Vaccine> vaccines = new ArrayList<Vaccine>();
-//    public ArrayList<Vaccine> myVaccines = new ArrayList<Vaccine>();
+    public VaccineFragment() {    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,51 +35,18 @@ public class VaccineFragment extends Fragment {
 
         TableLayout table = (TableLayout) view.findViewById(R.id.V_Table);
 
-        //////////////////////////////////////Determine which user and which member////////////////////////////////
-//        final Bundle bundle = this.getArguments();
-//        final String currentUser = bundle.getString("cuser");
-//        final String currentName = bundle.getString("cname");
-
         ////////////////////////////////////////////Add Blood Count//////////////////////////////////////////////
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_addV);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AddVaccineFragment fragment = new AddVaccineFragment();
-//                Bundle choosen_bundle = new Bundle();
-//                choosen_bundle.putString("cuser", currentUser);
-//                choosen_bundle.putString("cname", currentName);
-//                fragment.setArguments(choosen_bundle);
-
 
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
             }
         });
-
-        ////////////////////////////////////Add new Blood Count to arraylist//////////////////////////////////////////////
-//        vaccines.add(new Vaccine("user","user","03-01-2016","Hepatitis B","1"));
-//        vaccines.add(new Vaccine("user","user","03-02-2016","Hepatitis B","2"));
-
-//        if(bundle != null)
-//        {
-//            if(bundle.getString("vaccine") != null){
-//                String adddate = bundle.getString("date");
-//                String addv = bundle.getString("vaccine");
-//                String addstage = bundle.getString("stage");
-//                vaccines.add(new Vaccine(currentUser, currentName, adddate, addv, addstage));
-//            }
-//        }
-
-        ////////////////////////////////////Create blood count list///////////////////////////////////////////////////////////////////////////
-//        ArrayList<Integer> listIndexAllergy = new ArrayList<>();
-//        for (int i = 0; i < vaccines.size(); i++) {
-//            if (currentUser.equalsIgnoreCase(vaccines.get(i).getUser()) && currentName.equalsIgnoreCase(vaccines.get(i).getName())) {
-//                myVaccines.add(vaccines.get(i));
-//                listIndexAllergy.add(i);
-//            }
-//        }
 
         //Set category list for the table column header
         TableRow tableRow = new TableRow(getActivity());
@@ -113,7 +79,7 @@ public class VaccineFragment extends Fragment {
 
         Integer count=0;
         int myBCSize = Global.currentVaccine.size();
-        for (int i = myBCSize-1; i >= 0; i--){
+        for (int i = 0; i < Global.currentVaccine.size() ; i++) {
             String date = Global.currentVaccine.get(i).getDate();
             String v = Global.currentVaccine.get(i).getVaccine();
             String s = Global.currentVaccine.get(i).getStage();
@@ -141,6 +107,50 @@ public class VaccineFragment extends Fragment {
             labelS.setId(200 + count);
             labelS.setText(s.toString());
             tr.addView(labelS);
+
+
+            Global.clickedDeleteId = i;
+            tr.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+                    alertDialogBuilder.setTitle("Your Title");
+
+                    alertDialogBuilder.setMessage("Delete data?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    for (int i = 0; i < Global.vaccines.size(); i++) {
+                                        if (Global.vaccines.get(i).getUser().equalsIgnoreCase(Global.currentVaccine.get(Global.clickedDeleteId).getUser()) && Global.vaccines.get(i).getName().equalsIgnoreCase(Global.currentVaccine.get(Global.clickedDeleteId).getName())) {
+                                            Global.vaccines.remove(i);
+                                            Global.updateCurrentVaccine();
+
+                                            Toast.makeText(getActivity(), "Delete success" + Global.clickedDeleteId, 100).show();
+                                            i = Global.vaccines.size();
+                                        }
+                                    }
+
+                                    VaccineFragment fragment = new VaccineFragment();
+                                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }
+
+            });
 
             // finally add this table row tr to the table row tableRow
             table.addView(tr, new TableLayout.LayoutParams(
