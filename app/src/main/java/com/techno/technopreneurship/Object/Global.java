@@ -31,6 +31,7 @@ public class Global {
     public static ArrayList<Vaccine> currentVaccine = new ArrayList<>();
     public static ArrayList<Reward> currentReward = new ArrayList<>();
     public static ArrayList<Integer> promotions = new ArrayList<>();
+    public static ArrayList<String> notifications = new ArrayList<>();
 
     public static ArrayList<User> users =  new ArrayList<>();
     public static ArrayList<FamilyMember> familyMembers = new ArrayList<>();
@@ -47,7 +48,6 @@ public class Global {
     public static ArrayList<Reward> rewards = new ArrayList<>();
     public static ArrayList<Doctor> doctors = new ArrayList<>();
     public static ArrayList<Hospital> hospitals = new ArrayList<>();
-
 
     /**
      * Set the main user of family having username <i>username</i>

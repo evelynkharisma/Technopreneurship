@@ -183,7 +183,7 @@
             android:layout_width="50dp" android:layout_height="50dp"
             android:layout_marginBottom="25dp"
             android:layout_marginRight="25dp"
-            android:src="@android:drawable/ic_input_add"
+            android:src="@drawable/add"
             app:backgroundTint="#2f43f6" />
     </LinearLayout>
 

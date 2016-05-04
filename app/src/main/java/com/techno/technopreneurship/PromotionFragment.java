@@ -37,14 +37,10 @@ public class PromotionFragment extends Fragment {
 
         LinearLayout linear = (LinearLayout) view.findViewById(R.id.promotion_linearLayout);
 
-        Global.promotions.add(R.drawable.hospital_poster);
-        Global.promotions.add(R.drawable.hospital_poster2);
-
         for (int counter = 0; counter < Global.promotions.size(); counter++) {
             ImageView imageView = new ImageView(getActivity());
             imageView.setImageResource(Global.promotions.get(counter));
             linear.addView(imageView);
-
         }
         return view;
     }

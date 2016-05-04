@@ -26,9 +26,13 @@ public class LoginActivity extends Activity  {
     Button btn_sign_up;
     EditText username;
     EditText password;
+    boolean found = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Global.promotions.add(R.drawable.hospital_poster);
+        Global.promotions.add(R.drawable.hospital_poster2);
 
         FamilyMember newFamMember = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.getLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
         User newUser = new User("jan", "123");
@@ -42,6 +46,17 @@ public class LoginActivity extends Activity  {
         Global.familyMembers.add(newFamMember);
         Global.healthDetailses.add(newHealthDetail);
 
+        FamilyMember newFamMember2 = new FamilyMember("eve", "Evelyn Kharisma", "Female", "main", "BINUS Square", "kharismaeve@gmail.com", Long.getLong("08117678877"), 12345, "mom",  Long.parseLong("08127518680"));
+        User newUser2 = new User("eve", "123");
+        Date myBirthday2 = new Date();
+        myBirthday2.setDate(26);
+        myBirthday2.setMonth(11);
+        myBirthday2.setYear(94);
+        HealthDetails newHealthDetail2 = new HealthDetails("eve", "Evelyn Kharisma", "A", myBirthday2, 10.00, 10.00);
+
+        Global.users.add(newUser2);
+        Global.familyMembers.add(newFamMember2);
+        Global.healthDetailses.add(newHealthDetail2);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -58,6 +73,7 @@ public class LoginActivity extends Activity  {
                     if (username.getText().toString().equalsIgnoreCase(Global.users.get(i).getUsername()) && password.getText().toString().equals(Global.users.get(i).getPassword())) {
                         //Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
 
+                        found = true;
                         Global.setMainFamilyMember(username.getText().toString());
                         Global.setMainHealthDetail(username.getText().toString(), Global.currentMainFamilyMember.getName());
                         Log.i("login current user", Global.currentMainFamilyMember.getUsername() + "");
@@ -71,7 +87,8 @@ public class LoginActivity extends Activity  {
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
-                    } else {
+                    }
+                    else if(i == Global.users.size()-1 && !found){
                         Toast.makeText(getApplicationContext(), "Not registered", Toast.LENGTH_SHORT).show();
                     }
                 }

@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawer;
+    int clickCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,51 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 drawer.openDrawer(GravityCompat.START);
+            }
+        });
+
+        ImageButton refresh = (ImageButton) findViewById(R.id.navRefresh);
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            if(clickCount == 0)
+            {
+                Global.promotions.add(R.drawable.hospital_poster3);
+                clickCount++;
+                PromotionFragment fragment = new PromotionFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+            else if(clickCount == 1)
+            {
+                Global.notifications.add("Jakarta Medical Center Request your data");
+                clickCount++;
+                NotificationFragment fragment = new NotificationFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+            else if(clickCount == 2)
+            {
+                Global.notifications.add("Jakarta Medical Center want to add data to your medical record");
+                clickCount++;
+                NotificationFragment fragment = new NotificationFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+            }
+            }
+        });
+
+        ImageButton notif = (ImageButton) findViewById(R.id.navNotification);
+        notif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NotificationFragment fragment = new NotificationFragment();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
             }
         });
 
