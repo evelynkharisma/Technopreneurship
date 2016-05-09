@@ -3,12 +3,9 @@ package com.techno.technopreneurship;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,7 +31,7 @@ public class LoginActivity extends Activity  {
         Global.promotions.add(R.drawable.hospital_poster);
         Global.promotions.add(R.drawable.hospital_poster2);
 
-        FamilyMember newFamMember = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.getLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
+        FamilyMember newFamMember = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.parseLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
         User newUser = new User("jan", "123");
         Date myBirthday = new Date();
         myBirthday.setDate(9);
@@ -76,10 +73,6 @@ public class LoginActivity extends Activity  {
                         found = true;
                         Global.setMainFamilyMember(username.getText().toString());
                         Global.setMainHealthDetail(username.getText().toString(), Global.currentMainFamilyMember.getName());
-                        Log.i("login current user", Global.currentMainFamilyMember.getUsername() + "");
-                        Log.i("login current Name", Global.currentMainFamilyMember.getName() + "");
-                        Log.i("login birthday ", Global.currentMainHealthDetail.getBirthday().toString());
-
 
                         Global.currentName = Global.currentMainFamilyMember.getName();
                         Global.currentUsername = Global.currentMainFamilyMember.getUsername();

@@ -2,7 +2,6 @@ package com.techno.technopreneurship;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +46,9 @@ public class ProfileFragment extends Fragment {
         username =(EditText) view.findViewById(R.id.profile_username_fill);
         username.setText(Global.currentUser.getUsername());
         pass =(EditText) view.findViewById(R.id.profile_pass_fill);
+        pass.setText(Global.currentUser.getPassword().toCharArray(), 0, Global.currentUser.getPassword().toString().length());
         cPass =(EditText) view.findViewById(R.id.profile_cPass_fill);
+        cPass.setText(Global.currentUser.getPassword().toCharArray(), 0, Global.currentUser.getPassword().toString().length());
         name= (EditText) view.findViewById(R.id.profile_name_fill);
         name.setText(Global.currentMainFamilyMember.getName());
         gender = (TextView) view.findViewById(R.id.profile_gender_fill);
@@ -57,11 +58,11 @@ public class ProfileFragment extends Fragment {
         email= (EditText) view.findViewById(R.id.profile_email_fill);
         email.setText(Global.currentMainFamilyMember.getEmail());
         phone= (EditText) view.findViewById(R.id.profile_phone_fill);
+
         phone.setText(String.valueOf(Global.currentMainFamilyMember.getPhone()));
         day= (EditText) view.findViewById(R.id.profile_bday_day_fill);
         day.setText(String.valueOf(Global.currentMainHealthDetail.getBirthday().getDay()));
 
-        Log.i("profile dob", Global.currentMainHealthDetail.getBirthday().toString());
         month= (EditText) view.findViewById(R.id.profile_bday_month_fill);
         month.setText(String.valueOf(Global.currentMainHealthDetail.getBirthday().getMonth()));
         year= (EditText) view.findViewById(R.id.profile_bday_year_fill);
