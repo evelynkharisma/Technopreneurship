@@ -43,28 +43,28 @@ public class RewardsFragment extends Fragment {
 
         Button btnThreeMember = (Button)  view.findViewById(R.id.rewards_addThreeMember);
         Button btnAllergy = (Button)  view.findViewById(R.id.rewards_firstDataAllergy);
-        Button btnBloodCount = (Button)  view.findViewById(R.id.rewards_firstDataBloodCount);
-        Button btnBloodTension = (Button)  view.findViewById(R.id.rewards_firstDataBloodTension);
-        Button btnCholesterol = (Button)  view.findViewById(R.id.rewards_firstDataCholesterol);
-        Button btnDiabetes = (Button)  view.findViewById(R.id.rewards_firstDataDiabetes);
-        Button btnHeartRate = (Button)  view.findViewById(R.id.rewards_firstDataHeartRate);
-        Button btnUricAcid = (Button)  view.findViewById(R.id.rewards_firstDataUricAcid);
-        Button btnUrineTest = (Button)  view.findViewById(R.id.rewards_firstDataUrineTest);
-        Button btnVaccine = (Button)  view.findViewById(R.id.rewards_firstDataVaccine);
+//        Button btnBloodCount = (Button)  view.findViewById(R.id.rewards_firstDataBloodCount);
+//        Button btnBloodTension = (Button)  view.findViewById(R.id.rewards_firstDataBloodTension);
+//        Button btnCholesterol = (Button)  view.findViewById(R.id.rewards_firstDataCholesterol);
+//        Button btnDiabetes = (Button)  view.findViewById(R.id.rewards_firstDataDiabetes);
+//        Button btnHeartRate = (Button)  view.findViewById(R.id.rewards_firstDataHeartRate);
+//        Button btnUricAcid = (Button)  view.findViewById(R.id.rewards_firstDataUricAcid);
+//        Button btnUrineTest = (Button)  view.findViewById(R.id.rewards_firstDataUrineTest);
+//        Button btnVaccine = (Button)  view.findViewById(R.id.rewards_firstDataVaccine);
         Button btnOneYear = (Button)  view.findViewById(R.id.rewards_oneYear);
 
         ArrayList<Button> buttons = new ArrayList<>();
         buttons.add(btnThreeMember);
         buttons.add(btnAllergy);
-        buttons.add(btnBloodCount);
-        buttons.add(btnBloodTension);
-        buttons.add(btnCholesterol);
-        buttons.add(btnDiabetes);
-        buttons.add(btnHeartRate);
+//        buttons.add(btnBloodCount);
+//        buttons.add(btnBloodTension);
+//        buttons.add(btnCholesterol);
+//        buttons.add(btnDiabetes);
+//        buttons.add(btnHeartRate);
         buttons.add(btnOneYear);
-        buttons.add(btnUricAcid);
-        buttons.add(btnUrineTest);
-        buttons.add(btnVaccine);
+//        buttons.add(btnUricAcid);
+//        buttons.add(btnUrineTest);
+//        buttons.add(btnVaccine);
 
         for (int row = 0; row < Global.currentReward.size(); row++) {
             if (Global.currentReward.get(row).getAvailable() && !Global.currentReward.get(row).getUsed()) {
@@ -74,31 +74,33 @@ public class RewardsFragment extends Fragment {
                 } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("allergy")) {
                     btnAllergy.setEnabled(true);
                     btnAllergy.setId(row);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood count")) {
-                    btnBloodCount.setEnabled(true);
-                    btnBloodCount.setId(row);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood tension")) {
-                    btnBloodTension.setEnabled(true);
-                    btnBloodTension.setId(row);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("cholesterol")) {
-                    btnCholesterol.setEnabled(true);
-                    btnCholesterol.setId(row);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("diabetes")) {
-                    btnDiabetes.setEnabled(true);
-                    btnDiabetes.setId(5);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("heart rate")) {
-                    btnHeartRate.setEnabled(true);
-                    btnHeartRate.setId(6);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("uric acid")) {
-                    btnUricAcid.setEnabled(true);
-                    btnUricAcid.setId(7);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("urine test")) {
-                    btnUrineTest.setEnabled(true);
-                    btnUrineTest.setId(8);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("vaccine")) {
-                    btnVaccine.setEnabled(true);
-                    btnVaccine.setId(9);
-                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("one year")) {
+                }
+// else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood count")) {
+//                    btnBloodCount.setEnabled(true);
+//                    btnBloodCount.setId(row);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("blood tension")) {
+//                    btnBloodTension.setEnabled(true);
+//                    btnBloodTension.setId(row);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("cholesterol")) {
+//                    btnCholesterol.setEnabled(true);
+//                    btnCholesterol.setId(row);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("diabetes")) {
+//                    btnDiabetes.setEnabled(true);
+//                    btnDiabetes.setId(5);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("heart rate")) {
+//                    btnHeartRate.setEnabled(true);
+//                    btnHeartRate.setId(6);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("uric acid")) {
+//                    btnUricAcid.setEnabled(true);
+//                    btnUricAcid.setId(7);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("urine test")) {
+//                    btnUrineTest.setEnabled(true);
+//                    btnUrineTest.setId(8);
+//                } else if (Global.currentReward.get(row).getType().equalsIgnoreCase("vaccine")) {
+//                    btnVaccine.setEnabled(true);
+//                    btnVaccine.setId(9);
+//                }
+                    else if (Global.currentReward.get(row).getType().equalsIgnoreCase("one year")) {
                     btnOneYear.setEnabled(true);
                     btnOneYear.setId(10);
                 }

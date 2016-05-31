@@ -43,7 +43,7 @@
                 android:paddingLeft="12dp"
                 android:background="@color/transparent_background"
                 android:drawableLeft="@drawable/son"
-                android:text="   Yourr First Three Member"
+                android:text="   Your First Three Member"
                 android:gravity="left|center_vertical"
                 android:enabled="false"/>
 
@@ -60,7 +60,7 @@
                 android:background="@color/transparent_background"
                 android:drawableLeft="@drawable/son"
                 android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Allergy"
+                android:text="   Your First Data All Category"
                 android:enabled="false"/>
 
             <View
@@ -68,132 +68,132 @@
                 android:layout_height="1dp"
                 android:background="#a8a8a8"/>
 
-            <Button
-                android:id="@+id/rewards_firstDataBloodCount"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Blood Count"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataBloodCount"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Blood Count"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataBloodTension"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Blood Tension"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataBloodTension"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Blood Tension"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataCholesterol"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for CHolesterol"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataCholesterol"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for CHolesterol"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataDiabetes"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Diabetes"
-                android:enabled="false"/>
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataDiabetes"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Diabetes"-->
+                <!--android:enabled="false"/>-->
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataHeartRate"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Heart Rate"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataHeartRate"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Heart Rate"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataUricAcid"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Uric Acid"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataUricAcid"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Uric Acid"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataUrineTest"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Urin Test"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataUrineTest"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Urin Test"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
-            <Button
-                android:id="@+id/rewards_firstDataVaccine"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:paddingLeft="12dp"
-                android:background="@color/transparent_background"
-                android:drawableLeft="@drawable/son"
-                android:gravity="left|center_vertical"
-                android:text="   Your Frist Data for Vaccine"
-                android:enabled="false"/>
+            <!--<Button-->
+                <!--android:id="@+id/rewards_firstDataVaccine"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="100dp"-->
+                <!--android:paddingLeft="12dp"-->
+                <!--android:background="@color/transparent_background"-->
+                <!--android:drawableLeft="@drawable/son"-->
+                <!--android:gravity="left|center_vertical"-->
+                <!--android:text="   Your Frist Data for Vaccine"-->
+                <!--android:enabled="false"/>-->
 
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dp"
-                android:background="#a8a8a8"/>
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#a8a8a8"/>-->
 
 
             <Button

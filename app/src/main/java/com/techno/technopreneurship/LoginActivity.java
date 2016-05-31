@@ -9,13 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.techno.technopreneurship.Object.FamilyMember;
 import com.techno.technopreneurship.Object.Global;
-import com.techno.technopreneurship.Object.HealthDetails;
-import com.techno.technopreneurship.Object.User;
 
-import java.util.Date;
 
 public class LoginActivity extends Activity  {
     Button btn_login;
@@ -28,32 +23,6 @@ public class LoginActivity extends Activity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Global.promotions.add(R.drawable.hospital_poster);
-        Global.promotions.add(R.drawable.hospital_poster2);
-
-        FamilyMember newFamMember = new FamilyMember("jan", "janis", "Female", "main", "tasik", "janis_giovani@ymail.com", Long.parseLong("083827303093"), 31392, "apih",  Long.parseLong("083827303091"));
-        User newUser = new User("jan", "123");
-        Date myBirthday = new Date();
-        myBirthday.setDate(9);
-        myBirthday.setMonth(6);
-        myBirthday.setYear(96);
-        HealthDetails newHealthDetail = new HealthDetails("jan", "janis", "a", myBirthday, 10.00, 10.00);
-
-        Global.users.add(newUser);
-        Global.familyMembers.add(newFamMember);
-        Global.healthDetailses.add(newHealthDetail);
-
-        FamilyMember newFamMember2 = new FamilyMember("eve", "Evelyn Kharisma", "Female", "main", "BINUS Square", "kharismaeve@gmail.com", Long.getLong("08117678877"), 12345, "mom",  Long.parseLong("08127518680"));
-        User newUser2 = new User("eve", "123");
-        Date myBirthday2 = new Date();
-        myBirthday2.setDate(26);
-        myBirthday2.setMonth(11);
-        myBirthday2.setYear(94);
-        HealthDetails newHealthDetail2 = new HealthDetails("eve", "Evelyn Kharisma", "A", myBirthday2, 10.00, 10.00);
-
-        Global.users.add(newUser2);
-        Global.familyMembers.add(newFamMember2);
-        Global.healthDetailses.add(newHealthDetail2);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
